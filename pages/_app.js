@@ -1,15 +1,26 @@
 import Head from "next/head";
 import { Fragment, useEffect, useState } from "react";
+import { useRouter } from "next/router";
 import PreLoader from "../src/layouts/PreLoader";
 import "../styles/globals.css";
 
 function MyApp({ Component, pageProps }) {
   const [loader, setLoader] = useState(true);
+  const router = useRouter();
+  const maintenanceMode = process.env.NEXT_PUBLIC_MAINTENANCE_MODE === "true";
+
   useEffect(() => {
     setTimeout(() => {
       setLoader(false);
     }, 1000);
   }, []);
+
+  // Bloquear navegación si está en modo mantenimiento
+  useEffect(() => {
+    if (maintenanceMode && router.pathname !== "/maintenance") {
+      router.replace("/maintenance");
+    }
+  }, [router, maintenanceMode]);
 
   return (
     <Fragment>

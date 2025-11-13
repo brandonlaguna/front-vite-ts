@@ -1870,7 +1870,7 @@ button {
   margin-bottom: 45px;
 }
 .hero-area-one .hero-content h1 {
-  font-family: "Handlee", cursive;
+  /* font-family: "Handlee", cursive; */
   color: #fff;
   font-weight: 400;
   font-size: 150px;
