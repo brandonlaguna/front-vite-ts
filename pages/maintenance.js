@@ -16,7 +16,7 @@ export const maintenanceSlider = {
     {
       breakpoint: 1400,
       settings: {
-        slidesToShow: 3,
+        slidesToShow: 2,
       },
     },
     {

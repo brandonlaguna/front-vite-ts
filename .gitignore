@@ -3,6 +3,8 @@
 node_modules
 *.pnp
 .pnp
+package-lock.json
+yarn.lock
 
 # Next.js
 /.next
