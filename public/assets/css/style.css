@@ -1635,11 +1635,11 @@ button {
   align-items: center;
 }
 .navigation-four .site-branding {
-  margin-top: -50px;
+  /* margin-top: -50px; */
 }
 .navigation-four .site-branding .brand-logo {
   background-color: #eece38;
-  padding: 25px 35px;
+  /* padding: 25px 35px; */
   max-width: 190px;
 }
 @media (max-width: 1199px) {

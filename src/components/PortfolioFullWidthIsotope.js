@@ -45,49 +45,28 @@ const PortfolioFullWidthIsotope = () => {
                 onClick={handleFilterKeyChange("*")}
                 data-filter="*"
               >
-                Show All
+                Todos
               </li>
               <li
                 className={`c-pointer ${activeBtn("cat-1")}`}
                 onClick={handleFilterKeyChange("cat-1")}
                 data-filter=".cat-1"
               >
-                Cow
+                Proyectos
               </li>
               <li
                 className={`c-pointer ${activeBtn("cat-2")}`}
                 onClick={handleFilterKeyChange("cat-2")}
                 data-filter=".cat-2"
               >
-                Vegetables
+                Programas
               </li>
               <li
                 className={`c-pointer ${activeBtn("cat-3")}`}
                 onClick={handleFilterKeyChange("cat-3")}
                 data-filter=".cat-3"
               >
-                Chicken
-              </li>
-              <li
-                className={`c-pointer ${activeBtn("cat-4")}`}
-                onClick={handleFilterKeyChange("cat-4")}
-                data-filter=".cat-4"
-              >
-                Fruits
-              </li>
-              <li
-                className={`c-pointer ${activeBtn("cat-5")}`}
-                onClick={handleFilterKeyChange("cat-5")}
-                data-filter=".cat-5"
-              >
-                Sea Fish
-              </li>
-              <li
-                className={`c-pointer ${activeBtn("cat-6")}`}
-                onClick={handleFilterKeyChange("cat-6")}
-                data-filter=".cat-6"
-              >
-                Milk &amp; Meats
+                Escuelas
               </li>
             </ul>
           </div>

@@ -6,8 +6,8 @@ import Layout from "../src/layouts/Layout";
 import { logoSlider, projectsSliderTwo } from "../src/sliderProps";
 const Services = () => {
   return (
-    <Layout>
-      <PageBanner pageName={"Services"} />
+    <Layout header={4}>
+      <PageBanner pageName={"Servicios"} />
       <section className="service-section pt-170 pb-80">
         <div className="container">
           <div className="row align-items-center">

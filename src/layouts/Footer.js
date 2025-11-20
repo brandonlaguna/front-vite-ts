@@ -22,7 +22,7 @@ const DefaultFooter = () => (
                 <Link legacyBehavior href="/">
                   <a className="brand-logo">
                     <img
-                      src="assets/images/logo/logo-2.png"
+                      src="assets/images/logo/logo-1.png"
                       alt="Footer Logo"
                     />
                   </a>
@@ -36,8 +36,8 @@ const DefaultFooter = () => (
                 <i className="flaticon-placeholder" />
               </div>
               <div className="text">
-                <h5>Locations</h5>
-                <h6>55 Main Street, New York</h6>
+                <h5>Ubicacion</h5>
+                <h6>Calle, Barrancabermeja</h6>
               </div>
             </div>
           </div>
@@ -47,10 +47,10 @@ const DefaultFooter = () => (
                 <i className="flaticon-placeholder" />
               </div>
               <div className="text">
-                <h5>Email Us</h5>
+                <h5>Email</h5>
                 <h6>
                   <a href="mailto:hotlineinfo@gmial.com">
-                    hotlineinfo@gmial.com
+                    asoporkmag@gmial.com
                   </a>
                 </h6>
               </div>
@@ -65,7 +65,7 @@ const DefaultFooter = () => (
         <div className="row">
           <div className="col-xl-3">
             <div className="footer-text">
-              <h5>Subscrive Our Newsletter To Get More Updates</h5>
+              <h5>Suscribete para recibir noticias de actualizaciones</h5>
             </div>
           </div>
           <div className="col-xl-9">
@@ -110,7 +110,7 @@ const DefaultFooter = () => (
       <div className="footer-copyright">
         <div className="col-lg-12">
           <div className="copyright-text text-center">
-            <p>© 2022 Orgrarium. All Rights Reserved</p>
+            <p>© 2025 ASOPORKMAG. All Rights Reserved</p>
           </div>
         </div>
       </div>
@@ -251,12 +251,20 @@ const FooterMenu = () => (
   <div className="row">
     <div className="col-xl-4 col-lg-4 col-md-5 col-sm-12">
       <div className="footer-widget about-widget mb-40 wow fadeInDown">
-        <h4 className="widget-title">About Us</h4>
+        <h4 className="widget-title">Nosotros</h4>
         <div className="footer-about-content">
           <p>
-            Sit amet consectetur adipiscing elit sed do eiusmo tempor incidunt
-            ut labore et dolore magna aliquae. Quis ipsum suspendisse ultrices
-            gravida commodo viverra
+            Asociación Campesina de Porcicultores y Criadores de Especies
+            Menores del Magdalena Medio
+          </p>
+          <p>
+            Portafolio institucional, participación gremial y proyecto
+            estratégico de fortalecimiento técnico y productivo
+          </p>
+          <p>
+            16 años fortaleciendo la porcicultura y las especies menores en el
+            Magdalena Medio, promoviendo el respeto por el medio ambiente a lo
+            largo de la cadena productiva.
           </p>
           <div className="social-box">
             <h4 className="mb-15">Follow On</h4>
@@ -288,58 +296,21 @@ const FooterMenu = () => (
     </div>
     <div className="col-lg-4 col-lg-4 col-md-7 col-sm-12">
       <div className="footer-widget footer-nav-widget mb-40 wow fadeInUp">
-        <h4 className="widget-title">Services</h4>
+        <h4 className="widget-title">Portafolio</h4>
         <div className="footer-widget-nav">
           <ul>
             <li>
-              <a href="#">Agriculture Foods</a>
-            </li>
-            <li>
-              <a href="#">Organic Vegetables</a>
-            </li>
-            <li>
-              <a href="#">Pond &amp; Sea Fish</a>
-            </li>
-            <li>
-              <a href="#">Cow Milk &amp; Meat</a>
-            </li>
-            <li>
-              <a href="#">Modern Equipment</a>
-            </li>
-            <li>
-              <a href="#">Natural Wheats</a>
-            </li>
-            <li>
-              <a href="#">Eggs &amp; Meat</a>
+              <a href="#">Nuestro portafolio</a>
             </li>
           </ul>
-          <ul>
-            <li>
-              <a href="#">Company History</a>
-            </li>
-            <li>
-              <a href="#">Latest News</a>
-            </li>
-            <li>
-              <a href="#">Needs a Career ?</a>
-            </li>
-            <li>
-              <a href="#">Meet The Team</a>
-            </li>
-            <li>
-              <a href="#">Setting &amp; Privacy</a>
-            </li>
-            <li>
-              <a href="#">My Account</a>
-            </li>
-          </ul>
+          <ul></ul>
         </div>
       </div>
     </div>
     <div className="col-lg-4 col-lg-4 col-md-6 col-sm-12">
       <div className="footer-widget recent-post-widget mb-40 wow fadeInDown">
-        <h4 className="widget-title">Recent News</h4>
-        <ul className="post-widget-wrap">
+        <h4 className="widget-title">Noticias recientes</h4>
+        {/* <ul className="post-widget-wrap">
           <li className="post-item">
             <img src="assets/images/widget/news-1.jpg" alt="Post Image" />
             <div className="post-title-date">
@@ -368,7 +339,7 @@ const FooterMenu = () => (
               </span>
             </div>
           </li>
-        </ul>
+        </ul> */}
         <Link legacyBehavior href="/blog-standard">
           <a className="more-btn">View More News</a>
         </Link>

@@ -4,7 +4,7 @@ import Layout from "../src/layouts/Layout";
 import { logoSlider } from "../src/sliderProps";
 const Contact = () => {
   return (
-    <Layout>
+    <Layout header={4}>
       <PageBanner pageName={"Contact Us"} />
       <section className="contact-information-one p-r z-1 pt-215 pb-130">
         <div className="information-img_one wow fadeInRight">

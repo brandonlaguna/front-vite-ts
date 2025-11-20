@@ -4,50 +4,83 @@ import OrgariumCounter from "../src/components/OrgariumCounter";
 import PageBanner from "../src/components/PageBanner";
 import ProgressBar from "../src/components/ProgressBar";
 import Layout from "../src/layouts/Layout";
-import { logoSlider, testimonialSliderOne } from "../src/sliderProps";
+import { logoSlider } from "../src/sliderProps";
 const About = () => {
   return (
-    <Layout>
-      <PageBanner pageName={"About Us"} />
+    <Layout header={4}>
+      <PageBanner pageName={"Acerca de nosotros"} />
       <section className="about-section p-r z-1 pt-170 pb-80">
         <div className="container">
           <div className="row">
             <div className="col-lg-6">
               <div className="about-content-box content-box-gap mb-50">
                 <div className="section-title section-title-left wow fadeInUp mb-30">
-                  <span className="sub-title">About Us</span>
-                  <h2>We’re Best Agriculture &amp; Organic Firms</h2>
+                  <span className="sub-title">Acerca de nosotros</span>
+                  <h2>
+                    Asociación Campesina de Porcicultores y Criadores de
+                    Especies Menores del Magdalena Medio
+                  </h2>
                 </div>
                 <p>
-                  Natus error sit voluptatem accusantium doloremque laudatium,
-                  totam rem aperiam, eaque ipsa quae ab illo inventore veritatis
-                  et quasi architecto beatae vitae dicta sunt
+                  En ASOPORKMAG somos una asociación campesina con 16 años de
+                  trayectoria que integra a porcicultores y criadores de
+                  especies menores (porcinos, ovinos, caprinos y otros) del
+                  Distrito de Barrancabermeja, la Región del Magdalena Medio y
+                  otras zonas del país. Nacemos y trabajamos bajo los principios
+                  de asociatividad y economía popular y comunitaria, articulando
+                  a personas naturales y jurídicas que participan directa o
+                  indirectamente en la producción, mejoramiento, transformación
+                  y comercialización de la actividad pecuaria de especies
+                  menores.
                 </p>
+                <p>Nos enfocamos en:</p>
                 <div className="choose-item-list wow fadeInDown">
                   <div className="single-choose-item mb-30">
                     <div className="text">
-                      <h5>100% Natural Foods</h5>
-                      <p>
+                      <h5>
+                        Fortalecer la productividad y sostenibilidad de las
+                        unidades productivas de nuestros afiliados.
+                      </h5>
+                      {/* <p>
                         Accusantium doloremque laudatium, totam rem aperiam
                         inventore veritatis et quasi architecto beatae{" "}
-                      </p>
+                      </p> */}
+                    </div>
+                  </div>
+                  <div className="single-choose-item mb-30">
+                    <div className="text">
+                      <h5>
+                        Articular oportunidades de negocio y encadenamientos
+                        productivos con aliados públicos y privados.
+                      </h5>
                     </div>
                   </div>
                   <div className="single-choose-item mb-30">
                     <div className="text">
                       <h5>Modern Euipments</h5>
-                      <p>
-                        Accusantium doloremque laudatium, totam rem aperiam
-                        inventore veritatis et quasi architecto beatae{" "}
-                      </p>
                     </div>
                   </div>
+                  <div className="single-choose-item mb-30">
+                    <div className="text">
+                      <h5>
+                        Representar y defender los intereses gremiales de
+                        nuestros asociados ante entidades territoriales,
+                        sectoriales y nacionales.
+                      </h5>
+                    </div>
+                  </div>
+                  <p>
+                    Somos el aliado estratégico de los productores de especies
+                    menores que quieren crecer, formalizarse y competir en
+                    mercados de mayor valor, incorporando de manera responsable
+                    el cuidado del entorno y el respeto por el medio ambiente.
+                  </p>
                 </div>
-                <div className="about-button wow fadeInUp">
+                {/* <div className="about-button wow fadeInUp">
                   <Link legacyBehavior href="/about">
                     <a className="main-btn btn-yellow">Learn More Us</a>
                   </Link>
-                </div>
+                </div> */}
               </div>
             </div>
             <div className="col-lg-6">
@@ -75,8 +108,11 @@ const About = () => {
             <div className="col-xl-5 col-lg-12">
               <div className="choose-two_content-box">
                 <div className="section-title section-title-left mb-40 wow fadeInLeft">
-                  <span className="sub-title">Why Choose Us</span>
-                  <h2>Very Much Professional Growing Company</h2>
+                  <span className="sub-title">Por que elegirnos</span>
+                  <h4>
+                    Portafolio institucional, participación gremial y proyecto
+                    estratégico de fortalecimiento técnico y productivo
+                  </h4>
                 </div>
               </div>
             </div>
@@ -119,7 +155,7 @@ const About = () => {
             <div className="row justify-content-center">
               <div className="col-lg-6">
                 <div className="section-title text-center mb-30 wow fadeInUp">
-                  <h4>We Have More Then 1235+ Global Partners</h4>
+                  <h4>Aliados estrategicos</h4>
                 </div>
               </div>
             </div>
@@ -189,7 +225,7 @@ const About = () => {
       </section>{" "}
       {/*====== End Partners Section ======*/}
       {/*====== Start Farmers Section ======*/}
-      <section className="farmers-team_two light-gray-bg pb-90">
+      {/* <section className="farmers-team_two light-gray-bg pb-90">
         <div className="container">
           <div className="row align-items-end">
             <div className="col-lg-8">
@@ -359,10 +395,10 @@ const About = () => {
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
       {/*====== End Farmers Section ======*/}
       {/*====== Start Testimonial Section ======*/}
-      <section className="testimonial-section pt-130">
+      {/* <section className="testimonial-section pt-130">
         <div className="container-fluid">
           <div className="row justify-content-center">
             <div className="col-xl-6 col-lg-10">
@@ -485,12 +521,13 @@ const About = () => {
             </div>
           </Slider>
         </div>
-      </section>
+      </section> */}
+      <div style={{ height: 200 }}></div>
       {/*====== End Testimonial Section ======*/}
       {/*====== Start Counter Section ======*/}
       <section className="fun-fact-one pt-30 pb-130">
         <div className="big-text mb-75 wow fadeInUp">
-          <h2>Statistics</h2>
+          <h2>Estadisticas</h2>
         </div>
         <div className="container">
           <div className="counter-wrap-one wow fadeInDown">

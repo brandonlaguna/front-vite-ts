@@ -3,7 +3,7 @@ import PageBanner from "../src/components/PageBanner";
 import Layout from "../src/layouts/Layout";
 const BlogStandard = () => {
   return (
-    <Layout>
+    <Layout header={4}>
       <PageBanner pageName={"Blog Standard"} />
       <section className="blog-standard-section pt-170 pb-80">
         <div className="container">

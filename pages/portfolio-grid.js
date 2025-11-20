@@ -14,8 +14,8 @@ const PortfolioGridIsotope = dynamic(
 
 const Portfolio = () => {
   return (
-    <Layout>
-      <PageBanner pageTitle={"Portfolio"} pageName="Portfolio Grid" />
+    <Layout header={4}>
+      <PageBanner pageTitle={"Portafolio"} pageName="Portafolio" />
       <section
         className="project-grid-page p-r z-1 pt-170 pb-130"
         id="project-filter"
@@ -24,10 +24,8 @@ const Portfolio = () => {
           <div className="row justify-content-center">
             <div className="col-xl-7 col-lg-10">
               <div className="section-title text-center mb-50 wow fadeInUp">
-                <span className="sub-title">Project Gallery</span>
-                <h2>
-                  We’ve Done Many Other Projects Let’s See Gallery Insights
-                </h2>
+                <span className="sub-title">Portafolio</span>
+                <h2>Hemos realizado muchos otros proyectos.</h2>
               </div>
             </div>
           </div>
@@ -35,7 +33,7 @@ const Portfolio = () => {
           <div className="row">
             <div className="col-lg-12">
               <div className="button-box text-center mt-30 wow fadeInDown">
-                <Link legacyBehavior href="/portfoloio-grid">
+                <Link legacyBehavior href="/portfolio-grid">
                   <a className="main-btn bordered-btn bordered-yellow">
                     View More Projects
                   </a>

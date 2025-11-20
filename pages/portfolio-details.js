@@ -5,8 +5,11 @@ import Layout from "../src/layouts/Layout";
 import { projectsSliderOne } from "../src/sliderProps";
 const PortfolioDetails = () => {
   return (
-    <Layout>
-      <PageBanner pageTitle={"Portfolio"} pageName=" Portfolio Details" />
+    <Layout header={4}>
+      <PageBanner
+        pageTitle={"Portafolio"}
+        pageName="Programa de Fortalecimiento Técnico y Productivo Porcino y de Especies Menores"
+      />
       <section className="project-details-page pt-170 wow fadeInUp">
         <div className="container">
           <div className="row">
@@ -22,49 +25,36 @@ const PortfolioDetails = () => {
                   <div className="content-box">
                     <div className="row">
                       <div className="col-lg-5">
-                        <h3 className="title mb-15">Organic Wheats</h3>
+                        <h3 className="title mb-15">
+                          Desarrollo detallado del Programa de Fortalecimiento
+                          Técnico y Productivo
+                        </h3>
                       </div>
                       <div className="col-lg-7">
                         <div className="row">
                           <div className="col-lg-4 col-md-4 col-sm-12">
                             <div className="project-info-box mb-45">
-                              <h4 className="mb-10">Category</h4>
-                              <p>Organic Foods Vegetables</p>
+                              <h4 className="mb-10">Categoria</h4>
+                              <p>Programa</p>
                             </div>
                           </div>
                           <div className="col-lg-4 col-md-4 col-sm-12">
                             <div className="project-info-box mb-45">
-                              <h4 className="mb-10">Clients</h4>
-                              <p>Microsoft LTS Washington</p>
+                              <h4 className="mb-10">Clientes</h4>
+                              <p>Poblacion</p>
                             </div>
                           </div>
                           <div className="col-lg-4 col-md-4 col-sm-12">
                             <div className="project-info-box mb-45">
-                              <h4 className="mb-10">Date</h4>
+                              <h4 className="mb-10">Fecha</h4>
                               <p>25 February 2022</p>
                             </div>
                           </div>
                         </div>
                         <div className="content">
                           <p>
-                            Sed ut perspiciatis unde omnis iste natus error sit
-                            voluptatem accusantium doloremque laudantium, totam
-                            rem aperiam, eaque ipsa quae ab illo inventore
-                            veritatis et quasi architecto beatae vitae dicta
-                            sunt explicabo. Nemo enim ipsam voluptatem quia
-                            voluptas sit aspernatur aut odit aut fugit, sed quia
-                            consequuntur magni dolores eos qui ratione
-                            voluptatem sequi nesciunt. Neque porro quisquam est,
-                            qui dolorem ipsum quia dolor sit amet, consectetur,
-                            adipisci velit, sed quia non numquam eius modi
-                            tempora incidunt ut labore et dolore magnam aliquam
-                            quaerat voluptatem. Ut enim ad minima veniam, quis
-                            nostrum exercitationem ullam corporis suscipit
-                            laboriosam, nisi ut aliquid ex ea commodi
-                            consequatur? Quis autem vel eum iure reprehenderit
-                            qui in ea voluptate velit esse quam nihil molestiae
-                            consequatur, vel illum qui dolorem eum fugiat quo
-                            voluptas nulla pariatur
+                            Programa de Fortalecimiento Técnico y Productivo
+                            Porcino y de Especies Menores de ASOPORKMAG
                           </p>
                         </div>
                       </div>
@@ -73,23 +63,100 @@ const PortfolioDetails = () => {
                   <div className="content-box">
                     <div className="row">
                       <div className="col-lg-5">
-                        <h3 className="title mb-15">Project Benefit</h3>
+                        <h3 className="title mb-15">Antecedentes / Problema</h3>
                       </div>
                       <div className="col-lg-7">
                         <div className="content">
-                          Nemo enim ipsam voluptatem quia voluptas sit
-                          aspernatur aut odit aut fugit, sed quia consequuntur
-                          magni dolores eos qui ratione voluptatem sequi
-                          nesciunt. Neque porro quisquam est, qui dolorem ipsum
-                          quia dolor sit amet, consectetur, adipisci velit, sed
-                          quia non numquam eius modi tempora incidunt ut labore
-                          et dolore magnam aliquam quaerat voluptatem.
+                          En el Distrito de Barrancabermeja y la Región del
+                          Magdalena Medio, gran parte de la producción porcina y
+                          de especies menores se desarrolla en unidades
+                          productivas campesinas de pequeña escala, con
+                          limitaciones en acceso a asistencia técnica,
+                          implementación de buenas prácticas pecuarias,
+                          infraestructura básica adecuada y uso de registros
+                          productivos y económicos. Estas condiciones afectan la
+                          productividad, la rentabilidad y la capacidad de
+                          acceder a mercados formales o de mayor valor.
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="content-box">
+                    <div className="row">
+                      <div className="col-lg-5">
+                        <h3 className="title mb-15">Justificación</h3>
+                      </div>
+                      <div className="col-lg-7">
+                        <div className="content">
+                          ASOPORKMAG, con 16 años de existencia como asociación
+                          campesina, agrupa productores porcinos y de otras
+                          especies menores que requieren un acompañamiento
+                          estructurado y sostenido para mejorar productividad y
+                          calidad, avanzar hacia un manejo más técnico, rentable
+                          y sostenible, y estar en mejores condiciones para
+                          articularse a programas institucionales y a nuevos
+                          mercados. Un programa integral de fortalecimiento
+                          técnico y productivo permite elevar la capacidad
+                          técnica, reducir pérdidas, mejorar indicadores clave y
+                          dejar capacidades instaladas en las fincas mediante
+                          planes de mejora, infraestructura básica y registros
+                          productivos.
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="content-box">
+                    <div className="row">
+                      <div className="col-lg-5">
+                        <h3 className="title mb-15">Objetivo general</h3>
+                      </div>
+                      <div className="col-lg-7">
+                        <div className="content">
+                          Mejorar la productividad, calidad y sostenibilidad de
+                          las explotaciones porcinas y de especies menores de
+                          los afiliados a ASOPORKMAG mediante procesos de
+                          formación, asistencia técnica en finca, tecnificación
+                          progresiva e implementación de registros productivos y
+                          económicos.
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="content-box">
+                    <div className="row">
+                      <div className="col-lg-5">
+                        <h3 className="title mb-15">Objetivos específicos</h3>
+                      </div>
+                      <div className="col-lg-7">
+                        <div className="content">
+                          <ol type="A">
+                            <li>
+                              Fortalecer las capacidades técnicas de los
+                              productores en buenas prácticas de manejo,
+                              alimentación, sanidad y bienestar animal.
+                            </li>
+                            <li>
+                              Acompañar a los productores en la implementación
+                              de planes de mejora productiva y sanitaria en sus
+                              unidades.
+                            </li>
+                            <li>
+                              Promover la tecnificación básica de las unidades
+                              productivas mediante mejoras graduales en
+                              infraestructura y manejo.
+                            </li>
+                            <li>
+                              mplementar herramientas simples de registro
+                              productivo y económico que permitan decisiones
+                              informadas y visión empresarial campesina.
+                            </li>
+                          </ol>
                         </div>
                       </div>
                     </div>
                   </div>
                 </div>
-                <div className="post-navigation border-top-1 pt-80">
+                {/* <div className="post-navigation border-top-1 pt-80">
                   <div className="row align-items-center">
                     <div className="col-lg-5">
                       <div className="post-navigation-item prev-navigation d-flex align-items-center">
@@ -137,7 +204,7 @@ const PortfolioDetails = () => {
                       </div>
                     </div>
                   </div>
-                </div>
+                </div> */}
               </div>
             </div>
           </div>
@@ -145,7 +212,7 @@ const PortfolioDetails = () => {
       </section>
       {/*====== End Portfolio Details ======*/}
       {/*====== Start Gallery Section ======*/}
-      <section className="projects-section pt-130 pb-130 p-r z-1">
+      {/* <section className="projects-section pt-130 pb-130 p-r z-1">
         <div className="container">
           <div className="row align-items-end">
             <div className="col-lg-8 col-md-9">
@@ -263,7 +330,7 @@ const PortfolioDetails = () => {
             </div>
           </Slider>
         </div>
-      </section>{" "}
+      </section>{" "} */}
     </Layout>
   );
 };

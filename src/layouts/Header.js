@@ -64,55 +64,6 @@ export default Header;
 
 const Header1 = () => (
   <header className="header-area">
-    <div className="header-top-bar top-bar-one dark-black-bg">
-      <div className="container-fluid">
-        <div className="row align-items-center">
-          <div className="col-xl-6 col-lg-12 col-md-12 col-6">
-            <div className="top-bar-left d-flex align-items-center">
-              <span className="text">
-                Welcome to Agriculture &amp; Organic Food Template
-              </span>
-              <span className="lang-dropdown">
-                <select className="wide">
-                  <option value={1}>English</option>
-                  <option value={2}>French</option>
-                </select>
-              </span>
-            </div>
-          </div>
-          <div className="col-xl-6 col-lg-12 col-md-12 col-6">
-            <div className="top-bar-right">
-              <span className="text">
-                <i className="far fa-clock" />
-                Opening Hours : Sunday- Friday, 08:00 am - 05:00pm
-              </span>
-              <ul className="social-link">
-                <li>
-                  <a href="#">
-                    <i className="fab fa-facebook-f" />
-                  </a>
-                </li>
-                <li>
-                  <a href="#">
-                    <i className="fab fa-twitter" />
-                  </a>
-                </li>
-                <li>
-                  <a href="#">
-                    <i className="fab fa-linkedin" />
-                  </a>
-                </li>
-                <li>
-                  <a href="#">
-                    <i className="fab fa-youtube" />
-                  </a>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
     <div className="header-middle">
       <div className="container-1350">
         <div className="row align-items-center">
@@ -120,7 +71,10 @@ const Header1 = () => (
             <div className="site-branding d-lg-block d-none">
               <Link legacyBehavior href="/">
                 <a className="brand-logo">
-                  <img src="assets/images/logo/logo-1.png" alt="Site Logo" />
+                  <img
+                    src="assets/images/logo/asoporkmag-logo.jpeg"
+                    alt="Asoporkmag Logo"
+                  />
                 </a>
               </Link>
             </div>
@@ -148,11 +102,6 @@ const Header1 = () => (
                     </a>
                   </p>
                 </div>
-              </div>
-              <div className="button text-md-right text-sm-center">
-                <Link legacyBehavior href="/contact">
-                  <a className="main-btn btn-yellow">Get a Quote</a>
-                </Link>
               </div>
             </div>
           </div>
@@ -201,55 +150,6 @@ const Header1 = () => (
 
 const Header2 = () => (
   <header className="header-area">
-    <div className="header-top-bar top-bar-one dark-black-bg">
-      <div className="container-fluid">
-        <div className="row align-items-center">
-          <div className="col-xl-6 col-lg-12 col-md-12 col-6">
-            <div className="top-bar-left d-flex align-items-center">
-              <span className="text">
-                Welcome to Agriculture &amp; Organic Food Template
-              </span>
-              <span className="lang-dropdown">
-                <select className="wide">
-                  <option value={1}>English</option>
-                  <option value={2}>French</option>
-                </select>
-              </span>
-            </div>
-          </div>
-          <div className="col-xl-6 col-lg-12 col-md-12 col-6">
-            <div className="top-bar-right">
-              <span className="text">
-                <i className="far fa-clock" />
-                Opening Hours : Sunday- Friday, 08:00 am - 05:00pm
-              </span>
-              <ul className="social-link">
-                <li>
-                  <a href="#">
-                    <i className="fab fa-facebook-f" />
-                  </a>
-                </li>
-                <li>
-                  <a href="#">
-                    <i className="fab fa-twitter" />
-                  </a>
-                </li>
-                <li>
-                  <a href="#">
-                    <i className="fab fa-linkedin" />
-                  </a>
-                </li>
-                <li>
-                  <a href="#">
-                    <i className="fab fa-youtube" />
-                  </a>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
     <div className="header-navigation navigation-two">
       <div className="nav-overlay" />
       <div className="container-fluid">
@@ -275,7 +175,7 @@ const Header2 = () => (
               <div className="call-button text-center">
                 <span>
                   <i className="far fa-phone" />
-                  <a href="tel:+012(345)678">+012 (345) 678</a>
+                  <a href="tel:+012(345)678">+57 (000) 0000000</a>
                 </span>
               </div>
               {/*=== Main Menu ===*/}
@@ -293,7 +193,7 @@ const Header2 = () => (
               <div className="call-button">
                 <span>
                   <i className="far fa-phone" />
-                  <a href="tel:+012(345)678">+012 (345) 678</a>
+                  <a href="tel:+012(345)678">+57 (000) 0000000</a>
                 </span>
               </div>
               <div className="menu-button">
@@ -355,7 +255,7 @@ const Header3 = ({ overlayPanel, togglePanel }) => (
                 <div className="call-button text-center">
                   <span>
                     <i className="far fa-phone" />
-                    <a href="tel:+012(345)678">+012 (345) 678</a>
+                    <a href="tel:+012(345)678">+57 (000) 0000000</a>
                   </span>
                 </div>
                 {/*=== Main Menu ===*/}
@@ -373,7 +273,7 @@ const Header3 = ({ overlayPanel, togglePanel }) => (
                 <div className="call-button">
                   <span>
                     <i className="far fa-phone" />
-                    <a href="tel:+012(345)678">+012 (345) 678</a>
+                    <a href="tel:+012(345)678">+57 (000) 0000000</a>
                   </span>
                 </div>
                 <div className="menu-button">
@@ -404,52 +304,6 @@ const Header4 = ({ overlayPanel, togglePanel }) => (
   <Fragment>
     <OffcanvasPanel overlyPanel={overlayPanel} togglePanel={togglePanel} />
     <header className="header-area">
-      <div className="header-top-bar top-bar-two dark-black-bg">
-        <div className="container-fluid">
-          <div className="row align-items-center">
-            <div className="col-xl-6 col-lg-12 col-md-12 col-6">
-              <div className="top-bar-left d-flex align-items-center">
-                <span className="lang-dropdown">
-                  <select className="wide">
-                    <option value={1}>English</option>
-                    <option value={2}>French</option>
-                  </select>
-                </span>
-              </div>
-            </div>
-            <div className="col-xl-6 col-lg-12 col-md-12 col-6">
-              <div className="top-bar-right">
-                <span className="text">
-                  <i className="far fa-clock" />
-                  Opening Hours : Sunday- Friday, 08:00 am - 05:00pm
-                </span>
-                <ul className="social-link">
-                  <li>
-                    <a href="#">
-                      <i className="fab fa-facebook-f" />
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#">
-                      <i className="fab fa-twitter" />
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#">
-                      <i className="fab fa-linkedin" />
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#">
-                      <i className="fab fa-youtube" />
-                    </a>
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
       <div className="header-navigation navigation-four">
         <div className="nav-overlay" />
         <div className="container-fluid">
@@ -457,12 +311,15 @@ const Header4 = ({ overlayPanel, togglePanel }) => (
             <div className="site-branding">
               <Link legacyBehavior href="/">
                 <a className="brand-logo">
-                  <img src="assets/images/logo/logo-3.png" alt="Site Logo" />
+                  <img
+                    src="assets/images/logo/asoporkmag-logo.jpeg"
+                    alt="Asoporkmag Logo"
+                  />
                 </a>
               </Link>
-              <Link legacyBehavior href="/index-4">
+              <Link legacyBehavior href="/">
                 <a className="sticky-logo">
-                  <img src="assets/images/logo/logo-2.png" alt="Site Logo" />
+                  <img src="assets/images/logo/logo-1.png" alt="Site Logo" />
                 </a>
               </Link>
             </div>
@@ -488,7 +345,7 @@ const Header4 = ({ overlayPanel, togglePanel }) => (
                 <div className="call-button text-center">
                   <span>
                     <i className="far fa-phone" />
-                    <a href="tel:+012(345)678">+012 (345) 678</a>
+                    <a href="tel:+012(345)678">+57 (000) 000000</a>
                   </span>
                 </div>
                 {/*=== Main Menu ===*/}
@@ -506,15 +363,8 @@ const Header4 = ({ overlayPanel, togglePanel }) => (
                 <div className="call-button">
                   <span>
                     <i className="far fa-phone" />
-                    <a href="tel:+012(345)678">+012 (345) 678</a>
+                    <a href="tel:+012(345)678">+57 (000) 0000000</a>
                   </span>
-                </div>
-                <div className="menu-button">
-                  <Link legacyBehavior href="/contact">
-                    <a className="main-btn bordered-btn bordered-yellow">
-                      Get a Quote
-                    </a>
-                  </Link>
                 </div>
                 <div className="navbar-toggler">
                   <span />
@@ -633,13 +483,8 @@ const DefaultHeader = () => (
               <div className="call-button">
                 <span>
                   <i className="far fa-phone" />
-                  <a href="tel:+012(345)678">+012 (345) 678</a>
+                  <a href="tel:+012(345)678">+57 (000) 000000</a>
                 </span>
-              </div>
-              <div className="menu-button">
-                <Link legacyBehavior href="/contact">
-                  <a className="main-btn btn-yellow">Get a Quote</a>
-                </Link>
               </div>
               <div className="bar-item">
                 <a href="#">
@@ -663,103 +508,46 @@ const Menu = () => (
   <nav className="main-menu d-none d-xl-block">
     <ul>
       <li className="menu-item has-children">
-        <a href="#" className="active">
-          Home
-        </a>
+        <a href="#">Acerca</a>
         <ul className="sub-menu">
           <li>
-            <Link legacyBehavior href="/">
-              Home Agriculture
+            <Link legacyBehavior href="/about">
+              Nosotros
             </Link>
           </li>
           <li>
-            <Link legacyBehavior href="/index-2">
-              Home Organic Food
-            </Link>
-          </li>
-          <li>
-            <Link legacyBehavior href="/index-3">
-              Home Farming
-            </Link>
-          </li>
-          <li>
-            <Link legacyBehavior href="/index-4">
-              Home Dairy Farm
+            <Link legacyBehavior href="/mission-vision">
+              Misión y Visión
             </Link>
           </li>
         </ul>
       </li>
-      <li>
-        <Link legacyBehavior href="/about">
-          About
-        </Link>
-      </li>
       <li className="menu-item has-children">
-        <a href="#">Services</a>
+        <a href="#">Servicios</a>
         <ul className="sub-menu">
           <li>
             <Link legacyBehavior href="/services">
-              Our Services
-            </Link>
-          </li>
-          <li>
-            <Link legacyBehavior href="/service-details">
-              Service Details
+              Nuestros servicios
             </Link>
           </li>
         </ul>
       </li>
       <li className="menu-item has-children">
-        <a href="#">Portfolio</a>
+        <a href="portfolio-grid">Portafolio</a>
         <ul className="sub-menu">
           <li>
             <Link legacyBehavior href="portfolio-grid">
-              Portfolio Grid
+              Programas
             </Link>
           </li>
           <li>
-            <Link legacyBehavior href="portfolio-full-width">
-              Portfolio Full Width
+            <Link legacyBehavior href="portfolio-grid">
+              Proyectos
             </Link>
           </li>
           <li>
-            <Link legacyBehavior href="portfolio-details">
-              Portfolio Details
-            </Link>
-          </li>
-        </ul>
-      </li>
-      <li className="menu-item has-children">
-        <a href="#">Shop</a>
-        <ul className="sub-menu">
-          <li>
-            <Link legacyBehavior href="products">
-              Our Products
-            </Link>
-          </li>
-          <li>
-            <Link legacyBehavior href="products-left-sidebar">
-              Product Left Sidebar
-            </Link>
-          </li>
-          <li>
-            <Link legacyBehavior href="products-right-sidebar">
-              Product Right Sidebar
-            </Link>
-          </li>
-          <li>
-            <Link legacyBehavior href="product-details">
-              Product Details
-            </Link>
-          </li>
-          <li>
-            <Link legacyBehavior href="cart">
-              Cart
-            </Link>
-          </li>
-          <li>
-            <Link legacyBehavior href="checkout">
-              Checkout
+            <Link legacyBehavior href="portfolio-grid">
+              Escuelas
             </Link>
           </li>
         </ul>
@@ -775,26 +563,6 @@ const Menu = () => (
           <li>
             <Link legacyBehavior href="blog-details">
               Blog Details
-            </Link>
-          </li>
-        </ul>
-      </li>
-      <li className="menu-item has-children">
-        <a href="#">Pages</a>
-        <ul className="sub-menu">
-          <li>
-            <Link legacyBehavior href="farmers">
-              Our Farmers
-            </Link>
-          </li>
-          <li>
-            <Link legacyBehavior href="faqs">
-              Faq
-            </Link>
-          </li>
-          <li>
-            <Link legacyBehavior href="contact">
-              Contact
             </Link>
           </li>
         </ul>

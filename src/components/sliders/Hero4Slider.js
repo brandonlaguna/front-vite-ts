@@ -39,21 +39,27 @@ export default class Hero4Slider extends Component {
                       data-animation="fadeInDown"
                       data-delay=".4s"
                     >
-                      Fresh Dairy Farms
+                      Somos
                     </span>
                     <h1 data-animation="fadeInUp" data-delay=".5s">
-                      Trusted Dairy Farming
+                      ASOPORKMAG
                     </h1>
+                    <p>
+                      Una Asociación Campesina de Porcicultores y Criadores de
+                      Especies Menores del Magdalena Medio.
+                    </p>
                     <div
                       className="hero-button"
                       data-animation="fadeInDown"
                       data-delay=".6s"
                     >
                       <Link legacyBehavior href="/about">
-                        <a className="main-btn btn-yellow">Learn About Us</a>
+                        <a className="main-btn btn-yellow">
+                          Lee acerca de nosotros
+                        </a>
                       </Link>
                       <Link legacyBehavior href="/portfolio-grid">
-                        <a className="main-btn btn-white">Latest Project</a>
+                        <a className="main-btn btn-white">Ultimos proyectos</a>
                       </Link>
                     </div>
                   </div>
@@ -91,21 +97,26 @@ export default class Hero4Slider extends Component {
                       data-animation="fadeInDown"
                       data-delay=".4s"
                     >
-                      Fresh Dairy Farms
+                      ¿Que hacemos?
                     </span>
-                    <h1 data-animation="fadeInUp" data-delay=".5s">
-                      Trusted Dairy Farming
-                    </h1>
+                    <h2 data-animation="fadeInUp" data-delay=".5s">
+                      Articulamos productores con compradores, instituciones y
+                      aliados estratégicos.
+                    </h2>
+                    <p>
+                      Promoción de la producción, mejoramiento, transformación y
+                      comercialización de especies menores.
+                    </p>
                     <div
                       className="hero-button"
                       data-animation="fadeInDown"
                       data-delay=".6s"
                     >
                       <Link legacyBehavior href="/about">
-                        <a className="main-btn btn-yellow">Learn About Us</a>
+                        <a className="main-btn btn-yellow">Enterate de más</a>
                       </Link>
                       <Link legacyBehavior href="/portfolio-grid">
-                        <a className="main-btn btn-white">Latest Project</a>
+                        <a className="main-btn btn-white">Ultimos proyectos</a>
                       </Link>
                     </div>
                   </div>
@@ -143,21 +154,30 @@ export default class Hero4Slider extends Component {
                       data-animation="fadeInDown"
                       data-delay=".4s"
                     >
-                      Fresh Dairy Farms
+                      Portafolio
                     </span>
-                    <h1 data-animation="fadeInUp" data-delay=".5s">
-                      Trusted Dairy Farming
-                    </h1>
+                    <h2 data-animation="fadeInUp" data-delay=".5s">
+                      Tenemos diferentes proyectos estratégicos, programas y
+                      escuelas para ti.
+                    </h2>
+                    <p>
+                      A partir del objeto social de ASOPORKMAG y de la
+                      experiencia gremial e institucional construida, se propone
+                      el siguiente portafolio de proyectos estratégicos a favor
+                      de los asociados y afiliados.
+                    </p>
                     <div
                       className="hero-button"
                       data-animation="fadeInDown"
                       data-delay=".6s"
                     >
                       <Link legacyBehavior href="/about">
-                        <a className="main-btn btn-yellow">Learn About Us</a>
+                        <a className="main-btn btn-yellow">
+                          Descubre proyectos
+                        </a>
                       </Link>
                       <Link legacyBehavior href="/portfolio-grid">
-                        <a className="main-btn btn-white">Latest Project</a>
+                        <a className="main-btn btn-white">Descubre programas</a>
                       </Link>
                     </div>
                   </div>

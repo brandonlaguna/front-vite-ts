@@ -1,6 +1,7 @@
 import Isotope from "isotope-layout";
 import Link from "next/link";
 import { Fragment, useEffect, useRef, useState } from "react";
+import defaultPortfolio from "../data/portfolio";
 const PortfolioGridIsotope = () => {
   // Isotope
   const isotope = useRef();
@@ -45,56 +46,69 @@ const PortfolioGridIsotope = () => {
                 onClick={handleFilterKeyChange("*")}
                 data-filter="*"
               >
-                Show All
+                Todos
               </li>
               <li
-                className={`c-pointer ${activeBtn("cat-1")}`}
-                onClick={handleFilterKeyChange("cat-1")}
-                data-filter=".cat-1"
+                className={`c-pointer ${activeBtn("Proyecto")}`}
+                onClick={handleFilterKeyChange("Proyecto")}
+                data-filter=".Proyecto"
               >
-                Cow
+                Proyectos
               </li>
               <li
-                className={`c-pointer ${activeBtn("cat-2")}`}
-                onClick={handleFilterKeyChange("cat-2")}
-                data-filter=".cat-2"
+                className={`c-pointer ${activeBtn("Programa")}`}
+                onClick={handleFilterKeyChange("Programa")}
+                data-filter=".Programa"
               >
-                Vegetables
+                Programas
               </li>
               <li
-                className={`c-pointer ${activeBtn("cat-3")}`}
-                onClick={handleFilterKeyChange("cat-3")}
-                data-filter=".cat-3"
+                className={`c-pointer ${activeBtn("Escuela")}`}
+                onClick={handleFilterKeyChange("Escuela")}
+                data-filter=".Escuela"
               >
-                Chicken
-              </li>
-              <li
-                className={`c-pointer ${activeBtn("cat-4")}`}
-                onClick={handleFilterKeyChange("cat-4")}
-                data-filter=".cat-4"
-              >
-                Fruits
-              </li>
-              <li
-                className={`c-pointer ${activeBtn("cat-5")}`}
-                onClick={handleFilterKeyChange("cat-5")}
-                data-filter=".cat-5"
-              >
-                Sea Fish
-              </li>
-              <li
-                className={`c-pointer ${activeBtn("cat-6")}`}
-                onClick={handleFilterKeyChange("cat-6")}
-                data-filter=".cat-6"
-              >
-                Milk &amp; Meats
+                Escuelas
               </li>
             </ul>
           </div>
         </div>
       </div>
       <div className="row project-row">
-        <div className="col-lg-4 col-md-6 col-sm-12 project-column cat-1">
+        {defaultPortfolio &&
+          defaultPortfolio.map((item) => {
+            return (
+              <div
+                className={`col-lg-4 col-md-6 col-sm-12 project-column ${item.category}`}
+                key={item.id}
+              >
+                <div className="project-item-three mb-30 wow fadeInUp">
+                  <div className="img-holder">
+                    <img src={item.image} alt="" />
+                    <div className="hover-portfolio">
+                      <div className="icon-btn">
+                        <Link legacyBehavior href="/portfolio-details">
+                          <a>
+                            <i className="far fa-arrow-right" />
+                          </a>
+                        </Link>
+                      </div>
+                      <div className="hover-content">
+                        <h3 className="title">
+                          <Link legacyBehavior href="/portfolio-details">
+                            <a>{item.title}</a>
+                          </Link>
+                        </h3>
+                        <p>
+                          <a href="#">{item.category}</a>,<a href="#">Foods</a>
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            );
+          })}
+        {/* <div className="col-lg-4 col-md-6 col-sm-12 project-column cat-1">
           <div className="project-item-three mb-30 wow fadeInUp">
             <div className="img-holder">
               <img src="assets/images/portfolio/img-4.jpg" alt="" />
@@ -109,7 +123,10 @@ const PortfolioGridIsotope = () => {
                 <div className="hover-content">
                   <h3 className="title">
                     <Link legacyBehavior href="/portfolio-details">
-                      <a>Golder Wheat</a>
+                      <a>
+                        Programa de Fortalecimiento Técnico y Productivo Porcino
+                        y de Especies Menores
+                      </a>
                     </Link>
                   </h3>
                   <p>
@@ -327,7 +344,7 @@ const PortfolioGridIsotope = () => {
               </div>
             </div>
           </div>
-        </div>
+        </div> */}
       </div>
     </Fragment>
   );
