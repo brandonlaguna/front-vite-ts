@@ -56,10 +56,7 @@ const BlogDetails = () => {
                 <div className="blog-details-wrapper mb-40 wow fadeInUp">
                   <div className="blog-post-item">
                     <div className="post-thumbnail">
-                      <img
-                        src="/assets/images/blog/single-blog-1.jpg"
-                        alt="Blog Image"
-                      />
+                      {post.cover && <img src={post.cover} alt="Blog Image" />}
                     </div>
                     <div className="post-content">
                       <div className="entry-content">

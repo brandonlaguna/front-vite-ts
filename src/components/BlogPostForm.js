@@ -11,6 +11,7 @@ export default function BlogPostForm({ onPublish }) {
   const [text, setText] = useState("");
   const [image, setImage] = useState(null);
   const [audience, setAudience] = useState("public");
+  const [cover, setCover] = useState(null);
   const [isEditorReady, setIsEditorReady] = useState(false);
   const inputRef = useRef(null);
   const editorRef = useRef(null);
@@ -53,6 +54,7 @@ export default function BlogPostForm({ onPublish }) {
         console.log("📤 Uploading image from photo button...", file.name);
         const imageUrl = await UploadService.uploadImage(file);
         console.log("✅ Image uploaded:", imageUrl);
+        setCover(imageUrl);
       } catch (error) {
         console.error("❌ Error uploading image:", error);
         alert(`Error al subir imagen: ${error.message}`);
@@ -70,7 +72,7 @@ export default function BlogPostForm({ onPublish }) {
     const payload = {
       content: text,
       audience,
-      image: image?.file || null,
+      cover,
       title,
       subtitle,
       TYPE: "6923da29272ae54f66a9b149",

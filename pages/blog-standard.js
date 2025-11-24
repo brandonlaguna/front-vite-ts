@@ -22,6 +22,7 @@ const BlogStandard = () => {
       subtitle: newPost.subtitle,
       content: newPost.content,
       TYPE: newPost.TYPE,
+      cover: newPost.cover,
       postBy: "6923ab81b2ba638ca0edf051",
     };
     ExampleService.createPost(payload)
@@ -48,10 +49,9 @@ const BlogStandard = () => {
                       key={post._id}
                     >
                       <div className="post-thumbnail">
-                        <img
-                          src="assets/images/blog/blog-standard-1.jpg"
-                          alt="Post Image"
-                        />
+                        {post.cover && (
+                          <img src={post.cover} alt="Post Image" />
+                        )}
                       </div>
                       <div className="entry-content white-bg">
                         <a href="#" className="cat-btn">
