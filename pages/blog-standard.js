@@ -18,10 +18,10 @@ const BlogStandard = () => {
   const handlePublish = (newPost) => {
     // setPosts([newPost, ...posts]);
     const payload = {
-      title: "Post Example", //newPost.title,
-      subtitle: "Ejemplo se un post hibrido", //newPost.subtitle,
+      title: newPost.title,
+      subtitle: newPost.subtitle,
       content: newPost.content,
-      TYPE: "6923da29272ae54f66a9b149",
+      TYPE: newPost.TYPE,
       postBy: "6923ab81b2ba638ca0edf051",
     };
     ExampleService.createPost(payload)

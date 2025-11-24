@@ -6,6 +6,8 @@ import { UploadService } from "../services/uploadService";
 import { getDefaultHeadersWithAuth } from "../utils";
 
 export default function BlogPostForm({ onPublish }) {
+  const [title, setTitle] = useState("");
+  const [subtitle, setSubtitle] = useState("");
   const [text, setText] = useState("");
   const [image, setImage] = useState(null);
   const [audience, setAudience] = useState("public");
@@ -51,14 +53,6 @@ export default function BlogPostForm({ onPublish }) {
         console.log("📤 Uploading image from photo button...", file.name);
         const imageUrl = await UploadService.uploadImage(file);
         console.log("✅ Image uploaded:", imageUrl);
-
-        // Insertar en el editor TinyMCE
-        // if (editorRef.current) {
-        //   editorRef.current.insertContent(
-        //     `<img src="${imageUrl}" alt="uploaded" style="max-width: 100%; height: auto;"/>`
-        //   );
-        //   console.log("✅ Image inserted into editor");
-        // }
       } catch (error) {
         console.error("❌ Error uploading image:", error);
         alert(`Error al subir imagen: ${error.message}`);
@@ -77,6 +71,9 @@ export default function BlogPostForm({ onPublish }) {
       content: text,
       audience,
       image: image?.file || null,
+      title,
+      subtitle,
+      TYPE: "6923da29272ae54f66a9b149",
     };
 
     if (onPublish) onPublish(payload);
@@ -125,7 +122,9 @@ export default function BlogPostForm({ onPublish }) {
               className="form_control"
               placeholder="Titulo del Post*"
               name="title"
-              required=""
+              required={true}
+              onChange={(e) => setTitle(e.target.value)}
+              value={title}
             />
           </div>
           <div className="form_group">
@@ -134,7 +133,9 @@ export default function BlogPostForm({ onPublish }) {
               className="form_control"
               placeholder="Subtitulo del Post*"
               name="subtitle"
-              required=""
+              required={true}
+              value={subtitle}
+              onChange={(e) => setSubtitle(e.target.value)}
             />
           </div>
         </div>
