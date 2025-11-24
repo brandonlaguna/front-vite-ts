@@ -4,11 +4,11 @@ const PageBanner = ({ pageName, pageTitle, hideHome = false }) => {
   return (
     <section
       className="page-banner bg_cover position-relative z-1"
-      style={{ backgroundImage: "url(assets/images/bg/page-bg-1.jpg)" }}
+      style={{ backgroundImage: "url(/assets/images/bg/page-bg-1.jpg)" }}
     >
       <div className="brand-card text-center">
         <img
-          src="assets/images/logo/asoporkmag-logo.jpeg"
+          src="/assets/images/logo/asoporkmag-logo.jpeg"
           alt="icon"
           width={150}
         />

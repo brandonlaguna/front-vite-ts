@@ -1,6 +1,6 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  reactStrictMode: true,
+  reactStrictMode: false, // Desactivado por compatibilidad con react-quill
   swcMinify: true,
   // Asegurar que las variables de entorno están disponibles en el cliente
   env: {

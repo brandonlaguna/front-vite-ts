@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { Fragment, useEffect, useState } from "react";
 import useWindowSize from "../useWindowSize";
-import { stickyNav } from "../utils";
+import { publicData, stickyNav } from "../utils";
 import MobileHeader from "./MobileHeader";
 import OffcanvasPanel from "./OffcanvasPanel";
 
@@ -72,7 +72,7 @@ const Header1 = () => (
               <Link legacyBehavior href="/">
                 <a className="brand-logo">
                   <img
-                    src="assets/images/logo/asoporkmag-logo.jpeg"
+                    src="/assets/images/logo/asoporkmag-logo.jpeg"
                     alt="Asoporkmag Logo"
                   />
                 </a>
@@ -115,7 +115,7 @@ const Header1 = () => (
           <div className="site-branding">
             <Link legacyBehavior href="/">
               <a className="brand-logo">
-                <img src="assets/images/logo/logo-1.png" alt="Site Logo" />
+                <img src="/assets/images/logo/logo-1.png" alt="Site Logo" />
               </a>
             </Link>
           </div>
@@ -125,7 +125,7 @@ const Header1 = () => (
               <div className="mobile-logo mb-30 d-block d-xl-none text-center">
                 <Link legacyBehavior href="/">
                   <a className="brand-logo">
-                    <img src="assets/images/logo/logo-1.png" alt="Site Logo" />
+                    <img src="/assets/images/logo/logo-1.png" alt="Site Logo" />
                   </a>
                 </Link>
               </div>
@@ -157,7 +157,7 @@ const Header2 = () => (
           <div className="site-branding">
             <Link legacyBehavior href="/">
               <a className="brand-logo">
-                <img src="assets/images/logo/logo-1.png" alt="Site Logo" />
+                <img src="/assets/images/logo/logo-1.png" alt="Site Logo" />
               </a>
             </Link>
           </div>
@@ -167,7 +167,7 @@ const Header2 = () => (
               <div className="mobile-logo mb-30 d-block d-xl-none text-center">
                 <Link legacyBehavior href="/">
                   <a className="brand-logo">
-                    <img src="assets/images/logo/logo-1.png" alt="Site Logo" />
+                    <img src="/assets/images/logo/logo-1.png" alt="Site Logo" />
                   </a>
                 </Link>
               </div>
@@ -175,7 +175,9 @@ const Header2 = () => (
               <div className="call-button text-center">
                 <span>
                   <i className="far fa-phone" />
-                  <a href="tel:+012(345)678">+57 (000) 0000000</a>
+                  <a href={`tel:${publicData.phoneNumber}`}>
+                    {publicData.phoneNumber}
+                  </a>
                 </span>
               </div>
               {/*=== Main Menu ===*/}
@@ -193,7 +195,9 @@ const Header2 = () => (
               <div className="call-button">
                 <span>
                   <i className="far fa-phone" />
-                  <a href="tel:+012(345)678">+57 (000) 0000000</a>
+                  <a href={`tel:${publicData.phoneNumber}`}>
+                    {publicData.phoneNumber}
+                  </a>
                 </span>
               </div>
               <div className="menu-button">
@@ -227,12 +231,12 @@ const Header3 = ({ overlayPanel, togglePanel }) => (
             <div className="site-branding">
               <Link legacyBehavior href="/">
                 <a className="brand-logo">
-                  <img src="assets/images/logo/logo-3.png" alt="Site Logo" />
+                  <img src="/assets/images/logo/logo-3.png" alt="Site Logo" />
                 </a>
               </Link>
               <Link legacyBehavior href="/">
                 <a className="sticky-logo">
-                  <img src="assets/images/logo/logo-1.png" alt="Site Logo" />
+                  <img src="/assets/images/logo/logo-1.png" alt="Site Logo" />
                 </a>
               </Link>
             </div>
@@ -245,7 +249,7 @@ const Header3 = ({ overlayPanel, togglePanel }) => (
                   <Link legacyBehavior href="/">
                     <a className="brand-logo">
                       <img
-                        src="assets/images/logo/logo-1.png"
+                        src="/assets/images/logo/logo-1.png"
                         alt="Site Logo"
                       />
                     </a>
@@ -255,7 +259,9 @@ const Header3 = ({ overlayPanel, togglePanel }) => (
                 <div className="call-button text-center">
                   <span>
                     <i className="far fa-phone" />
-                    <a href="tel:+012(345)678">+57 (000) 0000000</a>
+                    <a href={`tel:${publicData.phoneNumber}`}>
+                      {publicData.phoneNumber}
+                    </a>
                   </span>
                 </div>
                 {/*=== Main Menu ===*/}
@@ -273,7 +279,9 @@ const Header3 = ({ overlayPanel, togglePanel }) => (
                 <div className="call-button">
                   <span>
                     <i className="far fa-phone" />
-                    <a href="tel:+012(345)678">+57 (000) 0000000</a>
+                    <a href={`tel:${publicData.phoneNumber}`}>
+                      {publicData.phoneNumber}
+                    </a>
                   </span>
                 </div>
                 <div className="menu-button">
@@ -283,7 +291,7 @@ const Header3 = ({ overlayPanel, togglePanel }) => (
                 </div>
                 <div className="bar-item">
                   <a className="c-pointer" onClick={() => togglePanel()}>
-                    <img src="assets/images/bar.png" alt="" />
+                    <img src="/assets/images/bar.png" alt="" />
                   </a>
                 </div>
                 <div className="navbar-toggler">
@@ -312,21 +320,21 @@ const Header4 = ({ overlayPanel, togglePanel }) => (
               <Link legacyBehavior href="/">
                 <a className="brand-logo">
                   <img
-                    src="assets/images/logo/asoporkmag-logo.jpeg"
+                    src="/assets/images/logo/asoporkmag-logo.jpeg"
                     alt="Asoporkmag Logo"
                   />
                 </a>
               </Link>
               <Link legacyBehavior href="/">
                 <a className="sticky-logo">
-                  <img src="assets/images/logo/logo-1.png" alt="Site Logo" />
+                  <img src="/assets/images/logo/logo-1.png" alt="Site Logo" />
                 </a>
               </Link>
             </div>
             <div className="nav-inner-menu">
               <div className="bar-item">
                 <a className="c-pointer" onClick={() => togglePanel()}>
-                  <img src="assets/images/bar-2.png" alt="" />
+                  <img src="/assets/images/bar-2.png" alt="" />
                 </a>
               </div>
               <div className="nav-menu">
@@ -335,7 +343,7 @@ const Header4 = ({ overlayPanel, togglePanel }) => (
                   <Link legacyBehavior href="/">
                     <a className="brand-logo">
                       <img
-                        src="assets/images/logo/logo-1.png"
+                        src="/assets/images/logo/logo-1.png"
                         alt="Site Logo"
                       />
                     </a>
@@ -345,7 +353,9 @@ const Header4 = ({ overlayPanel, togglePanel }) => (
                 <div className="call-button text-center">
                   <span>
                     <i className="far fa-phone" />
-                    <a href="tel:+012(345)678">+57 (000) 000000</a>
+                    <a href={`tel:${publicData.phoneNumber}`}>
+                      +57 (000) 000000
+                    </a>
                   </span>
                 </div>
                 {/*=== Main Menu ===*/}
@@ -363,7 +373,9 @@ const Header4 = ({ overlayPanel, togglePanel }) => (
                 <div className="call-button">
                   <span>
                     <i className="far fa-phone" />
-                    <a href="tel:+012(345)678">+57 (000) 0000000</a>
+                    <a href={`tel:${publicData.phoneNumber}`}>
+                      {publicData.phoneNumber}
+                    </a>
                   </span>
                 </div>
                 <div className="navbar-toggler">
@@ -440,12 +452,12 @@ const DefaultHeader = () => (
           <div className="site-branding">
             <Link legacyBehavior href="/">
               <a className="brand-logo">
-                <img src="assets/images/logo/logo-3.png" alt="Site Logo" />
+                <img src="/assets/images/logo/logo-3.png" alt="Site Logo" />
               </a>
             </Link>
             <Link legacyBehavior href="/">
               <a className="sticky-logo">
-                <img src="assets/images/logo/logo-1.png" alt="Site Logo" />
+                <img src="/assets/images/logo/logo-1.png" alt="Site Logo" />
               </a>
             </Link>
           </div>
@@ -457,7 +469,7 @@ const DefaultHeader = () => (
               <div className="mobile-logo mb-30 d-block d-xl-none text-center">
                 <Link legacyBehavior href="/">
                   <a className="brand-logo">
-                    <img src="assets/images/logo/logo-1.png" alt="Site Logo" />
+                    <img src="/assets/images/logo/logo-1.png" alt="Site Logo" />
                   </a>
                 </Link>
               </div>
@@ -465,7 +477,7 @@ const DefaultHeader = () => (
               <div className="call-button text-center">
                 <span>
                   <i className="far fa-phone" />
-                  <a href="tel:+012(345)678">+012 (345) 678</a>
+                  <a href={`tel:${publicData.phoneNumber}`}>+012 (345) 678</a>
                 </span>
               </div>
               {/*=== Main Menu ===*/}
@@ -483,12 +495,12 @@ const DefaultHeader = () => (
               <div className="call-button">
                 <span>
                   <i className="far fa-phone" />
-                  <a href="tel:+012(345)678">+57 (000) 000000</a>
+                  <a href={`tel:${publicData.phoneNumber}`}>+57 (000) 000000</a>
                 </span>
               </div>
               <div className="bar-item">
                 <a href="#">
-                  <img src="assets/images/bar.png" alt="" />
+                  <img src="/assets/images/bar.png" alt="" />
                 </a>
               </div>
               <div className="navbar-toggler">
@@ -556,7 +568,7 @@ const Menu = () => (
         <a href="#">Blog</a>
         <ul className="sub-menu">
           <li>
-            <Link legacyBehavior href="blog-standard">
+            <Link legacyBehavior href="/blog-standard">
               Blog Standard
             </Link>
           </li>

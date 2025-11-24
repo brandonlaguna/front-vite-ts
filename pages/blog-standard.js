@@ -1,196 +1,89 @@
 import Link from "next/link";
 import PageBanner from "../src/components/PageBanner";
 import Layout from "../src/layouts/Layout";
+import { ExampleService } from "../src/services";
+import { useEffect, useState } from "react";
+import BlogPostForm from "../src/components/BlogPostForm";
+
 const BlogStandard = () => {
+  const [posts, setPosts] = useState([]);
+  useEffect(() => {
+    ExampleService.getPosts()
+      .then((data) => {
+        setPosts(data.response);
+      })
+      .catch((err) => console.error(err));
+  }, []);
+
+  const handlePublish = (newPost) => {
+    // setPosts([newPost, ...posts]);
+    const payload = {
+      title: "Post Example", //newPost.title,
+      subtitle: "Ejemplo se un post hibrido", //newPost.subtitle,
+      content: newPost.content,
+      TYPE: "6923da29272ae54f66a9b149",
+      postBy: "6923ab81b2ba638ca0edf051",
+    };
+    ExampleService.createPost(payload)
+      .then((data) => {
+        console.log("Publicación creada con éxito:", data);
+      })
+      .catch((err) => console.error("Error al crear la publicación:", err));
+  };
+
   return (
     <Layout header={4}>
       <PageBanner pageName={"Blog Standard"} />
       <section className="blog-standard-section pt-170 pb-80">
         <div className="container">
           <div className="row">
+            {posts.length === 0 && <p>Cargando publicaciones...</p>}
             <div className="col-xl-8 col-lg-7">
+              <BlogPostForm onPublish={(payload) => handlePublish(payload)} />
               <div className="blog-standard-wrapper">
-                <div className="blog-post-item-three mb-60 wow fadeInUp">
-                  <div className="post-thumbnail">
-                    <img
-                      src="assets/images/blog/blog-standard-1.jpg"
-                      alt="Post Image"
-                    />
-                  </div>
-                  <div className="entry-content white-bg">
-                    <a href="#" className="cat-btn">
-                      Organic Foods
-                    </a>
-                    <h3 className="title">
-                      <Link legacyBehavior href="/blog-details">
-                        <a>
-                          Powerful Terminal And Command Line Seeny Tools Modern
-                          Web Development
+                {posts.length > 0 &&
+                  posts.map((post) => (
+                    <div
+                      className="blog-post-item-three mb-60 wow fadeInUp"
+                      key={post._id}
+                    >
+                      <div className="post-thumbnail">
+                        <img
+                          src="assets/images/blog/blog-standard-1.jpg"
+                          alt="Post Image"
+                        />
+                      </div>
+                      <div className="entry-content white-bg">
+                        <a href="#" className="cat-btn">
+                          {post.title}
                         </a>
-                      </Link>
-                    </h3>
-                    <div className="post-meta">
-                      <ul>
-                        <li>
-                          <span>
-                            <i className="far fa-calendar-alt" />
-                            <a href="#">25 March 2022</a>
-                          </span>
-                        </li>
-                        <li>
-                          <span>
-                            <i className="far fa-comments" />
-                            <a href="#">Comment (5)</a>
-                          </span>
-                        </li>
-                      </ul>
+                        <h3 className="title">
+                          <Link
+                            legacyBehavior
+                            href={`/blog-details/${post._id}`}
+                          >
+                            <a>{post.subtitle}</a>
+                          </Link>
+                        </h3>
+                        <div className="post-meta">
+                          <ul>
+                            <li>
+                              <span>
+                                <i className="far fa-calendar-alt" />
+                                <a href="#">{post.createdAt}</a>
+                              </span>
+                            </li>
+                            <li>
+                              <span>
+                                <i className="far fa-bullhorn" />
+                                <a href="#">{post.TYPE.name}</a>
+                              </span>
+                            </li>
+                          </ul>
+                        </div>
+                      </div>
                     </div>
-                  </div>
-                </div>
-                <div className="blog-post-item-three mb-60 wow fadeInUp">
-                  <div className="post-thumbnail">
-                    <img
-                      src="assets/images/blog/blog-standard-2.jpg"
-                      alt="Post Image"
-                    />
-                    <div className="play-content-box">
-                      <a
-                        href="https://www.youtube.com/watch?v=gOZ26jO6iXE"
-                        className="video-popup"
-                      >
-                        <i className="fas fa-play" />
-                      </a>
-                    </div>
-                  </div>
-                  <div className="entry-content white-bg">
-                    <a href="#" className="cat-btn">
-                      Organic Foods
-                    </a>
-                    <h3 className="title">
-                      <Link legacyBehavior href="/blog-details">
-                        <a>
-                          Powerful Terminal And Command Line Seeny Tools Modern
-                          Web Development
-                        </a>
-                      </Link>
-                    </h3>
-                    <div className="post-meta">
-                      <ul>
-                        <li>
-                          <span>
-                            <i className="far fa-calendar-alt" />
-                            <a href="#">25 March 2022</a>
-                          </span>
-                        </li>
-                        <li>
-                          <span>
-                            <i className="far fa-comments" />
-                            <a href="#">Comment (5)</a>
-                          </span>
-                        </li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-                <div className="blog-post-item-three blog-post-bg mb-60 wow fadeInUp">
-                  <div className="entry-content yellow-bg">
-                    <a href="#" className="cat-btn">
-                      Organic Foods
-                    </a>
-                    <h3 className="title">
-                      <Link legacyBehavior href="/blog-details">
-                        <a>
-                          Powerful Terminal And Command Line Seeny Tools Modern
-                          Web Development
-                        </a>
-                      </Link>
-                    </h3>
-                    <div className="post-meta">
-                      <ul>
-                        <li>
-                          <span>
-                            <i className="far fa-calendar-alt" />
-                            <a href="#">25 March 2022</a>
-                          </span>
-                        </li>
-                        <li>
-                          <span>
-                            <i className="far fa-comments" />
-                            <a href="#">Comment (5)</a>
-                          </span>
-                        </li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-                <div className="blog-post-item-three mb-60 wow fadeInUp">
-                  <div className="post-thumbnail">
-                    <img
-                      src="assets/images/blog/blog-standard-3.jpg"
-                      alt="Post Image"
-                    />
-                  </div>
-                  <div className="entry-content white-bg">
-                    <a href="#" className="cat-btn">
-                      Organic Foods
-                    </a>
-                    <h3 className="title">
-                      <Link legacyBehavior href="/blog-details">
-                        <a>
-                          Powerful Terminal And Command Line Seeny Tools Modern
-                          Web Development
-                        </a>
-                      </Link>
-                    </h3>
-                    <div className="post-meta">
-                      <ul>
-                        <li>
-                          <span>
-                            <i className="far fa-calendar-alt" />
-                            <a href="#">25 March 2022</a>
-                          </span>
-                        </li>
-                        <li>
-                          <span>
-                            <i className="far fa-comments" />
-                            <a href="#">Comment (5)</a>
-                          </span>
-                        </li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-                <div className="blog-post-item-three blog-post-bg mb-60 wow fadeInUp">
-                  <div className="entry-content light-gray-bg">
-                    <a href="#" className="cat-btn">
-                      Organic Foods
-                    </a>
-                    <h3 className="title">
-                      <Link legacyBehavior href="/blog-details">
-                        <a>
-                          Powerful Terminal And Command Line Seeny Tools Modern
-                          Web Development
-                        </a>
-                      </Link>
-                    </h3>
-                    <div className="post-meta">
-                      <ul>
-                        <li>
-                          <span>
-                            <i className="far fa-calendar-alt" />
-                            <a href="#">25 March 2022</a>
-                          </span>
-                        </li>
-                        <li>
-                          <span>
-                            <i className="far fa-comments" />
-                            <a href="#">Comment (5)</a>
-                          </span>
-                        </li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
+                  ))}
               </div>
               <div className="pagination mb-50 wow fadeInUp">
                 <ul>
