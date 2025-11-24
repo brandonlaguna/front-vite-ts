@@ -21,7 +21,7 @@ export const UploadService = {
       // Remover Content-Type para que el navegador lo establezca automáticamente
       delete headers["Content-Type"];
 
-      const response = await fetch(`${API_BASE}/api/v1/post/uploadImage`, {
+      const response = await fetch(`${API_BASE}/v1/post/uploadImage`, {
         method: "POST",
         body: formData,
         headers,
