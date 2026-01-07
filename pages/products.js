@@ -1,10 +1,37 @@
 import Link from "next/link";
 import PageBanner from "../src/components/PageBanner";
 import Layout from "../src/layouts/Layout";
+import { useEffect, useState } from "react";
+import ProductsService from "../src/services/productsService";
 const Shop = () => {
+  const [products, setProducts] = useState([]);
+  const [enableAddProduct, setEnableAddProduct] = useState(false);
+
+  //METHODS
+  const handleEnableAddProduct = () => {
+    setEnableAddProduct(!enableAddProduct);
+  };
+
+  //EFFECTS
+  useEffect(() => {
+    try {
+      ProductsService.getAll({})
+        .then((response) => {
+          setProducts(response.response);
+        })
+        .catch((error) => {
+          console.error("Error fetching products:", error);
+        });
+      return () => {
+        setProducts([]);
+      };
+    } catch (error) {
+      console.error("Unexpected error:", error);
+    }
+  }, []);
   return (
-    <Layout>
-      <PageBanner pageTitle={"Shop"} pageName="Shop" />
+    <Layout header={4}>
+      <PageBanner pageTitle={"Productos"} pageName="Productos" />
       <section className="shaop-page pt-170 pb-70">
         <div className="container">
           <div className="product-search-filter wow fadeInUp">
@@ -45,18 +72,23 @@ const Shop = () => {
                             </select>
                           </li>
                           <li>
-                            <Link legacyBehavior href="/products">
-                              <a>
-                                <i className="far fa-list" />
-                              </a>
-                            </Link>
+                            <a href="#" onClick={handleEnableAddProduct}>
+                              <i
+                                onClick={handleEnableAddProduct}
+                                className={`icon-rotate ${
+                                  enableAddProduct ? "rotate" : ""
+                                } ${
+                                  enableAddProduct
+                                    ? "fa-solid fa-xmark"
+                                    : "fa-solid fa-plus"
+                                }`}
+                              />
+                            </a>
                           </li>
                           <li>
-                            <Link legacyBehavior href="/products">
-                              <a>
-                                <i className="far fa-th" />
-                              </a>
-                            </Link>
+                            <a href="#" onClick={handleEnableAddProduct}>
+                              <i class="fa-solid fa-arrows-rotate" />
+                            </a>
                           </li>
                         </ul>
                       </div>
@@ -66,490 +98,127 @@ const Shop = () => {
               </div>
             </form>
           </div>
+          <div className="card shadow">
+            {enableAddProduct && (
+              <form onSubmit={(e) => e.preventDefault()}>
+                <div className="row">
+                  <div className="form_group card col-xl-6">
+                    <input
+                      type="text"
+                      className="form_control"
+                      placeholder="Nombre"
+                      name="name"
+                      required=""
+                    />
+                  </div>
+                  <div className="form_group card col-xl-6">
+                    <input
+                      type="number"
+                      className="form_control"
+                      placeholder="Precio"
+                      name="price"
+                      required=""
+                    />
+                  </div>
+                  <div className="form_group card col-xl-6">
+                    <input
+                      type="number"
+                      className="form_control"
+                      placeholder="Stock"
+                      name="stock"
+                      required=""
+                    />
+                  </div>
+                  <div className="form_group card col-xl-6">
+                    <input
+                      type="text"
+                      className="form_control"
+                      placeholder="Categoria"
+                      name="category"
+                      required=""
+                    />
+                  </div>
+                  <div className="form_group card col-xl-6">
+                    <input
+                      type="text"
+                      className="form_control"
+                      placeholder="Tipo"
+                      name="type"
+                      required=""
+                    />
+                  </div>
+                  <div className="form_group card col-xl-6">
+                    <input type="file" name="image" required />
+                  </div>
+                  <div className="form_group card col-xl-6">
+                    <textarea
+                      className="form_control"
+                      placeholder="Descripcion"
+                      name="description"
+                      defaultValue={""}
+                    />
+                  </div>
+                  <div className="form_group col-xl-12">
+                    <button className="main-btn btn-yellow">Guardar</button>
+                  </div>
+                </div>
+              </form>
+            )}
+          </div>
           <div className="row">
             <div className="col-xl-12">
               <div className="products-wrapper">
                 <div className="row">
-                  <div className="col-xl-3 col-lg-4 col-md-6 col-sm-12">
-                    <div className="single-product-item mb-60 wow fadeInUp">
-                      <div className="product-img">
-                        <img src="assets/images/products/img-1.png" alt="" />
-                        <div className="pc-btn">Food</div>
-                        <div className="cart-button">
-                          <Link legacyBehavior href="/products">
-                            <a className="main-btn btn-yellow">Add to cart</a>
-                          </Link>
+                  {products.length === 0 && <p>Loading products...</p>}
+                  {products.length > 0 &&
+                    products.map((product, index) => (
+                      <div
+                        className="col-xl-3 col-lg-4 col-md-6 col-sm-12"
+                        key={index}
+                      >
+                        <div className="single-product-item mb-60 wow fadeInUp">
+                          <div className="product-img">
+                            <img src={product?.image[0]} alt="" />
+                            <div className="pc-btn">{product?.category}</div>
+                            <div className="cart-button">
+                              <Link legacyBehavior href="/products">
+                                <a className="main-btn btn-yellow">
+                                  Ver Producto
+                                </a>
+                              </Link>
+                            </div>
+                          </div>
+                          <div className="product-info">
+                            <ul className="ratings">
+                              <li>
+                                <i className="fas fa-star" />
+                              </li>
+                              <li>
+                                <i className="fas fa-star" />
+                              </li>
+                              <li>
+                                <i className="fas fa-star" />
+                              </li>
+                              <li>
+                                <i className="fas fa-star" />
+                              </li>
+                              <li>
+                                <i className="fas fa-star" />
+                              </li>
+                            </ul>
+                            <h3 className="title">
+                              <Link legacyBehavior href="/product-details">
+                                <a>{product.name}</a>
+                              </Link>
+                            </h3>
+                            <span className="price">
+                              <span className="curreny">$</span>
+                              {product.price}
+                            </span>
+                          </div>
                         </div>
                       </div>
-                      <div className="product-info">
-                        <ul className="ratings">
-                          <li>
-                            <i className="fas fa-star" />
-                          </li>
-                          <li>
-                            <i className="fas fa-star" />
-                          </li>
-                          <li>
-                            <i className="fas fa-star" />
-                          </li>
-                          <li>
-                            <i className="fas fa-star" />
-                          </li>
-                          <li>
-                            <i className="fas fa-star" />
-                          </li>
-                        </ul>
-                        <h3 className="title">
-                          <Link legacyBehavior href="/product-details">
-                            <a>Organice Delicious Pomegranate</a>
-                          </Link>
-                        </h3>
-                        <span className="price">
-                          <span className="curreny">$</span>53.56
-                        </span>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="col-xl-3 col-lg-4 col-md-6 col-sm-12">
-                    <div className="single-product-item mb-60 wow fadeInDown">
-                      <div className="product-img">
-                        <img src="assets/images/products/img-2.png" alt="" />
-                        <div className="pc-btn">Fish</div>
-                        <div className="cart-button">
-                          <Link legacyBehavior href="/products">
-                            <a className="main-btn btn-yellow">Add to cart</a>
-                          </Link>
-                        </div>
-                      </div>
-                      <div className="product-info">
-                        <ul className="ratings">
-                          <li>
-                            <i className="fas fa-star" />
-                          </li>
-                          <li>
-                            <i className="fas fa-star" />
-                          </li>
-                          <li>
-                            <i className="fas fa-star" />
-                          </li>
-                          <li>
-                            <i className="fas fa-star" />
-                          </li>
-                          <li>
-                            <i className="fas fa-star" />
-                          </li>
-                        </ul>
-                        <h3 className="title">
-                          <Link legacyBehavior href="/product-details">
-                            <a>100% Natural Fresh Sea Fish</a>
-                          </Link>
-                        </h3>
-                        <span className="price">
-                          <span className="curreny">$</span>53.56
-                        </span>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="col-xl-3 col-lg-4 col-md-6 col-sm-12">
-                    <div className="single-product-item mb-60 wow fadeInUp">
-                      <div className="product-img">
-                        <img src="assets/images/products/img-3.png" alt="" />
-                        <div className="pc-btn">Food</div>
-                        <div className="cart-button">
-                          <Link legacyBehavior href="/products">
-                            <a className="main-btn btn-yellow">Add to cart</a>
-                          </Link>
-                        </div>
-                      </div>
-                      <div className="product-info">
-                        <ul className="ratings">
-                          <li>
-                            <i className="fas fa-star" />
-                          </li>
-                          <li>
-                            <i className="fas fa-star" />
-                          </li>
-                          <li>
-                            <i className="fas fa-star" />
-                          </li>
-                          <li>
-                            <i className="fas fa-star" />
-                          </li>
-                          <li>
-                            <i className="fas fa-star" />
-                          </li>
-                        </ul>
-                        <h3 className="title">
-                          <Link legacyBehavior href="/product-details">
-                            <a>Organice Delicious Pomegranate</a>
-                          </Link>
-                        </h3>
-                        <span className="price">
-                          <span className="curreny">$</span>53.56
-                        </span>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="col-xl-3 col-lg-4 col-md-6 col-sm-12">
-                    <div className="single-product-item mb-60 wow fadeInDown">
-                      <div className="product-img">
-                        <img src="assets/images/products/img-4.png" alt="" />
-                        <div className="pc-btn">Vegetable</div>
-                        <div className="cart-button">
-                          <Link legacyBehavior href="/products">
-                            <a className="main-btn btn-yellow">Add to cart</a>
-                          </Link>
-                        </div>
-                      </div>
-                      <div className="product-info">
-                        <ul className="ratings">
-                          <li>
-                            <i className="fas fa-star" />
-                          </li>
-                          <li>
-                            <i className="fas fa-star" />
-                          </li>
-                          <li>
-                            <i className="fas fa-star" />
-                          </li>
-                          <li>
-                            <i className="fas fa-star" />
-                          </li>
-                          <li>
-                            <i className="fas fa-star" />
-                          </li>
-                        </ul>
-                        <h3 className="title">
-                          <Link legacyBehavior href="/product-details">
-                            <a>Organice Delicious Pomegranate</a>
-                          </Link>
-                        </h3>
-                        <span className="price">
-                          <span className="curreny">$</span>53.56
-                        </span>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="col-xl-3 col-lg-4 col-md-6 col-sm-12">
-                    <div className="single-product-item mb-60 wow fadeInUp">
-                      <div className="product-img">
-                        <img src="assets/images/products/img-5.png" alt="" />
-                        <div className="pc-btn">Fruits</div>
-                        <div className="cart-button">
-                          <Link legacyBehavior href="/products">
-                            <a className="main-btn btn-yellow">Add to cart</a>
-                          </Link>
-                        </div>
-                      </div>
-                      <div className="product-info">
-                        <ul className="ratings">
-                          <li>
-                            <i className="fas fa-star" />
-                          </li>
-                          <li>
-                            <i className="fas fa-star" />
-                          </li>
-                          <li>
-                            <i className="fas fa-star" />
-                          </li>
-                          <li>
-                            <i className="fas fa-star" />
-                          </li>
-                          <li>
-                            <i className="fas fa-star" />
-                          </li>
-                        </ul>
-                        <h3 className="title">
-                          <Link legacyBehavior href="/product-details">
-                            <a>Organice Delicious Pomegranate</a>
-                          </Link>
-                        </h3>
-                        <span className="price">
-                          <span className="curreny">$</span>53.56
-                        </span>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="col-xl-3 col-lg-4 col-md-6 col-sm-12">
-                    <div className="single-product-item mb-60 wow fadeInDown">
-                      <div className="product-img">
-                        <img src="assets/images/products/img-6.png" alt="" />
-                        <div className="pc-btn">Orange</div>
-                        <div className="cart-button">
-                          <Link legacyBehavior href="/products">
-                            <a className="main-btn btn-yellow">Add to cart</a>
-                          </Link>
-                        </div>
-                      </div>
-                      <div className="product-info">
-                        <ul className="ratings">
-                          <li>
-                            <i className="fas fa-star" />
-                          </li>
-                          <li>
-                            <i className="fas fa-star" />
-                          </li>
-                          <li>
-                            <i className="fas fa-star" />
-                          </li>
-                          <li>
-                            <i className="fas fa-star" />
-                          </li>
-                          <li>
-                            <i className="fas fa-star" />
-                          </li>
-                        </ul>
-                        <h3 className="title">
-                          <Link legacyBehavior href="/product-details">
-                            <a>Organice Delicious Pomegranate</a>
-                          </Link>
-                        </h3>
-                        <span className="price">
-                          <span className="curreny">$</span>53.56
-                        </span>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="col-xl-3 col-lg-4 col-md-6 col-sm-12">
-                    <div className="single-product-item mb-60 wow fadeInUp">
-                      <div className="product-img">
-                        <img src="assets/images/products/img-7.png" alt="" />
-                        <div className="pc-btn">Fruits</div>
-                        <div className="cart-button">
-                          <Link legacyBehavior href="/products">
-                            <a className="main-btn btn-yellow">Add to cart</a>
-                          </Link>
-                        </div>
-                      </div>
-                      <div className="product-info">
-                        <ul className="ratings">
-                          <li>
-                            <i className="fas fa-star" />
-                          </li>
-                          <li>
-                            <i className="fas fa-star" />
-                          </li>
-                          <li>
-                            <i className="fas fa-star" />
-                          </li>
-                          <li>
-                            <i className="fas fa-star" />
-                          </li>
-                          <li>
-                            <i className="fas fa-star" />
-                          </li>
-                        </ul>
-                        <h3 className="title">
-                          <Link legacyBehavior href="/product-details">
-                            <a>Organice Delicious Pomegranate</a>
-                          </Link>
-                        </h3>
-                        <span className="price">
-                          <span className="curreny">$</span>53.56
-                        </span>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="col-xl-3 col-lg-4 col-md-6 col-sm-12">
-                    <div className="single-product-item mb-60 wow fadeInDown">
-                      <div className="product-img">
-                        <img src="assets/images/products/img-8.png" alt="" />
-                        <div className="pc-btn">Fish</div>
-                        <div className="cart-button">
-                          <Link legacyBehavior href="/products">
-                            <a className="main-btn btn-yellow">Add to cart</a>
-                          </Link>
-                        </div>
-                      </div>
-                      <div className="product-info">
-                        <ul className="ratings">
-                          <li>
-                            <i className="fas fa-star" />
-                          </li>
-                          <li>
-                            <i className="fas fa-star" />
-                          </li>
-                          <li>
-                            <i className="fas fa-star" />
-                          </li>
-                          <li>
-                            <i className="fas fa-star" />
-                          </li>
-                          <li>
-                            <i className="fas fa-star" />
-                          </li>
-                        </ul>
-                        <h3 className="title">
-                          <Link legacyBehavior href="/product-details">
-                            <a>Organice Delicious Pomegranate</a>
-                          </Link>
-                        </h3>
-                        <span className="price">
-                          <span className="curreny">$</span>53.56
-                        </span>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="col-xl-3 col-lg-4 col-md-6 col-sm-12">
-                    <div className="single-product-item mb-60 wow fadeInUp">
-                      <div className="product-img">
-                        <img src="assets/images/products/img-9.png" alt="" />
-                        <div className="pc-btn">Banana</div>
-                        <div className="cart-button">
-                          <Link legacyBehavior href="/products">
-                            <a className="main-btn btn-yellow">Add to cart</a>
-                          </Link>
-                        </div>
-                      </div>
-                      <div className="product-info">
-                        <ul className="ratings">
-                          <li>
-                            <i className="fas fa-star" />
-                          </li>
-                          <li>
-                            <i className="fas fa-star" />
-                          </li>
-                          <li>
-                            <i className="fas fa-star" />
-                          </li>
-                          <li>
-                            <i className="fas fa-star" />
-                          </li>
-                          <li>
-                            <i className="fas fa-star" />
-                          </li>
-                        </ul>
-                        <h3 className="title">
-                          <Link legacyBehavior href="/product-details">
-                            <a>Organice Delicious Pomegranate</a>
-                          </Link>
-                        </h3>
-                        <span className="price">
-                          <span className="curreny">$</span>53.56
-                        </span>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="col-xl-3 col-lg-4 col-md-6 col-sm-12">
-                    <div className="single-product-item mb-60 wow fadeInUp">
-                      <div className="product-img">
-                        <img src="assets/images/products/img-10.png" alt="" />
-                        <div className="pc-btn">Banana</div>
-                        <div className="cart-button">
-                          <Link legacyBehavior href="/products">
-                            <a className="main-btn btn-yellow">Add to cart</a>
-                          </Link>
-                        </div>
-                      </div>
-                      <div className="product-info">
-                        <ul className="ratings">
-                          <li>
-                            <i className="fas fa-star" />
-                          </li>
-                          <li>
-                            <i className="fas fa-star" />
-                          </li>
-                          <li>
-                            <i className="fas fa-star" />
-                          </li>
-                          <li>
-                            <i className="fas fa-star" />
-                          </li>
-                          <li>
-                            <i className="fas fa-star" />
-                          </li>
-                        </ul>
-                        <h3 className="title">
-                          <Link legacyBehavior href="/product-details">
-                            <a>Organice Delicious Pomegranate</a>
-                          </Link>
-                        </h3>
-                        <span className="price">
-                          <span className="curreny">$</span>53.56
-                        </span>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="col-xl-3 col-lg-4 col-md-6 col-sm-12">
-                    <div className="single-product-item mb-60 wow fadeInUp">
-                      <div className="product-img">
-                        <img src="assets/images/products/img-11.png" alt="" />
-                        <div className="pc-btn">Banana</div>
-                        <div className="cart-button">
-                          <Link legacyBehavior href="/products">
-                            <a className="main-btn btn-yellow">Add to cart</a>
-                          </Link>
-                        </div>
-                      </div>
-                      <div className="product-info">
-                        <ul className="ratings">
-                          <li>
-                            <i className="fas fa-star" />
-                          </li>
-                          <li>
-                            <i className="fas fa-star" />
-                          </li>
-                          <li>
-                            <i className="fas fa-star" />
-                          </li>
-                          <li>
-                            <i className="fas fa-star" />
-                          </li>
-                          <li>
-                            <i className="fas fa-star" />
-                          </li>
-                        </ul>
-                        <h3 className="title">
-                          <Link legacyBehavior href="/product-details">
-                            <a>Organice Delicious Pomegranate</a>
-                          </Link>
-                        </h3>
-                        <span className="price">
-                          <span className="curreny">$</span>53.56
-                        </span>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="col-xl-3 col-lg-4 col-md-6 col-sm-12">
-                    <div className="single-product-item mb-60 wow fadeInUp">
-                      <div className="product-img">
-                        <img src="assets/images/products/img-12.png" alt="" />
-                        <div className="pc-btn">Banana</div>
-                        <div className="cart-button">
-                          <Link legacyBehavior href="/products">
-                            <a className="main-btn btn-yellow">Add to cart</a>
-                          </Link>
-                        </div>
-                      </div>
-                      <div className="product-info">
-                        <ul className="ratings">
-                          <li>
-                            <i className="fas fa-star" />
-                          </li>
-                          <li>
-                            <i className="fas fa-star" />
-                          </li>
-                          <li>
-                            <i className="fas fa-star" />
-                          </li>
-                          <li>
-                            <i className="fas fa-star" />
-                          </li>
-                          <li>
-                            <i className="fas fa-star" />
-                          </li>
-                        </ul>
-                        <h3 className="title">
-                          <Link legacyBehavior href="/product-details">
-                            <a>Organice Delicious Pomegranate</a>
-                          </Link>
-                        </h3>
-                        <span className="price">
-                          <span className="curreny">$</span>53.56
-                        </span>
-                      </div>
-                    </div>
-                  </div>
+                    ))}
                 </div>
               </div>
             </div>

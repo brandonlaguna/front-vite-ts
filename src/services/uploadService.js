@@ -8,13 +8,14 @@ export const UploadService = {
    * @param {File} file - El archivo a subir
    * @returns {Promise<{url: string}>} URL de la imagen subida
    */
-  uploadImage: async (file) => {
+  uploadImage: async (file, type = "post") => {
     if (!file) {
       throw new Error("No file provided");
     }
 
     const formData = new FormData();
     formData.append("file", file);
+    formData.append("type", type);
 
     try {
       const headers = getDefaultHeadersWithAuth().headers;

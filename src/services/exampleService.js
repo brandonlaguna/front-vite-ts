@@ -3,7 +3,8 @@ import { request } from "./http";
 
 export const ExampleService = {
   // GET /posts
-  getPosts: () => request("/v1/post/getAll", { method: "POST" }),
+  getPosts: (payload = {}) =>
+    request("/v1/post/getAll", { method: "POST", body: payload }),
 
   // GET /posts/:id
   getPostByID: (_id) =>

@@ -1,3 +1,5 @@
+import { jwtDecode } from "jwt-decode";
+
 export const doAnimations = (elements) => {
   var animationEndEvents =
     "webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend";
@@ -103,8 +105,19 @@ export function getDefaultHeadersWithAuth(contentType = defaultContentType) {
 }
 
 export function getJWTToken() {
-  return (
-    sessionStorage.getItem("jwtToken") ||
-    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7Il9pZCI6IjY5MjNhYjgxYjJiYTYzOGNhMGVkZjA1MSIsIm5hbWUiOiJTdXBlciBBZG1pbiAzIiwidXNlcm5hbWUiOiJzdXBlcmFkbWluM0BleGFtcGxlLmNvbSIsImZpcnN0TmFtZSI6IlN1cGVyIiwic2Vjb25kTmFtZSI6IiIsImxhc3ROYW1lIjoiQWRtaW4iLCJzZWNvbmRMYXN0TmFtZSI6IiIsImRlc2NyaXB0aW9uIjoiVXN1YXJpbyBTdXBlciBBZG1pbmlzdHJhZG9yIiwiZW1haWwiOiJzdXBlcmFkbWluM0BleGFtcGxlLmNvbSIsInBob25lIjoiMzAwMzAwMzAzMCIsImFkZHJlc3MiOiJDYWxsZSIsInBob3RvIjoibm9uZSIsImJpcnRoRGF0ZSI6IjE5OTctMDYtMTlUMDU6MDA6MDAuMDAwWiIsImZhY2Vib29rSWQiOiJmYWNlYm9va0lkIiwiaW5zdGFncmFtSWQiOiJpbnN0YWdyYW1JZCIsInR3aXR0ZXJJZCI6InR3aXR0ZXJJZCIsImxpbmtlZGluSWQiOiJsaW5rZWRpbklkIiwiUk9MRSI6IkFETUlOIiwiQ0xBSU1TIjpbIkNSRUFURV9VU0VSIiwiQ1JFQVRFX1BPU1QiLCJVUERBVEVfUE9TVCIsIlVQREFURV9JTkZPIiwiQ1JFQVRFX1BPU1RfVFlQRSIsIlVQTE9BRF9QT1NUX0lNQUdFIl0sImNyZWF0ZWRBdCI6IjIwMjUtMTEtMjRUMDA6NDk6MDUuMzEyWiIsInVwZGF0ZWRBdCI6IjIwMjUtMTEtMjRUMDA6NDk6MDUuMzEyWiIsIl9fdiI6MH0sImlhdCI6MTc2NDAwNzU1NCwiZXhwIjoxNzY0MDExMTU0fQ.SVwgWmVBD2u-EVV2ggZnqjo_I7GlQRAKBl_BTtwQowI"
-  );
+  return sessionStorage.getItem("token") || "";
 }
+
+export const decodeToken = (token) => {
+  try {
+    return jwtDecode(token);
+  } catch (err) {
+    return console.error(err);
+  }
+};
+
+export const isTokenExpired = (token) => {
+  const decoded = decodeToken(token);
+  if (!decoded) return true;
+  return decoded.exp * 1000 < Date.now();
+};

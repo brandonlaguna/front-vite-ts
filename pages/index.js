@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Accordion } from "react-bootstrap";
 import Slider from "react-slick";
 import OrgariumAcc from "../src/components/OrgariumAcc";
@@ -11,8 +11,41 @@ import {
   recentProductSlider,
   testimonialSliderFive,
 } from "../src/sliderProps";
+import { ExampleService } from "../src/services";
+import dayjs from "dayjs";
+import UsersService from "../src/services/usersService";
+import ProductsService from "../src/services/productsService";
 const Index = () => {
   const [active, setActive] = useState("collapse0");
+
+  const [posts, setPosts] = useState([]);
+  const [usersMembers, setUsersMembers] = useState([]);
+  const [products, setProducts] = useState([]);
+
+  useEffect(() => {
+    ExampleService.getPosts({ limit: 6 })
+      .then((data) => {
+        setPosts(data.response);
+      })
+      .catch((err) => console.error(err));
+
+    UsersService.getUsersByType({ typeUser: "MEMBER", limit: 4 })
+      .then((data) => {
+        if (data && data.response && data.response.length > 0) {
+          setUsersMembers(data.response);
+        }
+      })
+      .catch((err) => console.error(err));
+
+    ProductsService.getAll({ limit: 6 })
+      .then((data) => {
+        if (data && data.response && data.response.length > 0) {
+          setProducts(data.response);
+        }
+      })
+      .catch((err) => console.error(err));
+  }, []);
+
   return (
     <Layout header={4} footer={4}>
       <Hero4Slider />
@@ -91,7 +124,7 @@ const Index = () => {
                   <div className="text">
                     <h3 className="title">
                       <Link legacyBehavior href="/">
-                        <a>Fresh Chicken Meats</a>
+                        <a>Pollo</a>
                       </Link>
                     </h3>
                   </div>
@@ -133,7 +166,7 @@ const Index = () => {
                   <div className="text">
                     <h3 className="title">
                       <Link legacyBehavior href="/">
-                        <a>Fresh Cows Meat and Milks</a>
+                        <a>Cabras</a>
                       </Link>
                     </h3>
                   </div>
@@ -161,7 +194,7 @@ const Index = () => {
                   <div className="text">
                     <h3 className="title">
                       <Link legacyBehavior href="/">
-                        <a>Fresh Pork Meat and Milks</a>
+                        <a>Cerdo</a>
                       </Link>
                     </h3>
                   </div>
@@ -217,7 +250,7 @@ const Index = () => {
                 <h2></h2>
               </div>
             </div>
-            <div className="col-xl-6 col-lg-4">
+            {/* <div className="col-xl-6 col-lg-4">
               <div className="team-button float-lg-right mb-60 wow fadeInRight">
                 <Link legacyBehavior href="/farmers">
                   <a className="main-btn bordered-btn bordered-yellow">
@@ -225,161 +258,83 @@ const Index = () => {
                   </a>
                 </Link>
               </div>
-            </div>
+            </div> */}
           </div>
           <div className="row justify-content-center">
-            <div className="col-xl-3 col-lg-4 col-md-6 col-sm-12">
-              <div className="team-member_two text-center mb-40 wow fadeInUp">
-                <div className="member-img">
-                  <img src="assets/images/team/img-1.jpg" alt="Member Image" />
-                  <div className="hover-overlay" />
-                  <ul className="social-link">
-                    <li>
-                      <a href="#">
-                        <i className="fab fa-facebook-f" />
-                      </a>
-                    </li>
-                    <li>
-                      <a href="#">
-                        <i className="fab fa-twitter" />
-                      </a>
-                    </li>
-                    <li>
-                      <a href="#">
-                        <i className="fab fa-linkedin" />
-                      </a>
-                    </li>
-                    <li>
-                      <a href="#">
-                        <i className="fab fa-youtube" />
-                      </a>
-                    </li>
-                  </ul>
+            {usersMembers.length > 0 ? (
+              usersMembers.map((member, index) => (
+                <div
+                  className="col-xl-3 col-lg-4 col-md-6 col-sm-12"
+                  key={index}
+                >
+                  <div className="team-member_two text-center mb-40 wow fadeInUp">
+                    <div className="member-img">
+                      <img
+                        src="assets/images/team/img-1.jpg"
+                        alt="Member Image"
+                      />
+                      <div className="hover-overlay" />
+                      <ul className="social-link">
+                        {member.facebookId && (
+                          <li>
+                            <a
+                              href={`https://www.facebook.com/${member.facebookId}`}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                            >
+                              <i className="fab fa-facebook-f" />
+                            </a>
+                          </li>
+                        )}
+                        {member.twitterId && (
+                          <li>
+                            <a
+                              href={`https://www.twitter.com/${member.twitterId}`}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                            >
+                              <i className="fab fa-twitter" />
+                            </a>
+                          </li>
+                        )}
+                        {member.instagramId && (
+                          <li>
+                            <a
+                              href={`https://www.instagram.com/${member.instagramId}`}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                            >
+                              <i className="fab fa-instagram" />
+                            </a>
+                          </li>
+                        )}
+                        {member.linkedinId && (
+                          <li>
+                            <a
+                              href={`https://www.linkedin.com/in/${member.linkedinId}`}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                            >
+                              <i className="fab fa-linkedin-in" />
+                            </a>
+                          </li>
+                        )}
+                      </ul>
+                    </div>
+                    <div className="member-info">
+                      <h3 className="title">
+                        <Link legacyBehavior href="/farmers">
+                          <a>{member.name}</a>
+                        </Link>
+                      </h3>
+                      <p className="position">Miembro</p>
+                    </div>
+                  </div>
                 </div>
-                <div className="member-info">
-                  <h3 className="title">
-                    <Link legacyBehavior href="/farmers">
-                      <a>Dennis P. Russell</a>
-                    </Link>
-                  </h3>
-                  <p className="position">Food Farmers</p>
-                </div>
-              </div>
-            </div>
-            <div className="col-xl-3 col-lg-4 col-md-6 col-sm-12">
-              <div className="team-member_two text-center mb-40 wow fadeInDown">
-                <div className="member-img">
-                  <img src="assets/images/team/img-2.jpg" alt="Member Image" />
-                  <div className="hover-overlay" />
-                  <ul className="social-link">
-                    <li>
-                      <a href="#">
-                        <i className="fab fa-facebook-f" />
-                      </a>
-                    </li>
-                    <li>
-                      <a href="#">
-                        <i className="fab fa-twitter" />
-                      </a>
-                    </li>
-                    <li>
-                      <a href="#">
-                        <i className="fab fa-linkedin" />
-                      </a>
-                    </li>
-                    <li>
-                      <a href="#">
-                        <i className="fab fa-youtube" />
-                      </a>
-                    </li>
-                  </ul>
-                </div>
-                <div className="member-info">
-                  <h3 className="title">
-                    <Link legacyBehavior href="/farmers">
-                      <a>David M. Hower</a>
-                    </Link>
-                  </h3>
-                  <p className="position">Food Farmers</p>
-                </div>
-              </div>
-            </div>
-            <div className="col-xl-3 col-lg-4 col-md-6 col-sm-12">
-              <div className="team-member_two text-center mb-40 wow fadeInUp">
-                <div className="member-img">
-                  <img src="assets/images/team/img-3.jpg" alt="Member Image" />
-                  <div className="hover-overlay" />
-                  <ul className="social-link">
-                    <li>
-                      <a href="#">
-                        <i className="fab fa-facebook-f" />
-                      </a>
-                    </li>
-                    <li>
-                      <a href="#">
-                        <i className="fab fa-twitter" />
-                      </a>
-                    </li>
-                    <li>
-                      <a href="#">
-                        <i className="fab fa-linkedin" />
-                      </a>
-                    </li>
-                    <li>
-                      <a href="#">
-                        <i className="fab fa-youtube" />
-                      </a>
-                    </li>
-                  </ul>
-                </div>
-                <div className="member-info">
-                  <h3 className="title">
-                    <Link legacyBehavior href="/farmers">
-                      <a>Richard M. Howell</a>
-                    </Link>
-                  </h3>
-                  <p className="position">Food Farmers</p>
-                </div>
-              </div>
-            </div>
-            <div className="col-xl-3 col-lg-4 col-md-6 col-sm-12">
-              <div className="team-member_two text-center mb-40 wow fadeInDown">
-                <div className="member-img">
-                  <img src="assets/images/team/img-4.jpg" alt="Member Image" />
-                  <div className="hover-overlay" />
-                  <ul className="social-link">
-                    <li>
-                      <a href="#">
-                        <i className="fab fa-facebook-f" />
-                      </a>
-                    </li>
-                    <li>
-                      <a href="#">
-                        <i className="fab fa-twitter" />
-                      </a>
-                    </li>
-                    <li>
-                      <a href="#">
-                        <i className="fab fa-linkedin" />
-                      </a>
-                    </li>
-                    <li>
-                      <a href="#">
-                        <i className="fab fa-youtube" />
-                      </a>
-                    </li>
-                  </ul>
-                </div>
-                <div className="member-info">
-                  <h3 className="title">
-                    <Link legacyBehavior href="/farmers">
-                      <a>Keneth R. Williams</a>
-                    </Link>
-                  </h3>
-                  <p className="position">Food Farmers</p>
-                </div>
-              </div>
-            </div>
+              ))
+            ) : (
+              <p>0 Miembros</p>
+            )}
           </div>
         </div>
       </section>
@@ -534,8 +489,8 @@ const Index = () => {
           <div className="row align-items-end">
             <div className="col-xl-6 col-lg-8">
               <div className="section-title mb-60 wow fadeInLeft">
-                <span className="sub-title">Popular Products</span>
-                <h2>Some Fresh Cows Products Collection Our Shop</h2>
+                <span className="sub-title">Nuestros Productos</span>
+                <h2>Algunos de nuestros productos de la tienda</h2>
               </div>
             </div>
             <div className="col-xl-6 col-lg-4">
@@ -549,196 +504,54 @@ const Index = () => {
             </div>
           </div>
           <Slider {...recentProductSlider} className="recent-product-slider">
-            <div className="single-product-item mb-40 wow fadeInDown">
-              <div className="product-img">
-                <img src="assets/images/products/img-10.png" alt="" />
-                <div className="pc-btn">Food</div>
-                <div className="cart-button">
-                  <Link legacyBehavior href="/products">
-                    <a className="main-btn btn-yellow">Add to cart</a>
-                  </Link>
+            {products.length > 0 ? (
+              products.map((product, index) => (
+                <div
+                  className="single-product-item mb-40 wow fadeInDown"
+                  key={index}
+                >
+                  <div className="product-img">
+                    <img src={product?.image[0]} alt="" />
+                    <div className="pc-btn">{product?.category || ""}</div>
+                    <div className="cart-button">
+                      <Link legacyBehavior href="/products">
+                        <a className="main-btn btn-yellow">Ver producto</a>
+                      </Link>
+                    </div>
+                  </div>
+                  <div className="product-info">
+                    <ul className="ratings">
+                      <li>
+                        <i className="fas fa-star" />
+                      </li>
+                      <li>
+                        <i className="fas fa-star" />
+                      </li>
+                      <li>
+                        <i className="fas fa-star" />
+                      </li>
+                      <li>
+                        <i className="fas fa-star" />
+                      </li>
+                      <li>
+                        <i className="fas fa-star" />
+                      </li>
+                    </ul>
+                    <h3 className="title">
+                      <Link legacyBehavior href="/product-details">
+                        <a>{product.name}</a>
+                      </Link>
+                    </h3>
+                    <span className="price">
+                      <span className="curreny">$</span>
+                      {product.price}
+                    </span>
+                  </div>
                 </div>
-              </div>
-              <div className="product-info">
-                <ul className="ratings">
-                  <li>
-                    <i className="fas fa-star" />
-                  </li>
-                  <li>
-                    <i className="fas fa-star" />
-                  </li>
-                  <li>
-                    <i className="fas fa-star" />
-                  </li>
-                  <li>
-                    <i className="fas fa-star" />
-                  </li>
-                  <li>
-                    <i className="fas fa-star" />
-                  </li>
-                </ul>
-                <h3 className="title">
-                  <Link legacyBehavior href="/product-details">
-                    <a>Organice Delicious Pomegranate</a>
-                  </Link>
-                </h3>
-                <span className="price">
-                  <span className="curreny">$</span>53.56
-                </span>
-              </div>
-            </div>
-            <div className="single-product-item mb-40 wow fadeInUp">
-              <div className="product-img">
-                <img src="assets/images/products/img-11.png" alt="" />
-                <div className="pc-btn">Fish</div>
-                <div className="cart-button">
-                  <Link legacyBehavior href="/products">
-                    <a className="main-btn btn-yellow">Add to cart</a>
-                  </Link>
-                </div>
-              </div>
-              <div className="product-info">
-                <ul className="ratings">
-                  <li>
-                    <i className="fas fa-star" />
-                  </li>
-                  <li>
-                    <i className="fas fa-star" />
-                  </li>
-                  <li>
-                    <i className="fas fa-star" />
-                  </li>
-                  <li>
-                    <i className="fas fa-star" />
-                  </li>
-                  <li>
-                    <i className="fas fa-star" />
-                  </li>
-                </ul>
-                <h3 className="title">
-                  <Link legacyBehavior href="/product-details">
-                    <a>100% Natural Fresh Sea Fish</a>
-                  </Link>
-                </h3>
-                <span className="price">
-                  <span className="curreny">$</span>53.56
-                </span>
-              </div>
-            </div>
-            <div className="single-product-item mb-40 wow fadeInDown">
-              <div className="product-img">
-                <img src="assets/images/products/img-12.png" alt="" />
-                <div className="pc-btn">Food</div>
-                <div className="cart-button">
-                  <Link legacyBehavior href="/products">
-                    <a className="main-btn btn-yellow">Add to cart</a>
-                  </Link>
-                </div>
-              </div>
-              <div className="product-info">
-                <ul className="ratings">
-                  <li>
-                    <i className="fas fa-star" />
-                  </li>
-                  <li>
-                    <i className="fas fa-star" />
-                  </li>
-                  <li>
-                    <i className="fas fa-star" />
-                  </li>
-                  <li>
-                    <i className="fas fa-star" />
-                  </li>
-                  <li>
-                    <i className="fas fa-star" />
-                  </li>
-                </ul>
-                <h3 className="title">
-                  <Link legacyBehavior href="/product-details">
-                    <a>Organice Delicious Cutting Pear</a>
-                  </Link>
-                </h3>
-                <span className="price">
-                  <span className="curreny">$</span>53.56
-                </span>
-              </div>
-            </div>
-            <div className="single-product-item mb-40 wow fadeInUp">
-              <div className="product-img">
-                <img src="assets/images/products/img-13.png" alt="" />
-                <div className="pc-btn">Vegetable</div>
-                <div className="cart-button">
-                  <Link legacyBehavior href="/products">
-                    <a className="main-btn btn-yellow">Add to cart</a>
-                  </Link>
-                </div>
-              </div>
-              <div className="product-info">
-                <ul className="ratings">
-                  <li>
-                    <i className="fas fa-star" />
-                  </li>
-                  <li>
-                    <i className="fas fa-star" />
-                  </li>
-                  <li>
-                    <i className="fas fa-star" />
-                  </li>
-                  <li>
-                    <i className="fas fa-star" />
-                  </li>
-                  <li>
-                    <i className="fas fa-star" />
-                  </li>
-                </ul>
-                <h3 className="title">
-                  <Link legacyBehavior href="/product-details">
-                    <a>Organice Delicious Fresh Tomato</a>
-                  </Link>
-                </h3>
-                <span className="price">
-                  <span className="curreny">$</span>53.56
-                </span>
-              </div>
-            </div>
-            <div className="single-product-item mb-40 wow fadeInDown">
-              <div className="product-img">
-                <img src="assets/images/products/img-11.png" alt="" />
-                <div className="pc-btn">Fish</div>
-                <div className="cart-button">
-                  <Link legacyBehavior href="/products">
-                    <a className="main-btn btn-yellow">Add to cart</a>
-                  </Link>
-                </div>
-              </div>
-              <div className="product-info">
-                <ul className="ratings">
-                  <li>
-                    <i className="fas fa-star" />
-                  </li>
-                  <li>
-                    <i className="fas fa-star" />
-                  </li>
-                  <li>
-                    <i className="fas fa-star" />
-                  </li>
-                  <li>
-                    <i className="fas fa-star" />
-                  </li>
-                  <li>
-                    <i className="fas fa-star" />
-                  </li>
-                </ul>
-                <h3 className="title">
-                  <Link legacyBehavior href="/product-details">
-                    <a>100% Natural Fresh Sea Fish</a>
-                  </Link>
-                </h3>
-                <span className="price">
-                  <span className="curreny">$</span>53.56
-                </span>
-              </div>
-            </div>
+              ))
+            ) : (
+              <p>No products found</p>
+            )}
           </Slider>
         </div>
       </section>
@@ -889,7 +702,7 @@ const Index = () => {
       </section>
       {/*====== End Contact Section ======*/}
       {/*====== Start Testimonial Section ======*/}
-      <section className="testimonial-section pt-130">
+      {/* <section className="testimonial-section pt-130">
         <div className="container">
           <div className="row justify-content-center">
             <div className="col-xl-6 col-lg-10">
@@ -1116,7 +929,7 @@ const Index = () => {
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
       {/*====== End Testimonial Section ======*/}
       {/*====== Start Blog Section ======*/}
       <section className="blog-section pt-90 pb-90">
@@ -1124,147 +937,71 @@ const Index = () => {
           <div className="row justify-content-center">
             <div className="col-xl-6 col-lg-10">
               <div className="section-title text-center mb-60 wow fadeInDown">
-                <span className="sub-title">Latest News Blog</span>
-                <h2>Read Latest News &amp; Blog Get Every Updates</h2>
+                <span className="sub-title">Últimas noticias &amp; Blogs</span>
+                <h2>
+                  Lea las últimas noticias &amp; el blog. Reciba todas las
+                  actualizaciones.
+                </h2>
               </div>
             </div>
           </div>
           <div className="row justify-content-center">
-            <div className="col-lg-4 col-md-6 col-sm-12">
-              <div className="blog-post-item-four mb-40 wow fadeInUp">
-                <div className="post-thumbnail">
-                  <img src="assets/images/blog/img-7.jpg" alt="Post Image" />
-                  <a href="#" className="post-date">
-                    25 <span>March</span>
-                  </a>
-                </div>
-                <div className="entry-content">
-                  <div className="content-inner">
-                    <div className="post-meta">
-                      <ul>
-                        <li>
-                          <span>
-                            <a href="#" className="cat-btn">
-                              Organic
-                            </a>
-                          </span>
-                        </li>
-                        <li>
-                          <span>
-                            <i className="far fa-comments" />
-                            <a href="#">Comment (5)</a>
-                          </span>
-                        </li>
-                      </ul>
+            {posts &&
+              posts.length > 0 &&
+              posts.map((post, index) => (
+                <div className="col-lg-4 col-md-6 col-sm-12" key={index}>
+                  <div className="blog-post-item-four mb-40 wow fadeInUp">
+                    <div className="post-thumbnail">
+                      <img src={post.cover} alt="Post Image" />
+                      <a
+                        href={`blog-details/${post._id}`}
+                        className="post-date"
+                      >
+                        {dayjs(post.createdAt).date()}{" "}
+                        <span>{dayjs(post.createdAt).format("MMM")}</span>
+                      </a>
                     </div>
-                    <h3 className="title">
-                      <Link legacyBehavior href="/blog-details">
-                        <a>Smashin Podcast Episode Ferdinande Web Dead</a>
-                      </Link>
-                    </h3>
-                    <p>
-                      Sed ut perspiciatis unde omnis iste natus error voluptatem
-                      accusantium doloremque laudantium
-                    </p>
-                  </div>
-                  <div className="read-more">
-                    <a href="#" className="main-btn bordered-btn">
-                      Read More
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="col-lg-4 col-md-6 col-sm-12">
-              <div className="blog-post-item-four mb-40 wow fadeInDown">
-                <div className="post-thumbnail">
-                  <img src="assets/images/blog/img-8.jpg" alt="Post Image" />
-                  <a href="#" className="post-date">
-                    25 <span>March</span>
-                  </a>
-                </div>
-                <div className="entry-content">
-                  <div className="content-inner">
-                    <div className="post-meta">
-                      <ul>
-                        <li>
-                          <span>
-                            <a href="#" className="cat-btn">
-                              Organic
-                            </a>
-                          </span>
-                        </li>
-                        <li>
-                          <span>
-                            <i className="far fa-comments" />
-                            <a href="#">Comment (5)</a>
-                          </span>
-                        </li>
-                      </ul>
+                    <div className="entry-content">
+                      <div className="content-inner">
+                        <div className="post-meta">
+                          <ul>
+                            <li>
+                              <span>
+                                <a href="#" className="cat-btn">
+                                  {post.TYPE.name}
+                                </a>
+                              </span>
+                            </li>
+                            <li>
+                              <span>
+                                <i className="far fa-comments" />
+                                <a href={`blog-details/${post._id}`}></a>
+                              </span>
+                            </li>
+                          </ul>
+                        </div>
+                        <h3 className="title">
+                          <Link
+                            legacyBehavior
+                            href={`blog-details/${post._id}`}
+                          >
+                            <a>{post.title}</a>
+                          </Link>
+                        </h3>
+                        <p>{post.subtitle}</p>
+                      </div>
+                      <div className="read-more">
+                        <a
+                          href={`blog-details/${post._id}`}
+                          className="main-btn bordered-btn"
+                        >
+                          Leer mas
+                        </a>
+                      </div>
                     </div>
-                    <h3 className="title">
-                      <Link legacyBehavior href="/blog-details">
-                        <a>Designing Better Links For Websites And Emails</a>
-                      </Link>
-                    </h3>
-                    <p>
-                      Sed ut perspiciatis unde omnis iste natus error voluptatem
-                      accusantium doloremque laudantium
-                    </p>
-                  </div>
-                  <div className="read-more">
-                    <a href="#" className="main-btn bordered-btn">
-                      Read More
-                    </a>
                   </div>
                 </div>
-              </div>
-            </div>
-            <div className="col-lg-4 col-md-6 col-sm-12">
-              <div className="blog-post-item-four mb-40 wow fadeInUp">
-                <div className="post-thumbnail">
-                  <img src="assets/images/blog/img-9.jpg" alt="Post Image" />
-                  <a href="#" className="post-date">
-                    25 <span>March</span>
-                  </a>
-                </div>
-                <div className="entry-content">
-                  <div className="content-inner">
-                    <div className="post-meta">
-                      <ul>
-                        <li>
-                          <span>
-                            <a href="#" className="cat-btn">
-                              Organic
-                            </a>
-                          </span>
-                        </li>
-                        <li>
-                          <span>
-                            <i className="far fa-comments" />
-                            <a href="#">Comment (5)</a>
-                          </span>
-                        </li>
-                      </ul>
-                    </div>
-                    <h3 className="title">
-                      <Link legacyBehavior href="/blog-details">
-                        <a>Front End Boiler Plate See And Starter KiSmashin</a>
-                      </Link>
-                    </h3>
-                    <p>
-                      Sed ut perspiciatis unde omnis iste natus error voluptatem
-                      accusantium doloremque laudantium
-                    </p>
-                  </div>
-                  <div className="read-more">
-                    <a href="#" className="main-btn bordered-btn">
-                      Read More
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </div>
+              ))}
           </div>
         </div>
       </section>

@@ -4,8 +4,10 @@ import Layout from "../src/layouts/Layout";
 import { ExampleService } from "../src/services";
 import { useEffect, useState } from "react";
 import BlogPostForm from "../src/components/BlogPostForm";
+import { useAppSelector } from "../store/hooks";
 
 const BlogStandard = () => {
+  const { user, isAuthenticated } = useAppSelector((state) => state.auth);
   const [posts, setPosts] = useState([]);
   useEffect(() => {
     ExampleService.getPosts()
@@ -23,7 +25,7 @@ const BlogStandard = () => {
       content: newPost.content,
       TYPE: newPost.TYPE,
       cover: newPost.cover,
-      postBy: "6923ab81b2ba638ca0edf051",
+      postBy: user._id,
     };
     ExampleService.createPost(payload)
       .then((data) => {
@@ -40,7 +42,12 @@ const BlogStandard = () => {
           <div className="row">
             {posts.length === 0 && <p>Cargando publicaciones...</p>}
             <div className="col-xl-8 col-lg-7">
-              <BlogPostForm onPublish={(payload) => handlePublish(payload)} />
+              {isAuthenticated && user._id && (
+                <BlogPostForm
+                  onPublish={(payload) => handlePublish(payload)}
+                  user={user}
+                />
+              )}
               <div className="blog-standard-wrapper">
                 {posts.length > 0 &&
                   posts.map((post) => (
@@ -229,7 +236,7 @@ const BlogStandard = () => {
                     </div>
                   </div>
                 </div>
-                <div className="widget recent-post-widget mb-40 wow fadeInUp">
+                {/* <div className="widget recent-post-widget mb-40 wow fadeInUp">
                   <h4 className="widget-title">Recent News</h4>
                   <ul className="recent-post-list">
                     <li className="post-thumbnail-content">
@@ -281,7 +288,7 @@ const BlogStandard = () => {
                       </div>
                     </li>
                   </ul>
-                </div>
+                </div> */}
                 <div className="widget tag-cloud-widget mb-40 wow fadeInUp">
                   <h4 className="widget-title">Popular Tags</h4>
                   <a href="#">Milk &amp; Meat</a>

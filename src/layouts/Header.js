@@ -4,6 +4,7 @@ import useWindowSize from "../useWindowSize";
 import { publicData, stickyNav } from "../utils";
 import MobileHeader from "./MobileHeader";
 import OffcanvasPanel from "./OffcanvasPanel";
+import { businessData } from "../data/business";
 
 const Header = ({ header }) => {
   useEffect(() => {
@@ -72,7 +73,7 @@ const Header1 = () => (
               <Link legacyBehavior href="/">
                 <a className="brand-logo">
                   <img
-                    src="/assets/images/logo/asoporkmag-logo.jpeg"
+                    src="/assets/images/logo/asoporkmag logo png_.png"
                     alt="Asoporkmag Logo"
                   />
                 </a>
@@ -316,11 +317,14 @@ const Header4 = ({ overlayPanel, togglePanel }) => (
         <div className="nav-overlay" />
         <div className="container-fluid">
           <div className="primary-menu">
+            <a className="c-pointer" onClick={() => togglePanel()}>
+              <img src="/assets/images/bar-2.png" alt="" />
+            </a>
             <div className="site-branding">
               <Link legacyBehavior href="/">
                 <a className="brand-logo">
                   <img
-                    src="/assets/images/logo/asoporkmag-logo.jpeg"
+                    src="/assets/images/logo/asoporkmag logo png_.png"
                     alt="Asoporkmag Logo"
                   />
                 </a>
@@ -333,9 +337,17 @@ const Header4 = ({ overlayPanel, togglePanel }) => (
             </div>
             <div className="nav-inner-menu">
               <div className="bar-item">
-                <a className="c-pointer" onClick={() => togglePanel()}>
+                <h4 className="asoporkmag-name">{businessData.businessName}</h4>
+                <span className="businessSlogan1">
+                  {businessData.businessSlogan1}
+                </span>
+                <br />
+                <span className="businessSlogan2">
+                  {businessData.businessSlogan2}
+                </span>
+                {/* <a className="c-pointer" onClick={() => togglePanel()}>
                   <img src="/assets/images/bar-2.png" alt="" />
-                </a>
+                </a> */}
               </div>
               <div className="nav-menu">
                 {/*=== Mobile Logo ===*/}
@@ -354,7 +366,7 @@ const Header4 = ({ overlayPanel, togglePanel }) => (
                   <span>
                     <i className="far fa-phone" />
                     <a href={`tel:${publicData.phoneNumber}`}>
-                      +57 (000) 000000
+                      {publicData.phoneNumber}
                     </a>
                   </span>
                 </div>
@@ -370,13 +382,29 @@ const Header4 = ({ overlayPanel, togglePanel }) => (
               </div>
               {/*=== Nav Right Item ===*/}
               <div className="nav-right-item d-flex align-items-center">
-                <div className="call-button">
-                  <span>
-                    <i className="far fa-phone" />
-                    <a href={`tel:${publicData.phoneNumber}`}>
-                      {publicData.phoneNumber}
-                    </a>
-                  </span>
+                <div className="social-box">
+                  <ul className="social-link">
+                    <li>
+                      <a href="#">
+                        <i className="fab fa-facebook-f" />
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#">
+                        <i className="fab fa-twitter" />
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#">
+                        <i className="fab fa-linkedin" />
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#">
+                        <i className="fab fa-youtube" />
+                      </a>
+                    </li>
+                  </ul>
                 </div>
                 <div className="navbar-toggler">
                   <span />
@@ -535,8 +563,13 @@ const Menu = () => (
         </ul>
       </li>
       <li className="menu-item has-children">
-        <a href="#">Servicios</a>
+        <a href="#">Productos y Servicios</a>
         <ul className="sub-menu">
+          <li>
+            <Link legacyBehavior href="/products">
+              Nuestros Productos
+            </Link>
+          </li>
           <li>
             <Link legacyBehavior href="/services">
               Nuestros servicios

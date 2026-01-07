@@ -3,9 +3,8 @@ import React, { useState, useRef, useCallback } from "react";
 import Image from "next/image";
 import { Editor } from "@tinymce/tinymce-react";
 import { UploadService } from "../services/uploadService";
-import { getDefaultHeadersWithAuth } from "../utils";
 
-export default function BlogPostForm({ onPublish }) {
+export default function BlogPostForm({ onPublish, user }) {
   const [title, setTitle] = useState("");
   const [subtitle, setSubtitle] = useState("");
   const [text, setText] = useState("");
@@ -52,7 +51,7 @@ export default function BlogPostForm({ onPublish }) {
     (async () => {
       try {
         console.log("📤 Uploading image from photo button...", file.name);
-        const imageUrl = await UploadService.uploadImage(file);
+        const imageUrl = await UploadService.uploadImage(file, "post");
         console.log("✅ Image uploaded:", imageUrl);
         setCover(imageUrl);
       } catch (error) {
@@ -160,6 +159,10 @@ export default function BlogPostForm({ onPublish }) {
               promotion: false,
             }}
           />
+
+          <div className="mt-3 flex items-left text-sm text-gray-500">
+            <p>Post By: {user.name}</p>
+          </div>
 
           <div className="mt-3 flex items-center justify-between text-sm text-gray-500">
             <div className="flex items-center gap-3">

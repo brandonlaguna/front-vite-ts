@@ -1553,7 +1553,7 @@ button {
 .navigation-three .site-branding .brand-logo {
   padding: 35px;
   max-width: 190px;
-  background-color: #eece38;
+  background-color: transparent;
   border-radius: 7px;
 }
 @media (max-width: 1199px) {
@@ -1638,7 +1638,7 @@ button {
   /* margin-top: -50px; */
 }
 .navigation-four .site-branding .brand-logo {
-  background-color: #eece38;
+  background-color: transparent;
   /* padding: 25px 35px; */
   max-width: 190px;
 }
@@ -1662,7 +1662,6 @@ button {
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
-  padding-left: 50px;
   -webkit-box-pack: end;
   -ms-flex-pack: end;
   justify-content: flex-end;
@@ -1672,6 +1671,21 @@ button {
   -webkit-box-flex: 1;
   -ms-flex-positive: 1;
   flex-grow: 1;
+  margin-left: -33px;
+  margin-bottom: -73px;
+  line-height: 14px;
+}
+
+.navigation-four .nav-inner-menu .bar-item h4 {
+ line-height:15px;
+}
+
+.navigation-four .nav-inner-menu .bar-item .businessSlogan1 {
+  margin-left: -9px;
+}
+
+.navigation-four .nav-inner-menu .bar-item .businessSlogan2 {
+  margin-left: -18px;
 }
 @media only screen and (min-width: 1200px) and (max-width: 1650px) {
   .navigation-four .nav-inner-menu {
@@ -7571,3 +7585,18 @@ button {
   z-index: -1;
 }
 /*# sourceMappingURL=style.css.map */
+.icon-rotate {
+  display: inline-block;
+  transition: transform 0.5s ease;
+}
+
+.icon-rotate.rotate {
+  transform: rotate(90deg);
+}
+
+.asoporkmag-name {
+  color: #eece38;
+  font-family: "Stardos Stencil", system-ui;
+  font-weight: 400;
+  font-style: normal;
+}
