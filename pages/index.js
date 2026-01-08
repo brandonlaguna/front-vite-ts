@@ -12,15 +12,57 @@ import {
   testimonialSliderFive,
 } from "../src/sliderProps";
 import { ExampleService } from "../src/services";
+import FormService from "../src/services/formService";
 import dayjs from "dayjs";
 import UsersService from "../src/services/usersService";
 import ProductsService from "../src/services/productsService";
 const Index = () => {
   const [active, setActive] = useState("collapse0");
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    message: "",
+  });
+  const [formLoading, setFormLoading] = useState(false);
+  const [formMessage, setFormMessage] = useState("");
 
   const [posts, setPosts] = useState([]);
   const [usersMembers, setUsersMembers] = useState([]);
   const [products, setProducts] = useState([]);
+
+  const handleFormChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prevState) => ({
+      ...prevState,
+      [name]: value,
+    }));
+  };
+
+  const handleFormSubmit = async (e) => {
+    e.preventDefault();
+    setFormLoading(true);
+    setFormMessage("");
+
+    try {
+      const response = await FormService.getInTouch(formData);
+      if (response && response.success) {
+        setFormMessage(
+          "¡Mensaje enviado exitosamente! Nos pondremos en contacto pronto."
+        );
+        setFormData({ name: "", email: "", message: "" });
+        setTimeout(() => setFormMessage(""), 5000);
+      } else {
+        setFormMessage(
+          "Error al enviar el mensaje. Por favor intenta de nuevo."
+        );
+      }
+    } catch (error) {
+      console.error("Error enviando formulario:", error);
+      setFormMessage("Error al enviar el mensaje. Por favor intenta de nuevo.");
+    } finally {
+      setFormLoading(false);
+    }
+  };
 
   useEffect(() => {
     ExampleService.getPosts({ limit: 6 })
@@ -63,16 +105,26 @@ const Index = () => {
               <div className="col-lg-7">
                 <div className="about-content-box content-box-gap pl-lg-60 pr-lg-70 mb-40 wow fadeInRight">
                   <div className="section-title section-title-left mb-35">
-                    <span className="sub-title">Nosotros</span>
+                    <span className="sub-title">Quiénes Somos</span>
                     <h2>
-                      Asociación Campesina de Porcicultores y Criadores de
-                      Especies Menores del Magdalena Medio
+                      Fortalecemos la Porcicultura y Especies Menores en el
+                      Magdalena Medio
                     </h2>
                   </div>
                   <p>
-                    16 años fortaleciendo la porcicultura y las especies menores
-                    en el Magdalena Medio, promoviendo el respeto por el medio
-                    ambiente a lo largo de la cadena productiva.
+                    ASOPORKMAG es una asociación campesina con 16 años de
+                    trayectoria que integra a porcicultores y criadores de
+                    especies menores del Distrito de Barrancabermeja y la Región
+                    del Magdalena Medio. Trabajamos bajo los principios de
+                    asociatividad y economía popular y comunitaria,
+                    fortaleciendo la productividad y sostenibilidad de las
+                    unidades productivas de nuestros afiliados.
+                  </p>
+                  <p style={{ marginTop: "15px" }}>
+                    Nuestro compromiso es articular oportunidades de negocio,
+                    representar los intereses gremiales de nuestros asociados y
+                    promover sistemas productivos sostenibles, rentables y
+                    competitivos, con respeto por el medio ambiente.
                   </p>
                   {/* <div className="avatar-box d-flex align-items-center">
                     <div className="thumb mr-20">
@@ -96,26 +148,31 @@ const Index = () => {
             <div className="row justify-content-center">
               <div className="col-xl-6 col-lg-10">
                 <div className="section-title text-center mb-50 wow fadeInDown">
-                  <span className="sub-title">Producimos</span>
-                  <h2>Que producimos para usted</h2>
+                  <span className="sub-title">Nuestra Oferta</span>
+                  <h2>Especies Menores de Calidad</h2>
+                  <p style={{ marginTop: "15px", fontSize: "14px" }}>
+                    Producción de porcinos, aves, ovinos y caprinos de alta
+                    calidad, generando ingresos sostenibles para nuestros
+                    productores
+                  </p>
                 </div>
               </div>
             </div>
             <div className="row justify-content-center">
-              {/* <div className="col-xl-3 col-lg-4 col-md-6 col-sm-12">
+              <div className="col-xl-3 col-lg-4 col-md-6 col-sm-12">
                 <div className="single-category-box text-center mb-40 wow fadeInUp">
                   <div className="icon">
-                    <img src="assets/images/icon/icon-13.png" alt="" />
+                    <img src="assets/images/icon/icon-15.png" alt="" />
                   </div>
                   <div className="text">
                     <h3 className="title">
                       <Link legacyBehavior href="/">
-                        <a>Fresh Cows Meat and Milks</a>
+                        <a>Patos</a>
                       </Link>
                     </h3>
                   </div>
                 </div>
-              </div> */}
+              </div>
               <div className="col-xl-3 col-lg-4 col-md-6 col-sm-12">
                 <div className="single-category-box text-center mb-40 wow fadeInDown">
                   <div className="icon">
@@ -130,36 +187,22 @@ const Index = () => {
                   </div>
                 </div>
               </div>
-              {/* <div className="col-xl-3 col-lg-4 col-md-6 col-sm-12">
+              <div className="col-xl-3 col-lg-4 col-md-6 col-sm-12">
                 <div className="single-category-box text-center mb-40 wow fadeInUp">
-                  <div className="icon">
-                    <img src="assets/images/icon/icon-15.png" alt="" />
-                  </div>
-                  <div className="text">
-                    <h3 className="title">
-                      <Link legacyBehavior href="/">
-                        <a>Fresh Duck Meat and Eggs</a>
-                      </Link>
-                    </h3>
-                  </div>
-                </div>
-              </div> */}
-              {/* <div className="col-xl-3 col-lg-4 col-md-6 col-sm-12">
-                <div className="single-category-box text-center mb-40 wow fadeInDown">
                   <div className="icon">
                     <img src="assets/images/icon/icon-16.png" alt="" />
                   </div>
                   <div className="text">
                     <h3 className="title">
                       <Link legacyBehavior href="/">
-                        <a>Fresh Sheep Meat and Milks</a>
+                        <a>Ovejas</a>
                       </Link>
                     </h3>
                   </div>
                 </div>
-              </div> */}
+              </div>
               <div className="col-xl-3 col-lg-4 col-md-6 col-sm-12">
-                <div className="single-category-box text-center mb-40 wow fadeInUp">
+                <div className="single-category-box text-center mb-40 wow fadeInDown">
                   <div className="icon">
                     <img src="assets/images/icon/icon-17.png" alt="" />
                   </div>
@@ -172,20 +215,6 @@ const Index = () => {
                   </div>
                 </div>
               </div>
-              {/* <div className="col-xl-3 col-lg-4 col-md-6 col-sm-12">
-                <div className="single-category-box text-center mb-40 wow fadeInDown">
-                  <div className="icon">
-                    <img src="assets/images/icon/icon-18.png" alt="" />
-                  </div>
-                  <div className="text">
-                    <h3 className="title">
-                      <Link legacyBehavior href="/">
-                        <a>Fresh Goat Meat and Milks</a>
-                      </Link>
-                    </h3>
-                  </div>
-                </div>
-              </div> */}
               <div className="col-xl-3 col-lg-4 col-md-6 col-sm-12">
                 <div className="single-category-box text-center mb-40 wow fadeInUp">
                   <div className="icon">
@@ -200,7 +229,7 @@ const Index = () => {
                   </div>
                 </div>
               </div>
-              {/* <div className="col-xl-3 col-lg-4 col-md-6 col-sm-12">
+              <div className="col-xl-3 col-lg-4 col-md-6 col-sm-12">
                 <div className="single-category-box text-center mb-40 wow fadeInDown">
                   <div className="icon">
                     <img src="assets/images/icon/icon-20.png" alt="" />
@@ -208,12 +237,12 @@ const Index = () => {
                   <div className="text">
                     <h3 className="title">
                       <Link legacyBehavior href="/">
-                        <a>Fresh Hen Meat and Eggs</a>
+                        <a>Gallinas</a>
                       </Link>
                     </h3>
                   </div>
                 </div>
-              </div> */}
+              </div>
             </div>
           </div>
         </div>
@@ -246,8 +275,12 @@ const Index = () => {
           <div className="row align-items-end">
             <div className="col-xl-6 col-lg-8">
               <div className="section-title mb-60 wow fadeInLeft">
-                <span className="sub-title">Nuestros miembros</span>
-                <h2></h2>
+                <span className="sub-title">Nuestro Talento</span>
+                <h2>Productores Asociados</h2>
+                <p style={{ marginTop: "15px", fontSize: "14px" }}>
+                  Conoce a los productores comprometidos con la calidad y
+                  sostenibilidad en el Magdalena Medio
+                </p>
               </div>
             </div>
             {/* <div className="col-xl-6 col-lg-4">
@@ -327,161 +360,260 @@ const Index = () => {
                           <a>{member.name}</a>
                         </Link>
                       </h3>
-                      <p className="position">Miembro</p>
+                      <p className="position">Asociado</p>
                     </div>
                   </div>
                 </div>
               ))
             ) : (
-              <p>0 Miembros</p>
+              <p>0 Asociados</p>
             )}
           </div>
         </div>
       </section>
       {/*====== End Team Section ======*/}
       {/*====== Start Project Section ======*/}
-      {/* <section className="project-section pt-90">
-        <div className="container-fluid">
+      <section className="project-section pt-130 pb-100">
+        <div className="container">
           <div className="row justify-content-center">
-            <div className="col-xl-5 col-lg-10">
-              <div className="section-title text-center mb-60 wow fadeInDown">
-                <span className="sub-title">Project Gallery</span>
-                <h2>
-                  We’ve Done Many Other Projects Let’s See Gallery Insights
-                </h2>
+            <div className="col-xl-6 col-lg-10">
+              <div className="section-title text-center mb-70 wow fadeInDown">
+                <span className="sub-title">Proyectos Estratégicos</span>
+                <h2>Portafolio de Proyectos ASOPORKMAG</h2>
+                <p style={{ marginTop: "15px", fontSize: "14px" }}>
+                  Iniciativas clave para fortalecer a nuestros productores y
+                  comunidades rurales
+                </p>
               </div>
             </div>
           </div>
-          <Slider {...projectsSliderThree} className="projects-slider-three">
-            <div className="project-item-four wow fadeInUp">
-              <div className="img-holder">
-                <img src="assets/images/portfolio/portfolio-1.jpg" alt="" />
-                <div className="hover-portfolio">
-                  <div className="icon-btn">
-                    <Link legacyBehavior href="/portfolio-details">
-                      <a>
-                        <i className="far fa-arrow-right" />
-                      </a>
-                    </Link>
-                  </div>
-                  <div className="hover-content">
-                    <h3 className="title">
-                      <Link legacyBehavior href="/portfolio-details">
-                        <a>Cow Eating Gress From Farms</a>
-                      </Link>
-                    </h3>
-                  </div>
+          <div className="row justify-content-center">
+            <div className="col-lg-4 col-md-6 col-sm-12 mb-50 wow fadeInUp">
+              <div className="service-item-four text-center h-100">
+                <div className="icon">
+                  <i
+                    className="fas fa-graduation-cap"
+                    style={{ fontSize: "40px" }}
+                  />
                 </div>
+                <h3 className="title">Fortalecimiento Técnico y Productivo</h3>
+                <p>
+                  Mejora de la productividad mediante formación, asistencia
+                  técnica en finca, tecnificación básica e implementación de
+                  registros productivos.
+                </p>
               </div>
             </div>
-            <div className="project-item-four wow fadeInDown">
-              <div className="img-holder">
-                <img src="assets/images/portfolio/portfolio-2.jpg" alt="" />
-                <div className="hover-portfolio">
-                  <div className="icon-btn">
-                    <Link legacyBehavior href="/portfolio-details">
-                      <a>
-                        <i className="far fa-arrow-right" />
-                      </a>
-                    </Link>
-                  </div>
-                  <div className="hover-content">
-                    <h3 className="title">
-                      <Link legacyBehavior href="/portfolio-details">
-                        <a>Cow Eating Gress From Farms</a>
-                      </Link>
-                    </h3>
-                  </div>
+            <div className="col-lg-4 col-md-6 col-sm-12 mb-50 wow fadeInDown">
+              <div className="service-item-four text-center h-100">
+                <div className="icon">
+                  <i
+                    className="fas fa-handshake"
+                    style={{ fontSize: "40px" }}
+                  />
                 </div>
+                <h3 className="title">Asociatividad y Economía Popular</h3>
+                <p>
+                  Fortalecimiento de la organización colectiva para beneficios
+                  de compras y ventas conjuntas con gobernanza interna.
+                </p>
               </div>
             </div>
-            <div className="project-item-four wow fadeInUp">
-              <div className="img-holder">
-                <img src="assets/images/portfolio/portfolio-3.jpg" alt="" />
-                <div className="hover-portfolio">
-                  <div className="icon-btn">
-                    <Link legacyBehavior href="/portfolio-details">
-                      <a>
-                        <i className="far fa-arrow-right" />
-                      </a>
-                    </Link>
-                  </div>
-                  <div className="hover-content">
-                    <h3 className="title">
-                      <Link legacyBehavior href="/portfolio-details">
-                        <a>Cow Eating Gress From Farms</a>
-                      </Link>
-                    </h3>
-                  </div>
+            <div className="col-lg-4 col-md-6 col-sm-12 mb-50 wow fadeInUp">
+              <div className="service-item-four text-center h-100">
+                <div className="icon">
+                  <i
+                    className="fas fa-exchange-alt"
+                    style={{ fontSize: "40px" }}
+                  />
                 </div>
+                <h3 className="title">Encadenamientos Productivos</h3>
+                <p>
+                  Inclusión en cadenas locales, regionales y nacionales con
+                  mejores condiciones comerciales y acuerdos de venta.
+                </p>
               </div>
             </div>
-            <div className="project-item-four wow fadeInDown">
-              <div className="img-holder">
-                <img src="assets/images/portfolio/portfolio-4.jpg" alt="" />
-                <div className="hover-portfolio">
-                  <div className="icon-btn">
-                    <Link legacyBehavior href="/portfolio-details">
-                      <a>
-                        <i className="far fa-arrow-right" />
-                      </a>
-                    </Link>
-                  </div>
-                  <div className="hover-content">
-                    <h3 className="title">
-                      <Link legacyBehavior href="/portfolio-details">
-                        <a>Cow Eating Gress From Farms</a>
-                      </Link>
-                    </h3>
-                  </div>
+            <div className="col-lg-4 col-md-6 col-sm-12 mb-50 wow fadeInDown">
+              <div className="service-item-four text-center h-100">
+                <div className="icon">
+                  <i
+                    className="fas fa-lightbulb"
+                    style={{ fontSize: "40px" }}
+                  />
                 </div>
+                <h3 className="title">Emprendimiento Rural</h3>
+                <p>
+                  Creación y consolidación de micronegocios agropecuarios con
+                  formación en modelo de negocio y acceso a finanzas rurales.
+                </p>
               </div>
             </div>
-            <div className="project-item-four wow fadeInUp">
-              <div className="img-holder">
-                <img src="assets/images/portfolio/portfolio-5.jpg" alt="" />
-                <div className="hover-portfolio">
-                  <div className="icon-btn">
-                    <Link legacyBehavior href="/portfolio-details">
-                      <a>
-                        <i className="far fa-arrow-right" />
-                      </a>
-                    </Link>
-                  </div>
-                  <div className="hover-content">
-                    <h3 className="title">
-                      <Link legacyBehavior href="/portfolio-details">
-                        <a>Cow Eating Gress From Farms</a>
-                      </Link>
-                    </h3>
-                  </div>
+            <div className="col-lg-4 col-md-6 col-sm-12 mb-50 wow fadeInUp">
+              <div className="service-item-four text-center h-100">
+                <div className="icon">
+                  <i className="fas fa-users" style={{ fontSize: "40px" }} />
                 </div>
+                <h3 className="title">Formación y Relevo Generacional</h3>
+                <p>
+                  Desarrollo del talento humano con énfasis en jóvenes y mujeres
+                  rurales, fortalecimiento de liderazgos y alianzas educativas.
+                </p>
               </div>
             </div>
-            <div className="project-item-four wow fadeInDown">
-              <div className="img-holder">
-                <img src="assets/images/portfolio/portfolio-3.jpg" alt="" />
-                <div className="hover-portfolio">
-                  <div className="icon-btn">
-                    <Link legacyBehavior href="/portfolio-details">
-                      <a>
-                        <i className="far fa-arrow-right" />
-                      </a>
-                    </Link>
-                  </div>
-                  <div className="hover-content">
-                    <h3 className="title">
-                      <Link legacyBehavior href="/portfolio-details">
-                        <a>Cow Eating Gress From Farms</a>
-                      </Link>
-                    </h3>
-                  </div>
+            <div className="col-lg-4 col-md-6 col-sm-12 mb-50 wow fadeInDown">
+              <div className="service-item-four text-center h-100">
+                <div className="icon">
+                  <i className="fas fa-leaf" style={{ fontSize: "40px" }} />
                 </div>
+                <h3 className="title">Sostenibilidad Ambiental</h3>
+                <p>
+                  Promoción de prácticas productivas sostenibles, bienestar
+                  animal y eficiencia en uso de recursos naturales.
+                </p>
               </div>
             </div>
-          </Slider>
+          </div>
         </div>
-      </section> */}
+      </section>
+      {/* <div className="container-fluid">
+        <div className="row justify-content-center">
+          <div className="col-xl-5 col-lg-10">
+            <div className="section-title text-center mb-60 wow fadeInDown">
+              <span className="sub-title">Project Gallery</span>
+              <h2>We’ve Done Many Other Projects Let’s See Gallery Insights</h2>
+            </div>
+          </div>
+        </div>
+        <Slider {...projectsSliderThree} className="projects-slider-three">
+          <div className="project-item-four wow fadeInUp">
+            <div className="img-holder">
+              <img src="assets/images/portfolio/portfolio-1.jpg" alt="" />
+              <div className="hover-portfolio">
+                <div className="icon-btn">
+                  <Link legacyBehavior href="/portfolio-details">
+                    <a>
+                      <i className="far fa-arrow-right" />
+                    </a>
+                  </Link>
+                </div>
+                <div className="hover-content">
+                  <h3 className="title">
+                    <Link legacyBehavior href="/portfolio-details">
+                      <a>Cow Eating Gress From Farms</a>
+                    </Link>
+                  </h3>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className="project-item-four wow fadeInDown">
+            <div className="img-holder">
+              <img src="assets/images/portfolio/portfolio-2.jpg" alt="" />
+              <div className="hover-portfolio">
+                <div className="icon-btn">
+                  <Link legacyBehavior href="/portfolio-details">
+                    <a>
+                      <i className="far fa-arrow-right" />
+                    </a>
+                  </Link>
+                </div>
+                <div className="hover-content">
+                  <h3 className="title">
+                    <Link legacyBehavior href="/portfolio-details">
+                      <a>Cow Eating Gress From Farms</a>
+                    </Link>
+                  </h3>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className="project-item-four wow fadeInUp">
+            <div className="img-holder">
+              <img src="assets/images/portfolio/portfolio-3.jpg" alt="" />
+              <div className="hover-portfolio">
+                <div className="icon-btn">
+                  <Link legacyBehavior href="/portfolio-details">
+                    <a>
+                      <i className="far fa-arrow-right" />
+                    </a>
+                  </Link>
+                </div>
+                <div className="hover-content">
+                  <h3 className="title">
+                    <Link legacyBehavior href="/portfolio-details">
+                      <a>Cow Eating Gress From Farms</a>
+                    </Link>
+                  </h3>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className="project-item-four wow fadeInDown">
+            <div className="img-holder">
+              <img src="assets/images/portfolio/portfolio-4.jpg" alt="" />
+              <div className="hover-portfolio">
+                <div className="icon-btn">
+                  <Link legacyBehavior href="/portfolio-details">
+                    <a>
+                      <i className="far fa-arrow-right" />
+                    </a>
+                  </Link>
+                </div>
+                <div className="hover-content">
+                  <h3 className="title">
+                    <Link legacyBehavior href="/portfolio-details">
+                      <a>Cow Eating Gress From Farms</a>
+                    </Link>
+                  </h3>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className="project-item-four wow fadeInUp">
+            <div className="img-holder">
+              <img src="assets/images/portfolio/portfolio-5.jpg" alt="" />
+              <div className="hover-portfolio">
+                <div className="icon-btn">
+                  <Link legacyBehavior href="/portfolio-details">
+                    <a>
+                      <i className="far fa-arrow-right" />
+                    </a>
+                  </Link>
+                </div>
+                <div className="hover-content">
+                  <h3 className="title">
+                    <Link legacyBehavior href="/portfolio-details">
+                      <a>Cow Eating Gress From Farms</a>
+                    </Link>
+                  </h3>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className="project-item-four wow fadeInDown">
+            <div className="img-holder">
+              <img src="assets/images/portfolio/portfolio-3.jpg" alt="" />
+              <div className="hover-portfolio">
+                <div className="icon-btn">
+                  <Link legacyBehavior href="/portfolio-details">
+                    <a>
+                      <i className="far fa-arrow-right" />
+                    </a>
+                  </Link>
+                </div>
+                <div className="hover-content">
+                  <h3 className="title">
+                    <Link legacyBehavior href="/portfolio-details">
+                      <a>Cow Eating Gress From Farms</a>
+                    </Link>
+                  </h3>
+                </div>
+              </div>
+            </div>
+          </div>
+        </Slider>
+      </div> */}
       {/*====== End Project Section ======*/}
       {/*====== Start Products Section ======*/}
       <section className="products-area pt-130 pb-170 p-r z-1">
@@ -497,7 +629,7 @@ const Index = () => {
               <div className="product-button float-lg-right wow fadeInRight mb-60">
                 <Link legacyBehavior href="/products">
                   <a className="main-btn bordered-btn bordered-yellow">
-                    View More Products
+                    Ver mas productos
                   </a>
                 </Link>
               </div>
@@ -567,12 +699,17 @@ const Index = () => {
               <div className="row">
                 <div className="col-lg-6">
                   <div className="cta-content-box wow fadeInDown">
-                    <span className="tag-line">contacto</span>
-                    <h2>Necesitas...</h2>
-                    <p>....</p>
+                    <span className="tag-line">Oportunidades</span>
+                    <h2>Únete a Nuestra Red de Productores</h2>
+                    <p>
+                      Somos el aliado estratégico de los productores que quieren
+                      crecer, formalizarse y competir en mercados de mayor
+                      valor, incorporando responsabilidad ambiental y respeto
+                      por el entorno.
+                    </p>
                     <Link legacyBehavior href="/farmers">
                       <a className="main-btn bordered-btn">
-                        Ponte en contacto con nosotros
+                        Conoce Nuestras Oportunidades
                       </a>
                     </Link>
                   </div>
@@ -650,40 +787,90 @@ const Index = () => {
             <div className="col-lg-5">
               <div className="contact-four_content-box wow fadeInLeft mb-50">
                 <div className="section-title section-title-white mb-60">
-                  <span className="sub-title"></span>
-                  <h2>Need Oragnic Foods! Send Us Message</h2>
+                  <span className="sub-title">Contacto</span>
+                  <h2>¡Conecta con ASOPORKMAG!</h2>
+                  <p style={{ marginTop: "15px", fontSize: "14px" }}>
+                    Comparte tus dudas, intereses o propuestas de negocio con
+                    nuestro equipo
+                  </p>
                 </div>
                 <div className="contact-form">
-                  <form onSubmit={(e) => e.preventDefault()}>
+                  <form onSubmit={handleFormSubmit} autoComplete="off">
                     <div className="form_group">
                       <input
                         type="text"
                         className="form_control"
-                        placeholder="Full Name"
+                        placeholder="Nombre Completo"
                         name="name"
-                        required=""
+                        value={formData.name}
+                        onChange={handleFormChange}
+                        required
+                        disabled={formLoading}
                       />
                     </div>
                     <div className="form_group">
                       <input
                         type="email"
                         className="form_control"
-                        placeholder="Email Address"
+                        placeholder="Dirección de Correo"
                         name="email"
-                        required=""
+                        value={formData.email}
+                        onChange={handleFormChange}
+                        required
+                        disabled={formLoading}
                       />
                     </div>
                     <div className="form_group">
                       <textarea
                         className="form_control"
-                        placeholder="Write Message"
+                        placeholder="Mensaje"
                         name="message"
-                        defaultValue={""}
+                        value={formData.message}
+                        onChange={handleFormChange}
+                        required
+                        disabled={formLoading}
                       />
                     </div>
+                    {formMessage && (
+                      <div
+                        className="form_group"
+                        style={{
+                          padding: "12px",
+                          borderRadius: "4px",
+                          backgroundColor:
+                            formMessage.includes("exitosamente") ||
+                            formMessage.includes("Error")
+                              ? formMessage.includes("exitosamente")
+                                ? "#d4edda"
+                                : "#f8d7da"
+                              : "#d4edda",
+                          color:
+                            formMessage.includes("exitosamente") ||
+                            formMessage.includes("Error")
+                              ? formMessage.includes("exitosamente")
+                                ? "#155724"
+                                : "#721c24"
+                              : "#155724",
+                          border:
+                            formMessage.includes("exitosamente") ||
+                            formMessage.includes("Error")
+                              ? formMessage.includes("exitosamente")
+                                ? "1px solid #c3e6cb"
+                                : "1px solid #f5c6cb"
+                              : "1px solid #c3e6cb",
+                          fontSize: "14px",
+                        }}
+                      >
+                        {formMessage}
+                      </div>
+                    )}
                     <div className="form_group">
-                      <button className="main-btn btn-yellow">
-                        Send Us Message
+                      <button
+                        type="submit"
+                        className="main-btn btn-yellow"
+                        disabled={formLoading}
+                      >
+                        {formLoading ? "Enviando..." : "Enviar mensaje"}
                       </button>
                     </div>
                   </form>
@@ -693,7 +880,12 @@ const Index = () => {
             <div className="col-lg-7">
               <div className="map-box_one ml-lg-70 wow fadeInRight">
                 <div className="map-box mb-50">
-                  <iframe src="https://maps.google.com/maps?q=new%20york&t=&z=13&ie=UTF8&iwloc=&output=embed" />
+                  <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d31676.55849591111!2d-73.87209457513963!3d7.059725498328798!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e42eca8af70acad%3A0xcfa9ac026f4a1cd6!2sBarrancabermeja%2C%20Santander!5e0!3m2!1ses!2sco!4v1767832199366!5m2!1ses!2sco"
+                    loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade"
+                  />
+                  {/* <iframe src="https://maps.google.com/maps?q=new%20york&t=&z=13&ie=UTF8&iwloc=&output=embed" /> */}
                 </div>
               </div>
             </div>
@@ -937,11 +1129,13 @@ const Index = () => {
           <div className="row justify-content-center">
             <div className="col-xl-6 col-lg-10">
               <div className="section-title text-center mb-60 wow fadeInDown">
-                <span className="sub-title">Últimas noticias &amp; Blogs</span>
-                <h2>
-                  Lea las últimas noticias &amp; el blog. Reciba todas las
-                  actualizaciones.
-                </h2>
+                <span className="sub-title">Actualidad</span>
+                <h2>Últimas Noticias, Eventos y Artículos de Interés</h2>
+                <p style={{ marginTop: "15px", fontSize: "14px" }}>
+                  Mantente informado sobre las novedades, oportunidades y
+                  desarrollos en la porcicultura y especies menores del
+                  Magdalena Medio
+                </p>
               </div>
             </div>
           </div>

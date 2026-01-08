@@ -17,7 +17,7 @@ const ScrollTop = () => {
       id="scroll-top"
       style={{ display: "inline-block" }}
     >
-      <i className="far fa-angle-up" />
+      <i className="fa fa-angle-up" />
     </a>
   );
 };

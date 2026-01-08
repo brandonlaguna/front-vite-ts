@@ -116,7 +116,10 @@ const Header1 = () => (
           <div className="site-branding">
             <Link legacyBehavior href="/">
               <a className="brand-logo">
-                <img src="/assets/images/logo/logo-1.png" alt="Site Logo" />
+                <img
+                  src="/assets/images/logo/asoporkmag-compressed-menu-logo.png"
+                  alt="Site Logo"
+                />
               </a>
             </Link>
           </div>
@@ -126,7 +129,10 @@ const Header1 = () => (
               <div className="mobile-logo mb-30 d-block d-xl-none text-center">
                 <Link legacyBehavior href="/">
                   <a className="brand-logo">
-                    <img src="/assets/images/logo/logo-1.png" alt="Site Logo" />
+                    <img
+                      src="/assets/images/logo/asoporkmag-compressed-menu-logo.png"
+                      alt="Site Logo"
+                    />
                   </a>
                 </Link>
               </div>
@@ -158,7 +164,10 @@ const Header2 = () => (
           <div className="site-branding">
             <Link legacyBehavior href="/">
               <a className="brand-logo">
-                <img src="/assets/images/logo/logo-1.png" alt="Site Logo" />
+                <img
+                  src="/assets/images/logo/asoporkmag-compressed-menu-logo.png"
+                  alt="Site Logo"
+                />
               </a>
             </Link>
           </div>
@@ -168,7 +177,10 @@ const Header2 = () => (
               <div className="mobile-logo mb-30 d-block d-xl-none text-center">
                 <Link legacyBehavior href="/">
                   <a className="brand-logo">
-                    <img src="/assets/images/logo/logo-1.png" alt="Site Logo" />
+                    <img
+                      src="/assets/images/logo/asoporkmag-compressed-menu-logo.png"
+                      alt="Site Logo"
+                    />
                   </a>
                 </Link>
               </div>
@@ -237,7 +249,10 @@ const Header3 = ({ overlayPanel, togglePanel }) => (
               </Link>
               <Link legacyBehavior href="/">
                 <a className="sticky-logo">
-                  <img src="/assets/images/logo/logo-1.png" alt="Site Logo" />
+                  <img
+                    src="/assets/images/logo/asoporkmag-compressed-menu-logo.png"
+                    alt="Site Logo"
+                  />
                 </a>
               </Link>
             </div>
@@ -250,7 +265,7 @@ const Header3 = ({ overlayPanel, togglePanel }) => (
                   <Link legacyBehavior href="/">
                     <a className="brand-logo">
                       <img
-                        src="/assets/images/logo/logo-1.png"
+                        src="/assets/images/logo/asoporkmag-compressed-menu-logo.png"
                         alt="Site Logo"
                       />
                     </a>
@@ -331,12 +346,21 @@ const Header4 = ({ overlayPanel, togglePanel }) => (
               </Link>
               <Link legacyBehavior href="/">
                 <a className="sticky-logo">
-                  <img src="/assets/images/logo/logo-1.png" alt="Site Logo" />
+                  <img
+                    src="/assets/images/logo/asoporkmag-compressed-menu-logo.png"
+                    alt="Site Logo"
+                  />
                 </a>
               </Link>
             </div>
             <div className="nav-inner-menu">
-              <div className="bar-item">
+              <div className="bar-item businessSloganInside displaynone">
+                <h4 className="asoporkmag-name">{businessData.businessName}</h4>
+                <span className="">{businessData.businessSlogan1}</span>
+                <br />
+                <span className="">{businessData.businessSlogan2}</span>
+              </div>
+              <div className="bar-item businessSloganOffside">
                 <h4 className="asoporkmag-name">{businessData.businessName}</h4>
                 <span className="businessSlogan1">
                   {businessData.businessSlogan1}
@@ -355,7 +379,7 @@ const Header4 = ({ overlayPanel, togglePanel }) => (
                   <Link legacyBehavior href="/">
                     <a className="brand-logo">
                       <img
-                        src="/assets/images/logo/logo-1.png"
+                        src="/assets/images/logo/asoporkmag-compressed-menu-logo.png"
                         alt="Site Logo"
                       />
                     </a>
@@ -485,7 +509,10 @@ const DefaultHeader = () => (
             </Link>
             <Link legacyBehavior href="/">
               <a className="sticky-logo">
-                <img src="/assets/images/logo/logo-1.png" alt="Site Logo" />
+                <img
+                  src="/assets/images/logo/asoporkmag-compressed-menu-logo.png"
+                  alt="Site Logo"
+                />
               </a>
             </Link>
           </div>
@@ -497,7 +524,10 @@ const DefaultHeader = () => (
               <div className="mobile-logo mb-30 d-block d-xl-none text-center">
                 <Link legacyBehavior href="/">
                   <a className="brand-logo">
-                    <img src="/assets/images/logo/logo-1.png" alt="Site Logo" />
+                    <img
+                      src="/assets/images/logo/asoporkmag-compressed-menu-logo.png"
+                      alt="Site Logo"
+                    />
                   </a>
                 </Link>
               </div>

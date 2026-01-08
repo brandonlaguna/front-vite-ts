@@ -1,4 +1,8 @@
 import Link from "next/link";
+import useForm from "../../hooks/useForm";
+import dayjs from "dayjs";
+import { businessData } from "../data/business";
+
 const Footer = ({ footer }) => {
   switch (footer) {
     case 3:
@@ -10,6 +14,61 @@ const Footer = ({ footer }) => {
   }
 };
 export default Footer;
+
+const SubscribeForm = () => {
+  const { formData, handleChange, subscribe, loading, message, error } =
+    useForm();
+  return (
+    <div className="newsletter-form">
+      <form
+        onSubmit={async (e) => {
+          e.preventDefault();
+          await subscribe();
+        }}
+      >
+        <div className="row">
+          <div className="col-lg-5">
+            <div className="form_group">
+              <input
+                type="email"
+                className="form_control"
+                placeholder="Correo electrónico"
+                name="email"
+                value={formData.email}
+                onChange={handleChange}
+                required
+                disabled={loading}
+              />
+            </div>
+          </div>
+          <div className="col-lg-4">
+            <div className="form_group">
+              <input
+                type="text"
+                className="form_control"
+                placeholder="Teléfono"
+                name="phone"
+                value={formData.phone}
+                onChange={handleChange}
+                required
+                disabled={loading}
+              />
+            </div>
+          </div>
+          <div className="col-lg-3">
+            <div className="form_group">
+              <button className="main-btn bordered-btn" disabled={loading}>
+                {loading ? "Enviando..." : "Suscribirme"}
+              </button>
+            </div>
+          </div>
+        </div>
+        {message && <div className="mt-3 text-success">{message}</div>}
+        {error && <div className="mt-3 text-danger">{error}</div>}
+      </form>
+    </div>
+  );
+};
 
 const DefaultFooter = () => (
   <footer className="footer-default footer-white dark-black-bg">
@@ -65,45 +124,11 @@ const DefaultFooter = () => (
         <div className="row">
           <div className="col-xl-3">
             <div className="footer-text">
-              <h5>Suscribete para recibir noticias de actualizaciones</h5>
+              <h5>Suscríbete para recibir actualizaciones profesionales</h5>
             </div>
           </div>
           <div className="col-xl-9">
-            <div className="newsletter-form">
-              <form onSubmit={(e) => e.preventDefault()}>
-                <div className="row">
-                  <div className="col-lg-5">
-                    <div className="form_group">
-                      <input
-                        type="email"
-                        className="form_control"
-                        placeholder="Email Address"
-                        name="email"
-                        required=""
-                      />
-                    </div>
-                  </div>
-                  <div className="col-lg-4">
-                    <div className="form_group">
-                      <input
-                        type="text"
-                        className="form_control"
-                        placeholder="Phone"
-                        name="phone"
-                        required=""
-                      />
-                    </div>
-                  </div>
-                  <div className="col-lg-3">
-                    <div className="form_group">
-                      <button className="main-btn btn-yellow">
-                        Subscribe Now
-                      </button>
-                    </div>
-                  </div>
-                </div>
-              </form>
-            </div>
+            <SubscribeForm />
           </div>
         </div>
       </div>
@@ -128,45 +153,11 @@ const Footer3 = () => (
         <div className="row">
           <div className="col-xl-3">
             <div className="footer-text">
-              <h5>Subscrive Our Newsletter To Get More Updates</h5>
+              <h5>Suscríbete para recibir actualizaciones profesionales</h5>
             </div>
           </div>
           <div className="col-xl-9">
-            <div className="newsletter-form">
-              <form onSubmit={(e) => e.preventDefault()}>
-                <div className="row">
-                  <div className="col-lg-5">
-                    <div className="form_group">
-                      <input
-                        type="email"
-                        className="form_control"
-                        placeholder="Email Address"
-                        name="email"
-                        required=""
-                      />
-                    </div>
-                  </div>
-                  <div className="col-lg-4">
-                    <div className="form_group">
-                      <input
-                        type="text"
-                        className="form_control"
-                        placeholder="Phone"
-                        name="phone"
-                        required=""
-                      />
-                    </div>
-                  </div>
-                  <div className="col-lg-3">
-                    <div className="form_group">
-                      <button className="main-btn bordered-btn">
-                        Subscribe Now
-                      </button>
-                    </div>
-                  </div>
-                </div>
-              </form>
-            </div>
+            <SubscribeForm />
           </div>
         </div>
       </div>
@@ -184,69 +175,39 @@ const Footer3 = () => (
   </footer>
 );
 
-const Footer4 = () => (
-  <footer className="footer-default footer-white dark-black-bg">
-    <div className="container">
-      <div className="footer-newsletter footer-newsletter-two yellow-bg">
-        <div className="row">
-          <div className="col-xl-3">
-            <div className="footer-text">
-              <h5>Subscrive Our Newsletter To Get More Updates</h5>
+const Footer4 = () => {
+  return (
+    <footer className="footer-default footer-white dark-black-bg">
+      <div className="container">
+        <div className="footer-newsletter footer-newsletter-two yellow-bg">
+          <div className="row">
+            <div className="col-xl-3">
+              <div className="footer-text">
+                <h5>Suscribete a Noticias Importantes</h5>
+              </div>
+            </div>
+            <div className="col-xl-9">
+              <SubscribeForm />
             </div>
           </div>
-          <div className="col-xl-9">
-            <div className="newsletter-form">
-              <form onSubmit={(e) => e.preventDefault()}>
-                <div className="row">
-                  <div className="col-lg-5">
-                    <div className="form_group">
-                      <input
-                        type="email"
-                        className="form_control"
-                        placeholder="Email Address"
-                        name="email"
-                        required=""
-                      />
-                    </div>
-                  </div>
-                  <div className="col-lg-4">
-                    <div className="form_group">
-                      <input
-                        type="text"
-                        className="form_control"
-                        placeholder="Phone"
-                        name="phone"
-                        required=""
-                      />
-                    </div>
-                  </div>
-                  <div className="col-lg-3">
-                    <div className="form_group">
-                      <button className="main-btn bordered-btn">
-                        Subscribe Now
-                      </button>
-                    </div>
-                  </div>
-                </div>
-              </form>
+        </div>
+        <div className="footer-widget pb-25">
+          <FooterMenu />
+        </div>
+        <div className="footer-copyright border-top-white-1">
+          <div className="col-lg-12">
+            <div className="copyright-text text-center">
+              <p>
+                © {dayjs().format("YYYY")} {businessData.businessName} Todos los
+                Derechos Reservados
+              </p>
             </div>
           </div>
         </div>
       </div>
-      <div className="footer-widget pb-25">
-        <FooterMenu />
-      </div>
-      <div className="footer-copyright border-top-white-1">
-        <div className="col-lg-12">
-          <div className="copyright-text text-center">
-            <p>© 2022 Orgrarium. All Rights Reserved</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </footer>
-);
-
+    </footer>
+  );
+};
 const FooterMenu = () => (
   <div className="row">
     <div className="col-xl-4 col-lg-4 col-md-5 col-sm-12">
@@ -267,7 +228,7 @@ const FooterMenu = () => (
             largo de la cadena productiva.
           </p>
           <div className="social-box">
-            <h4 className="mb-15">Follow On</h4>
+            <h4 className="mb-15">Siguenos</h4>
             <ul className="social-link">
               <li>
                 <a href="#">
@@ -330,18 +291,18 @@ const FooterMenu = () => (
             <div className="post-title-date">
               <h3 className="title">
                 <Link legacyBehavior href="/blog-details">
-                  <a>Advent Calendars For Web Designers</a>
-                </Link>
-              </h3>
-              <span className="posted-on">
-                <i className="fas fa-calendar-alt" />
-                <a href="#">25 March 2022</a>
-              </span>
+                                  <input
+                                    type="email"
+                                    className="form_control"
+                                    placeholder="Email Address"
+                                    name="email"
+                                    required=""
+                                  />
             </div>
           </li>
         </ul> */}
         <Link legacyBehavior href="/blog-standard">
-          <a className="more-btn">View More News</a>
+          <a className="more-btn">Ver mas noticias</a>
         </Link>
       </div>
     </div>

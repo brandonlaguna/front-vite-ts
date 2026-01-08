@@ -6,7 +6,7 @@ import Layout from "../src/layouts/Layout";
 import { testimonialSliderThree } from "../src/sliderProps";
 const Farmers = () => {
   return (
-    <Layout>
+    <Layout header={4}>
       <PageBanner pageName={"Farmers"} />
       <section className="farmers-team_page pt-170 pb-130">
         <div className="container">

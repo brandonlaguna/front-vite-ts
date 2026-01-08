@@ -38,6 +38,34 @@ export const stickyNav = () => {
         }
       }
     }
+
+    const businessSloganOffside = document.querySelectorAll(
+      ".businessSloganOffside"
+    );
+    for (let t = 0; t < businessSloganOffside.length; t++) {
+      const slogan = businessSloganOffside[t];
+      if (slogan) {
+        if (offset > 10) {
+          slogan?.classList?.add("displaynone");
+        } else {
+          slogan?.classList?.remove("displaynone");
+        }
+      }
+    }
+
+    const businessSloganInside = document.querySelectorAll(
+      ".businessSloganInside"
+    );
+    for (let t = 0; t < businessSloganInside.length; t++) {
+      const slogan = businessSloganInside[t];
+      if (slogan) {
+        if (offset > 10) {
+          slogan?.classList?.remove("displaynone");
+        } else {
+          slogan?.classList?.add("displaynone");
+        }
+      }
+    }
   });
 };
 

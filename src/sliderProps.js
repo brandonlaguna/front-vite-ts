@@ -184,7 +184,7 @@ export const heroSliderTwo = {
   dots: true,
   arrows: false,
   infinite: true,
-  speed: 600,
+  speed: 2000,
   fade: true,
   autoplay: true,
   cssEase: "cubic-bezier(0.7, 0, 0.3, 1)",
