@@ -13,100 +13,85 @@ const Services = () => {
           <div className="row align-items-center">
             <div className="col-lg-6">
               <div className="section-title section-title-left mb-50 wow fadeInLeft">
-                <span className="sub-title">Healthy Foods</span>
-                <h2>What We Provide For Your Better Health</h2>
+                <span className="sub-title">Nuestros Servicios</span>
+                <h2>Qué Ofrecemos a Nuestros Afiliados</h2>
               </div>
             </div>
             <div className="col-lg-6 mb-50">
               <p className="wow fadeInRight">
-                Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-                accusantium doloremque laudantium totam rem aperiam eaque
-                inventore veritatis quasi architecto beatae vitae dicta suntexpc
-                Nemo enim ipsam voluptatem quia voluptas sit aspernatur audit
-                aut fugit sed quia consequuntur magni dolores
+                En ASOPORKMAG ofrecemos un programa integral de fortalecimiento
+                técnico y productivo diseñado para mejorar la competitividad y
+                sostenibilidad de tus unidades productivas. Contamos con
+                profesionales especializados y alianzas estratégicas para
+                proporcionar acompañamiento continuo y soluciones adaptadas a tu
+                contexto.
               </p>
             </div>
           </div>
           <div className="row">
-            <div className="col-xl-2 col-lg-4 col-md-4 col-sm-12">
+            <div className="col-xl-3 col-lg-4 col-md-6 col-sm-12">
               <div className="service-box text-center mb-70 wow fadeInUp">
                 <div className="icon">
-                  <i className="flaticon-wheat-sack" />
+                  <i
+                    className="fas fa-graduation-cap"
+                    style={{ fontSize: "40px", color: "#FDC72F" }}
+                  />
                 </div>
                 <div className="text">
                   <h3 className="title">
                     <Link legacyBehavior href="/service-details">
-                      <a>Fresh Wheat Sack Food</a>
+                      <a>Capacitación en Buenas Prácticas</a>
                     </Link>
                   </h3>
                 </div>
               </div>
             </div>
-            <div className="col-xl-2 col-lg-4 col-md-4 col-sm-12">
+            <div className="col-xl-3 col-lg-4 col-md-6 col-sm-12">
               <div className="service-box text-center mb-70 wow fadeInDown">
                 <div className="icon">
-                  <i className="flaticon-grape" />
+                  <i
+                    className="fas fa-tools"
+                    style={{ fontSize: "40px", color: "#FDC72F" }}
+                  />
                 </div>
                 <div className="text">
                   <h3 className="title">
                     <Link legacyBehavior href="/service-details">
-                      <a>Organic Fresh Fruits</a>
+                      <a>Asistencia Técnica en Finca</a>
                     </Link>
                   </h3>
                 </div>
               </div>
             </div>
-            <div className="col-xl-2 col-lg-4 col-md-4 col-sm-12">
+            <div className="col-xl-3 col-lg-4 col-md-6 col-sm-12">
               <div className="service-box text-center mb-70 wow fadeInUp">
                 <div className="icon">
-                  <i className="flaticon-cow" />
+                  <i
+                    className="fas fa-building"
+                    style={{ fontSize: "40px", color: "#FDC72F" }}
+                  />
                 </div>
                 <div className="text">
                   <h3 className="title">
                     <Link legacyBehavior href="/service-details">
-                      <a>Cows Meat and Milk</a>
+                      <a>Tecnificación Básica</a>
                     </Link>
                   </h3>
                 </div>
               </div>
             </div>
-            <div className="col-xl-2 col-lg-4 col-md-4 col-sm-12">
+            <div className="col-xl-3 col-lg-4 col-md-6 col-sm-12">
               <div className="service-box text-center mb-70 wow fadeInDown">
                 <div className="icon">
-                  <i className="flaticon-fish" />
+                  <i
+                    className="fas fa-chart-bar"
+                    style={{ fontSize: "40px", color: "#FDC72F" }}
+                  />
                 </div>
                 <div className="text">
                   <h3 className="title">
                     <Link legacyBehavior href="/service-details">
-                      <a>Fresh Pond &amp; Sea Fish</a>
-                    </Link>
-                  </h3>
-                </div>
-              </div>
-            </div>
-            <div className="col-xl-2 col-lg-4 col-md-4 col-sm-12">
-              <div className="service-box text-center mb-70 wow fadeInUp">
-                <div className="icon">
-                  <i className="flaticon-healthy-food" />
-                </div>
-                <div className="text">
-                  <h3 className="title">
-                    <Link legacyBehavior href="/service-details">
-                      <a>Fresh Organic Vegetable</a>
-                    </Link>
-                  </h3>
-                </div>
-              </div>
-            </div>
-            <div className="col-xl-2 col-lg-4 col-md-4 col-sm-12">
-              <div className="service-box text-center mb-70 wow fadeInDown">
-                <div className="icon">
-                  <i className="flaticon-planet-earth" />
-                </div>
-                <div className="text">
-                  <h3 className="title">
-                    <Link legacyBehavior href="/service-details">
-                      <a>Planet Earth Safety</a>
+                      <a>Registros Productivos</a>
                     </Link>
                   </h3>
                 </div>
@@ -128,42 +113,45 @@ const Services = () => {
                 <div className="col-lg-7">
                   <div className="skill-two_content-box content-box-gap mb-40 wow fadeInUp">
                     <div className="section-title section-title-left mb-30">
-                      <span className="sub-title">Experience</span>
-                      <h2>We’re Best Agriculture &amp; Organic Firms</h2>
+                      <span className="sub-title">Experiencia</span>
+                      <h2>
+                        16 años Fortaleciendo la Porcicultura y Especies Menores
+                      </h2>
                     </div>
                     <p>
-                      Natus error sit voluptatem accusantium doloremque
-                      laudatium, totam rem aperiam, eaque ipsa quae ab illo
-                      inventore veritatis et quasi architecto beatae vitae dicta
-                      sunt
+                      Con más de una década y media de trayectoria, ASOPORKMAG
+                      ha consolidado un programa integral de fortalecimiento que
+                      abarca desde capacitación técnica hasta asistencia directa
+                      en fincas, con resultados comprobados en productividad,
+                      sostenibilidad y acceso a mercados de mayor valor.
                     </p>
                     <div className="skill-bar">
                       <div className="skill-title">
                         <h5>
-                          Organic Products<span>75%</span>
+                          Productores Capacitados<span>85%</span>
                         </h5>
                       </div>
                       <div
                         className="progress-bar wow slideInLeft"
-                        style={{ width: "75%" }}
+                        style={{ width: "85%" }}
                       />
                       <div className="progress" />
                     </div>
                     <div className="skill-bar">
                       <div className="skill-title">
                         <h5>
-                          Healthy Foods<span>89%</span>
+                          Mejora Productividad<span>78%</span>
                         </h5>
                       </div>
                       <div
                         className="progress-bar wow slideInLeft"
-                        style={{ width: "89%" }}
+                        style={{ width: "78%" }}
                       />
                       <div className="progress" />
                     </div>
                     <div className="skill-button">
                       <Link legacyBehavior href="/about">
-                        <a className="main-btn bordered-btn">Learn More Us</a>
+                        <a className="main-btn bordered-btn">Conocer Más</a>
                       </Link>
                     </div>
                   </div>
@@ -180,8 +168,8 @@ const Services = () => {
           <div className="row justify-content-center">
             <div className="col-xl-8 col-lg-10">
               <div className="section-title text-center mb-50 wow fadeInDown">
-                <span className="sub-title">Popular Services</span>
-                <h2>We Provide Organice Food Services to Get Better Health</h2>
+                <span className="sub-title">Servicios Populares</span>
+                <h2>Líneas de Acción del Programa de Fortalecimiento</h2>
               </div>
             </div>
           </div>
@@ -189,41 +177,59 @@ const Services = () => {
             <div className="col-lg-4">
               <div className="single-service-item mb-50 wow fadeInUp">
                 <div className="icon">
-                  <img src="assets/images/icon/icon-1.png" alt="Icon" />
+                  <i
+                    className="fas fa-chalkboard-user"
+                    style={{ fontSize: "40px", color: "#FDC72F" }}
+                  />
                 </div>
                 <div className="text">
                   <h3>
                     <Link legacyBehavior href="/service-details">
-                      <a>Fresh Avocado</a>
+                      <a>Jornadas Presenciales y Virtuales</a>
                     </Link>
                   </h3>
-                  <p>Natus error sit volupt ateme accus antium dolores</p>
+                  <p>
+                    Talleres de formación en buenas prácticas pecuarias, manejo
+                    sanitario y modelos de negocio
+                  </p>
                 </div>
               </div>
               <div className="single-service-item mb-50 wow fadeInDown">
                 <div className="icon">
-                  <img src="assets/images/icon/icon-2.png" alt="Icon" />
+                  <i
+                    className="fas fa-clipboard-check"
+                    style={{ fontSize: "40px", color: "#FDC72F" }}
+                  />
                 </div>
                 <div className="text">
                   <h3>
                     <Link legacyBehavior href="/service-details">
-                      <a>Organic Carrot</a>
+                      <a>Diagnósticos Productivos</a>
                     </Link>
                   </h3>
-                  <p>Natus error sit volupt ateme accus antium dolores</p>
+                  <p>
+                    Evaluación integral de tu unidad productiva y análisis de
+                    oportunidades de mejora
+                  </p>
                 </div>
               </div>
               <div className="single-service-item mb-50 wow fadeInUp">
                 <div className="icon">
-                  <img src="assets/images/icon/icon-3.png" alt="Icon" />
+                  <i
+                    className="fas fa-file-contract"
+                    style={{ fontSize: "40px", color: "#FDC72F" }}
+                  />
                 </div>
                 <div className="text">
                   <h3>
                     <Link legacyBehavior href="/service-details">
-                      <a>Organic Carrot</a>
+                      <a>Planes de Mejora Personalizados</a>
                     </Link>
                   </h3>
-                  <p>Natus error sit volupt ateme accus antium dolores</p>
+                  <p>
+                    Planes a medida con metas específicas adaptadas a tu
+                    contexto y capacidades
+                  </p>
                 </div>
               </div>
             </div>
@@ -238,41 +244,59 @@ const Services = () => {
             <div className="col-lg-4">
               <div className="single-service-item mb-50 card-rtl wow fadeInDown">
                 <div className="icon">
-                  <img src="assets/images/icon/icon-4.png" alt="Icon" />
+                  <i
+                    className="fas fa-tractor"
+                    style={{ fontSize: "40px", color: "#FDC72F" }}
+                  />
                 </div>
                 <div className="text">
                   <h3>
                     <Link legacyBehavior href="/service-details">
-                      <a>Organic Corn</a>
+                      <a>Visitas Técnicas en Finca</a>
                     </Link>
                   </h3>
-                  <p>Natus error sit volupt ateme accus antium dolores</p>
+                  <p>
+                    Acompañamiento directo de profesionales especializados en tu
+                    unidad productiva
+                  </p>
                 </div>
               </div>
               <div className="single-service-item mb-50 card-rtl wow fadeInUp">
                 <div className="icon">
-                  <img src="assets/images/icon/icon-5.png" alt="Icon" />
+                  <i
+                    className="fas fa-chart-line"
+                    style={{ fontSize: "40px", color: "#FDC72F" }}
+                  />
                 </div>
                 <div className="text">
                   <h3>
                     <Link legacyBehavior href="/service-details">
-                      <a>Milk and Meats</a>
+                      <a>Registros Económicos</a>
                     </Link>
                   </h3>
-                  <p>Natus error sit volupt ateme accus antium dolores</p>
+                  <p>
+                    Herramientas simples para medir costos, márgenes y tomar
+                    decisiones informadas
+                  </p>
                 </div>
               </div>
               <div className="single-service-item mb-50 card-rtl wow fadeInDown">
                 <div className="icon">
-                  <img src="assets/images/icon/icon-6.png" alt="Icon" />
+                  <i
+                    className="fas fa-lightbulb"
+                    style={{ fontSize: "40px", color: "#FDC72F" }}
+                  />
                 </div>
                 <div className="text">
                   <h3>
                     <Link legacyBehavior href="/service-details">
-                      <a>Fresh Dragon Fruit</a>
+                      <a>Material Didáctico Adaptado</a>
                     </Link>
                   </h3>
-                  <p>Natus error sit volupt ateme accus antium dolores</p>
+                  <p>
+                    Recursos educativos contextualizados al Magdalena Medio y
+                    especies menores
+                  </p>
                 </div>
               </div>
             </div>
@@ -287,7 +311,7 @@ const Services = () => {
             <div className="row justify-content-center">
               <div className="col-lg-6">
                 <div className="section-title text-center mb-30 wow fadeInUp">
-                  <h4>We Have More Then 1235+ Global Partners</h4>
+                  <h4>Nuestros Aliados Estratégicos en el Magdalena Medio</h4>
                 </div>
               </div>
             </div>
@@ -357,7 +381,7 @@ const Services = () => {
       </section>{" "}
       {/*====== End Partners Section ======*/}
       {/*====== Start Portfolio Section ======*/}
-      <section className="projects-section pt-130">
+      {/* <section className="projects-section pt-130">
         <div className="container-fluid">
           <div className="row justify-content-center">
             <div className="col-xl-6 col-lg-10">
@@ -429,14 +453,14 @@ const Services = () => {
             </div>
           </Slider>
         </div>
-      </section>
+      </section> */}
       {/*====== End Portfolio Section ======*/}
       {/*====== Start Testimonial Section ======*/}
-      <section className="testimonial-three pt-130 pb-130">
+      {/* <section className="testimonial-three pt-130 pb-130">
         <div className="container">
           <TestimonialSlider />
         </div>
-      </section>
+      </section> */}
     </Layout>
   );
 };

@@ -2,7 +2,6 @@ import Link from "next/link";
 import Slider from "react-slick";
 import OrgariumCounter from "../src/components/OrgariumCounter";
 import PageBanner from "../src/components/PageBanner";
-import ProgressBar from "../src/components/ProgressBar";
 import Layout from "../src/layouts/Layout";
 import { logoSlider } from "../src/sliderProps";
 const About = () => {
@@ -101,45 +100,491 @@ const About = () => {
         </div>
       </section>
       {/*====== End About Section ======*/}
-      {/*====== Start Why choose Section ======*/}
-      <section className="why-choose-two p-r z-1 pt-50 pb-90">
+      {/*====== Start Mission Vision Section ======*/}
+      <section className="mission-vision-section p-r z-1 pt-130 pb-100 dark-black-bg">
         <div className="container">
-          <div className="row align-items-center">
-            <div className="col-xl-5 col-lg-12">
-              <div className="choose-two_content-box">
-                <div className="section-title section-title-left mb-40 wow fadeInLeft">
-                  <span className="sub-title">Por que elegirnos</span>
-                  <h4>
-                    Portafolio institucional, participación gremial y proyecto
-                    estratégico de fortalecimiento técnico y productivo
-                  </h4>
+          <div className="row justify-content-center mb-60">
+            <div className="col-xl-6 col-lg-10">
+              <div className="section-title text-center wow fadeInDown">
+                <span className="sub-title white-text">Nuestra dirección</span>
+                <h2 className="white-text">Misión y Visión</h2>
+              </div>
+            </div>
+          </div>
+          <div className="row justify-content-center">
+            <div className="col-lg-6 col-md-12 mb-50 wow fadeInLeft">
+              <div
+                className="mission-box p-50"
+                style={{
+                  backgroundColor: "#1a1a1a",
+                  borderRadius: "8px",
+                  border: "1px solid #FDC72F",
+                  minHeight: "350px",
+                  display: "flex",
+                  flexDirection: "column",
+                  justifyContent: "center",
+                }}
+              >
+                <div className="icon mb-30" style={{ textAlign: "center" }}>
+                  <i
+                    className="fas fa-bullseye"
+                    style={{ fontSize: "45px", color: "#FDC72F" }}
+                  />
+                </div>
+                <h3
+                  className="title mb-20"
+                  style={{ color: "#fff", textAlign: "center" }}
+                >
+                  Misión
+                </h3>
+                <p
+                  style={{ color: "#ccc", lineHeight: "1.8", fontSize: "14px" }}
+                >
+                  En ASOPORKMAG reunimos y fortalecemos a los productores
+                  porcinos y de otras especies menores del Distrito de
+                  Barrancabermeja y la Región del Magdalena Medio, a través de
+                  la asociatividad, la capacitación, la asistencia técnica, la
+                  representación gremial y la gestión de proyectos, para
+                  impulsar sistemas productivos sostenibles, rentables y
+                  competitivos, basados en la economía popular y comunitaria y
+                  con un enfoque de respeto por el medio ambiente.
+                </p>
+              </div>
+            </div>
+            <div className="col-lg-6 col-md-12 mb-50 wow fadeInRight">
+              <div
+                className="vision-box p-50"
+                style={{
+                  backgroundColor: "#1a1a1a",
+                  borderRadius: "8px",
+                  border: "1px solid #FDC72F",
+                  minHeight: "350px",
+                  display: "flex",
+                  flexDirection: "column",
+                  justifyContent: "center",
+                }}
+              >
+                <div className="icon mb-30" style={{ textAlign: "center" }}>
+                  <i
+                    className="fas fa-eye"
+                    style={{ fontSize: "45px", color: "#FDC72F" }}
+                  />
+                </div>
+                <h3
+                  className="title mb-20"
+                  style={{ color: "#fff", textAlign: "center" }}
+                >
+                  Visión
+                </h3>
+                <p
+                  style={{ color: "#ccc", lineHeight: "1.8", fontSize: "14px" }}
+                >
+                  Ser la asociación campesina de porcicultores y criadores de
+                  especies menores líder en el Magdalena Medio, reconocida por
+                  articular la economía popular y comunitaria con mercados de
+                  alto valor, generando ingresos sostenibles, competitividad y
+                  mejor calidad de vida para nuestros afiliados y sus familias,
+                  en armonía con el entorno.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      {/*====== End Mission Vision Section ======*/}
+      {/*====== Start Strategic Objectives Section ======*/}
+      <section className="strategic-objectives pt-130 pb-100 p-r z-1">
+        <div className="container">
+          <div className="row justify-content-center">
+            <div className="col-xl-6 col-lg-10">
+              <div className="section-title text-center mb-70 wow fadeInDown">
+                <span className="sub-title">Estrategia</span>
+                <h2>Objetivos Estratégicos</h2>
+              </div>
+            </div>
+          </div>
+          <div className="row justify-content-center">
+            <div className="col-lg-3 col-md-6 col-sm-12 mb-50 wow fadeInUp">
+              <div className="service-item-four text-center h-100">
+                <div className="icon">
+                  <i
+                    className="fas fa-star"
+                    style={{ fontSize: "40px", color: "#FDC72F" }}
+                  />
+                </div>
+                <h3 className="title">Posicionamiento</h3>
+                <p>
+                  Posicionar a ASOPORKMAG como aliado estratégico en el
+                  Magdalena Medio para productores de especies menores.
+                </p>
+              </div>
+            </div>
+            <div className="col-lg-3 col-md-6 col-sm-12 mb-50 wow fadeInDown">
+              <div className="service-item-four text-center h-100">
+                <div className="icon">
+                  <i
+                    className="fas fa-tractor"
+                    style={{ fontSize: "40px", color: "#FDC72F" }}
+                  />
+                </div>
+                <h3 className="title">Fortalecimiento</h3>
+                <p>
+                  Fortalecer la productividad y calidad de las unidades
+                  productivas de nuestros afiliados.
+                </p>
+              </div>
+            </div>
+            <div className="col-lg-3 col-md-6 col-sm-12 mb-50 wow fadeInUp">
+              <div className="service-item-four text-center h-100">
+                <div className="icon">
+                  <i
+                    className="fas fa-store"
+                    style={{ fontSize: "40px", color: "#FDC72F" }}
+                  />
+                </div>
+                <h3 className="title">Mercados</h3>
+                <p>
+                  Ampliar el acceso a mercados formales y encadenamientos
+                  productivos de valor.
+                </p>
+              </div>
+            </div>
+            <div className="col-lg-3 col-md-6 col-sm-12 mb-50 wow fadeInDown">
+              <div className="service-item-four text-center h-100">
+                <div className="icon">
+                  <i
+                    className="fas fa-leaf"
+                    style={{ fontSize: "40px", color: "#FDC72F" }}
+                  />
+                </div>
+                <h3 className="title">Sostenibilidad</h3>
+                <p>
+                  Impulsar modelos productivos sostenibles y responsables con el
+                  medio ambiente.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      {/*====== End Strategic Objectives Section ======*/}
+      {/*====== Start Strategic Projects Section ======*/}
+      <section className="strategic-projects pt-130 pb-100 p-r z-1 dark-black-bg">
+        <div className="container">
+          <div className="row justify-content-center">
+            <div className="col-xl-6 col-lg-10">
+              <div className="section-title text-center mb-70 wow fadeInDown">
+                <span className="sub-title white-text">Portafolio</span>
+                <h2 className="white-text">Proyectos Estratégicos</h2>
+              </div>
+            </div>
+          </div>
+          <div className="row">
+            <div className="col-lg-6 col-md-12 mb-50 wow fadeInLeft">
+              <div
+                className="project-item p-40"
+                style={{
+                  backgroundColor: "#1a1a1a",
+                  borderRadius: "8px",
+                  border: "1px solid #FDC72F",
+                  borderLeft: "4px solid #FDC72F",
+                }}
+              >
+                <div
+                  style={{
+                    display: "flex",
+                    alignItems: "flex-start",
+                    gap: "20px",
+                  }}
+                >
+                  <div
+                    style={{
+                      minWidth: "50px",
+                      height: "50px",
+                      backgroundColor: "#FDC72F",
+                      borderRadius: "50%",
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      color: "#000",
+                      fontWeight: "bold",
+                      fontSize: "18px",
+                    }}
+                  >
+                    1
+                  </div>
+                  <div>
+                    <h4 style={{ color: "#fff", marginBottom: "10px" }}>
+                      Fortalecimiento Técnico y Productivo
+                    </h4>
+                    <p
+                      style={{
+                        color: "#ccc",
+                        fontSize: "13px",
+                        lineHeight: "1.6",
+                      }}
+                    >
+                      Mejora de productividad, calidad y sostenibilidad mediante
+                      formación, asistencia técnica, tecnificación y registros
+                      productivos en fincas de afiliados.
+                    </p>
+                  </div>
                 </div>
               </div>
             </div>
-            <div className="col-xl-7 col-lg-12">
-              <div className="row pl-lg-70">
-                <div className="col-lg-4 col-md-6 col-sm-12">
-                  <div className="single-chart-item text-center mb-40 wow fadeInUp">
-                    <ProgressBar value={75} color="#eece38" />
-                    <div className="text">
-                      <h5>Organic Foods Provides</h5>
-                    </div>
+            <div className="col-lg-6 col-md-12 mb-50 wow fadeInRight">
+              <div
+                className="project-item p-40"
+                style={{
+                  backgroundColor: "#1a1a1a",
+                  borderRadius: "8px",
+                  border: "1px solid #FDC72F",
+                  borderLeft: "4px solid #FDC72F",
+                }}
+              >
+                <div
+                  style={{
+                    display: "flex",
+                    alignItems: "flex-start",
+                    gap: "20px",
+                  }}
+                >
+                  <div
+                    style={{
+                      minWidth: "50px",
+                      height: "50px",
+                      backgroundColor: "#FDC72F",
+                      borderRadius: "50%",
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      color: "#000",
+                      fontWeight: "bold",
+                      fontSize: "18px",
+                    }}
+                  >
+                    2
+                  </div>
+                  <div>
+                    <h4 style={{ color: "#fff", marginBottom: "10px" }}>
+                      Asociatividad y Economía Popular
+                    </h4>
+                    <p
+                      style={{
+                        color: "#ccc",
+                        fontSize: "13px",
+                        lineHeight: "1.6",
+                      }}
+                    >
+                      Fortalecimiento de organización colectiva para compras y
+                      ventas conjuntas, con talleres de liderazgo y gobernanza
+                      interna.
+                    </p>
                   </div>
                 </div>
-                <div className="col-lg-4 col-md-6 col-sm-12">
-                  <div className="single-chart-item text-center mb-40 wow fadeInDown">
-                    <ProgressBar value={86} color="#eece38" />
-                    <div className="text">
-                      <h5>Reforming The Systems</h5>
-                    </div>
+              </div>
+            </div>
+            <div className="col-lg-6 col-md-12 mb-50 wow fadeInUp">
+              <div
+                className="project-item p-40"
+                style={{
+                  backgroundColor: "#1a1a1a",
+                  borderRadius: "8px",
+                  border: "1px solid #FDC72F",
+                  borderLeft: "4px solid #FDC72F",
+                }}
+              >
+                <div
+                  style={{
+                    display: "flex",
+                    alignItems: "flex-start",
+                    gap: "20px",
+                  }}
+                >
+                  <div
+                    style={{
+                      minWidth: "50px",
+                      height: "50px",
+                      backgroundColor: "#FDC72F",
+                      borderRadius: "50%",
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      color: "#000",
+                      fontWeight: "bold",
+                      fontSize: "18px",
+                    }}
+                  >
+                    3
+                  </div>
+                  <div>
+                    <h4 style={{ color: "#fff", marginBottom: "10px" }}>
+                      Encadenamientos y Acceso a Mercados
+                    </h4>
+                    <p
+                      style={{
+                        color: "#ccc",
+                        fontSize: "13px",
+                        lineHeight: "1.6",
+                      }}
+                    >
+                      Inclusión en encadenamientos locales, regionales y
+                      nacionales con mejores condiciones de venta y posible
+                      marca colectiva.
+                    </p>
                   </div>
                 </div>
-                <div className="col-lg-4 col-md-6 col-sm-12">
-                  <div className="single-chart-item text-center mb-40 wow fadeInUp">
-                    <ProgressBar value={53} color="#eece38" />
-                    <div className="text">
-                      <h5>Eco Fridendly Farming</h5>
-                    </div>
+              </div>
+            </div>
+            <div className="col-lg-6 col-md-12 mb-50 wow fadeInDown">
+              <div
+                className="project-item p-40"
+                style={{
+                  backgroundColor: "#1a1a1a",
+                  borderRadius: "8px",
+                  border: "1px solid #FDC72F",
+                  borderLeft: "4px solid #FDC72F",
+                }}
+              >
+                <div
+                  style={{
+                    display: "flex",
+                    alignItems: "flex-start",
+                    gap: "20px",
+                  }}
+                >
+                  <div
+                    style={{
+                      minWidth: "50px",
+                      height: "50px",
+                      backgroundColor: "#FDC72F",
+                      borderRadius: "50%",
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      color: "#000",
+                      fontWeight: "bold",
+                      fontSize: "18px",
+                    }}
+                  >
+                    4
+                  </div>
+                  <div>
+                    <h4 style={{ color: "#fff", marginBottom: "10px" }}>
+                      Emprendimiento y Micronegocios
+                    </h4>
+                    <p
+                      style={{
+                        color: "#ccc",
+                        fontSize: "13px",
+                        lineHeight: "1.6",
+                      }}
+                    >
+                      Creación de unidades económicas de baja escala con
+                      formación en modelo de negocio y acceso a microcrédito.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div className="col-lg-6 col-md-12 wow fadeInLeft">
+              <div
+                className="project-item p-40"
+                style={{
+                  backgroundColor: "#1a1a1a",
+                  borderRadius: "8px",
+                  border: "1px solid #FDC72F",
+                  borderLeft: "4px solid #FDC72F",
+                }}
+              >
+                <div
+                  style={{
+                    display: "flex",
+                    alignItems: "flex-start",
+                    gap: "20px",
+                  }}
+                >
+                  <div
+                    style={{
+                      minWidth: "50px",
+                      height: "50px",
+                      backgroundColor: "#FDC72F",
+                      borderRadius: "50%",
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      color: "#000",
+                      fontWeight: "bold",
+                      fontSize: "18px",
+                    }}
+                  >
+                    5
+                  </div>
+                  <div>
+                    <h4 style={{ color: "#fff", marginBottom: "10px" }}>
+                      Escuela de Formación y Relevo Generacional
+                    </h4>
+                    <p
+                      style={{
+                        color: "#ccc",
+                        fontSize: "13px",
+                        lineHeight: "1.6",
+                      }}
+                    >
+                      Desarrollo de talento humano con alianzas SENA e
+                      instituciones educativas para jóvenes y mujeres rurales.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div className="col-lg-6 col-md-12 wow fadeInRight">
+              <div
+                className="project-item p-40"
+                style={{
+                  backgroundColor: "#1a1a1a",
+                  borderRadius: "8px",
+                  border: "1px solid #FDC72F",
+                  borderLeft: "4px solid #FDC72F",
+                }}
+              >
+                <div
+                  style={{
+                    display: "flex",
+                    alignItems: "flex-start",
+                    gap: "20px",
+                  }}
+                >
+                  <div
+                    style={{
+                      minWidth: "50px",
+                      height: "50px",
+                      backgroundColor: "#FDC72F",
+                      borderRadius: "50%",
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      color: "#000",
+                      fontWeight: "bold",
+                      fontSize: "18px",
+                    }}
+                  >
+                    6
+                  </div>
+                  <div>
+                    <h4 style={{ color: "#fff", marginBottom: "10px" }}>
+                      Representación Gremial y Articulación
+                    </h4>
+                    <p
+                      style={{
+                        color: "#ccc",
+                        fontSize: "13px",
+                        lineHeight: "1.6",
+                      }}
+                    >
+                      Posicionamiento como vocero legítimo en mesas sectoriales,
+                      agendas de incidencia y alianzas estratégicas.
+                    </p>
                   </div>
                 </div>
               </div>
@@ -147,9 +592,9 @@ const About = () => {
           </div>
         </div>
       </section>
-      {/*====== End Why choose Section ======*/}
+      {/*====== End Strategic Projects Section ======*/}
       {/*====== Start Partners Section ======*/}
-      <section className="partners-section">
+      {/* <section className="partners-section">
         <div className="container-1350">
           <div className="partners-wrap-two yellow-bg pb-60 pt-50 p-r z-1">
             <div className="row justify-content-center">
@@ -222,7 +667,7 @@ const About = () => {
             </Slider>
           </div>
         </div>
-      </section>{" "}
+      </section>{" "} */}
       {/*====== End Partners Section ======*/}
       {/*====== Start Farmers Section ======*/}
       {/* <section className="farmers-team_two light-gray-bg pb-90">
@@ -525,11 +970,12 @@ const About = () => {
       <div style={{ height: 200 }}></div>
       {/*====== End Testimonial Section ======*/}
       {/*====== Start Counter Section ======*/}
-      <section className="fun-fact-one pt-30 pb-130">
-        <div className="big-text mb-75 wow fadeInUp">
-          <h2>Estadisticas</h2>
-        </div>
+      <section className="fun-fact-one pt-60 pb-130">
         <div className="container">
+          <div className="section-title text-center mb-60 wow fadeInUp">
+            <span className="sub-title">Nuestra trayectoria</span>
+            <h2>Estadísticas de ASOPORKMAG</h2>
+          </div>
           <div className="counter-wrap-one wow fadeInDown">
             <div className="counter-inner-box">
               <OrgariumCounter />
@@ -537,6 +983,7 @@ const About = () => {
           </div>
         </div>
       </section>
+      {/*====== End Counter Section ======*/}
     </Layout>
   );
 };

@@ -632,12 +632,7 @@ const Menu = () => (
         <ul className="sub-menu">
           <li>
             <Link legacyBehavior href="/blog-standard">
-              Blog Standard
-            </Link>
-          </li>
-          <li>
-            <Link legacyBehavior href="blog-details">
-              Blog Details
+              Blog de Noticias
             </Link>
           </li>
         </ul>

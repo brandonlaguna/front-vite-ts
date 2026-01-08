@@ -36,7 +36,7 @@ const BlogStandard = () => {
 
   return (
     <Layout header={4}>
-      <PageBanner pageName={"Blog Standard"} />
+      <PageBanner pageName={"Blog de Noticias"} />
       <section className="blog-standard-section pt-170 pb-80">
         <div className="container">
           <div className="row">

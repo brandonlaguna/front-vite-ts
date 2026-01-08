@@ -8,11 +8,11 @@ const PageBanner = ({ pageName, pageTitle, hideHome = false }) => {
     >
       <div className="brand-card text-center">
         <img
-          src="/assets/images/logo/asoporkmag-logo.jpeg"
+          src="/assets/images/logo/asoporkmag logo png_.png"
           alt="icon"
           width={150}
         />
-        {!hideHome && <h3>Asoporkmag</h3>}
+        {!hideHome && <h3></h3>}
       </div>
       <div className="container">
         <div className="row">

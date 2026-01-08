@@ -2952,6 +2952,9 @@ button {
   color: #eece38;
   margin-bottom: 10px;
 }
+.service-box .text {
+  min-height: 45px;
+}
 .service-box .text h3.title {
   font-size: 17px;
   font-weight: 700;
@@ -7174,6 +7177,9 @@ button {
 .information-item_one .info .sub-title {
   font-size: 14px;
   font-weight: 600;
+}
+.white-text {
+  color: #ffffff !important
 }
 .information-item_one .info h5 {
   font-size: 18px;

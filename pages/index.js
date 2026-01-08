@@ -269,6 +269,192 @@ const Index = () => {
         </div>
       </section>
       {/*====== End Intro Section ======*/}
+      {/*====== Start Benefits Section ======*/}
+      <section className="benefits-section pt-130 pb-100 p-r z-1">
+        <div className="container">
+          <div className="row justify-content-center">
+            <div className="col-xl-6 col-lg-10">
+              <div className="section-title text-center mb-70 wow fadeInDown">
+                <span className="sub-title">Beneficios</span>
+                <h2>¿Por Qué Unirse a ASOPORKMAG?</h2>
+                <p style={{ marginTop: "15px", fontSize: "14px" }}>
+                  Acceso a oportunidades, formación y apoyo técnico para crecer
+                  como productor
+                </p>
+              </div>
+            </div>
+          </div>
+          <div className="row justify-content-center">
+            <div className="col-lg-3 col-md-6 col-sm-12 mb-50 wow fadeInUp">
+              <div className="service-item-four text-center h-100">
+                <div className="icon">
+                  <i
+                    className="fas fa-graduation-cap"
+                    style={{ fontSize: "40px", color: "#FDC72F" }}
+                  />
+                </div>
+                <h3 className="title">Capacitación y Formación</h3>
+                <p>
+                  Acceso a talleres, jornadas presenciales y virtuales en buenas
+                  prácticas pecuarias, manejo sanitario y modelos de negocio.
+                </p>
+              </div>
+            </div>
+            <div className="col-lg-3 col-md-6 col-sm-12 mb-50 wow fadeInDown">
+              <div className="service-item-four text-center h-100">
+                <div className="icon">
+                  <i
+                    className="fas fa-tools"
+                    style={{ fontSize: "40px", color: "#FDC72F" }}
+                  />
+                </div>
+                <h3 className="title">Acompañamiento Técnico</h3>
+                <p>
+                  Asistencia en finca de profesionales, diagnósticos productivos
+                  y planes de mejora personalizados para tu unidad productiva.
+                </p>
+              </div>
+            </div>
+            <div className="col-lg-3 col-md-6 col-sm-12 mb-50 wow fadeInUp">
+              <div className="service-item-four text-center h-100">
+                <div className="icon">
+                  <i
+                    className="fas fa-chart-line"
+                    style={{ fontSize: "40px", color: "#FDC72F" }}
+                  />
+                </div>
+                <h3 className="title">Gestión de Proyectos</h3>
+                <p>
+                  Apoyo en formulación de proyectos, acceso a recursos de
+                  cofinanciación y representación gremial ante instituciones.
+                </p>
+              </div>
+            </div>
+            <div className="col-lg-3 col-md-6 col-sm-12 mb-50 wow fadeInDown">
+              <div className="service-item-four text-center h-100">
+                <div className="icon">
+                  <i
+                    className="fas fa-handshake"
+                    style={{ fontSize: "40px", color: "#FDC72F" }}
+                  />
+                </div>
+                <h3 className="title">Encadenamientos Comerciales</h3>
+                <p>
+                  Articulación con compradores, aliados estratégicos y acceso a
+                  mercados de mayor valor con mejores condiciones de venta.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      {/*====== End Benefits Section ======*/}
+      {/*====== Start Value for Associates Section ======*/}
+      <section className="value-section dark-black-bg pt-130 pb-100 p-r z-1">
+        <div className="container">
+          <div className="row justify-content-center">
+            <div className="col-xl-6 col-lg-10">
+              <div className="section-title section-title-white text-center mb-70 wow fadeInDown">
+                <span className="sub-title">Valor Estratégico</span>
+                <h2>Lo que ASOPORKMAG Ofrece a sus Asociados</h2>
+                <p
+                  style={{ marginTop: "15px", fontSize: "14px", color: "#ccc" }}
+                >
+                  Somos tu aliado en cada etapa del crecimiento productivo y
+                  comercial
+                </p>
+              </div>
+            </div>
+          </div>
+          <div className="row">
+            <div className="col-xl-3 col-lg-6 col-md-6 col-sm-12">
+              <div className="single-service-item mb-50 wow fadeInUp">
+                <div className="icon">
+                  <i
+                    className="fas fa-book"
+                    style={{ fontSize: "32px", color: "#FDC72F" }}
+                  />
+                </div>
+                <div className="text">
+                  <h3>
+                    <a href="#" style={{ color: "#fff" }}>
+                      Capacitación Integral
+                    </a>
+                  </h3>
+                  <p>
+                    Formación en buenas prácticas de producción, gestión
+                    empresarial y manejo sanitario especializado.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div className="col-xl-3 col-lg-6 col-md-6 col-sm-12">
+              <div className="single-service-item mb-50 wow fadeInDown">
+                <div className="icon">
+                  <i
+                    className="fas fa-map-marker-alt"
+                    style={{ fontSize: "32px", color: "#FDC72F" }}
+                  />
+                </div>
+                <div className="text">
+                  <h3>
+                    <a href="#" style={{ color: "#fff" }}>
+                      Asistencia Técnica en Finca
+                    </a>
+                  </h3>
+                  <p>
+                    Visitas de profesionales, diagnósticos productivos y planes
+                    de mejora personalizados en tu predio.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div className="col-xl-3 col-lg-6 col-md-6 col-sm-12">
+              <div className="single-service-item mb-50 wow fadeInUp">
+                <div className="icon">
+                  <i
+                    className="fas fa-project-diagram"
+                    style={{ fontSize: "32px", color: "#FDC72F" }}
+                  />
+                </div>
+                <div className="text">
+                  <h3>
+                    <a href="#" style={{ color: "#fff" }}>
+                      Gestión de Proyectos
+                    </a>
+                  </h3>
+                  <p>
+                    Apoyo en formulación, acceso a recursos de cofinanciación y
+                    representación gremial institucional.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div className="col-xl-3 col-lg-6 col-md-6 col-sm-12">
+              <div className="single-service-item mb-50 wow fadeInDown">
+                <div className="icon">
+                  <i
+                    className="fas fa-store"
+                    style={{ fontSize: "32px", color: "#FDC72F" }}
+                  />
+                </div>
+                <div className="text">
+                  <h3>
+                    <a href="#" style={{ color: "#fff" }}>
+                      Encadenamientos Comerciales
+                    </a>
+                  </h3>
+                  <p>
+                    Articulación con compradores, acceso a mercados formales y
+                    mejores condiciones de negociación.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      {/*====== End Value for Associates Section ======*/}
       {/*====== Start Team Section ======*/}
       <section className="team-section pt-130">
         <div className="container">
