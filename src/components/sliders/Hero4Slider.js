@@ -28,7 +28,7 @@ export default class Hero4Slider extends Component {
               className="image-layer bg_cover"
               style={{
                 backgroundImage:
-                  "url(assets/images/hero/hero-four-slider-1.jpg)",
+                  "url(assets/images/hero/pascal-debrunner-b-zyMn_e_R4-unsplash.jpg)",
               }}
             />
             <div className="container">
@@ -91,7 +91,7 @@ export default class Hero4Slider extends Component {
               className="image-layer bg_cover"
               style={{
                 backgroundImage:
-                  "url(assets/images/hero/hero-four-slider-2.jpg)",
+                  "url(assets/images/hero/annie-spratt-_Y5ppMWVYkk-unsplash.jpg)",
               }}
             />
             <div className="container">
@@ -151,7 +151,7 @@ export default class Hero4Slider extends Component {
               className="image-layer bg_cover"
               style={{
                 backgroundImage:
-                  "url(assets/images/hero/hero-four-slider-3.jpg)",
+                  "url(assets/images/hero/onur-tuna-UHwKHS6Fhqs-unsplash.jpg)",
               }}
             />
             <div className="container">
@@ -216,7 +216,7 @@ export default class Hero4Slider extends Component {
               className="image-layer bg_cover"
               style={{
                 backgroundImage:
-                  "url(assets/images/hero/hero-four-slider-1.jpg)",
+                  "url(assets/images/hero/bill-fairs-1j9Yrl0nW10-unsplash.jpg)",
               }}
             />
             <div className="container">
@@ -276,7 +276,7 @@ export default class Hero4Slider extends Component {
               className="image-layer bg_cover"
               style={{
                 backgroundImage:
-                  "url(assets/images/hero/hero-four-slider-2.jpg)",
+                  "url(assets/images/hero/anshul-R_TGQmPe4b4-unsplash.jpg)",
               }}
             />
             <div className="container">
@@ -338,7 +338,7 @@ export default class Hero4Slider extends Component {
               className="image-layer bg_cover"
               style={{
                 backgroundImage:
-                  "url(assets/images/hero/hero-four-slider-3.jpg)",
+                  "url(assets/images/hero/bri-tucker-BSvRfFDCO7U-unsplash.jpg)",
               }}
             />
             <div className="container">
@@ -400,7 +400,7 @@ export default class Hero4Slider extends Component {
               className="image-layer bg_cover"
               style={{
                 backgroundImage:
-                  "url(assets/images/hero/hero-four-slider-1.jpg)",
+                  "url(assets/images/hero/monika-kubala-RBpK9tlVWCg-unsplash.jpg)",
               }}
             />
             <div className="container">
@@ -464,7 +464,7 @@ export default class Hero4Slider extends Component {
               className="image-layer bg_cover"
               style={{
                 backgroundImage:
-                  "url(assets/images/hero/hero-four-slider-2.jpg)",
+                  "url(assets/images/hero/henrique-s-ruzzon-u1vOLCULaik-unsplash.jpg)",
               }}
             />
             <div className="container">

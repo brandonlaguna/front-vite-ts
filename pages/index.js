@@ -3,19 +3,16 @@ import { useEffect, useState } from "react";
 import { Accordion } from "react-bootstrap";
 import Slider from "react-slick";
 import OrgariumAcc from "../src/components/OrgariumAcc";
+import ProductsSection from "../src/components/ProductsSection";
 import Hero4Slider from "../src/components/sliders/Hero4Slider";
 import Layout from "../src/layouts/Layout";
-import {
-  logoSlider,
-  projectsSliderThree,
-  recentProductSlider,
-  testimonialSliderFive,
-} from "../src/sliderProps";
+import { logoSlider } from "../src/sliderProps";
 import { ExampleService } from "../src/services";
 import FormService from "../src/services/formService";
 import dayjs from "dayjs";
 import UsersService from "../src/services/usersService";
 import ProductsService from "../src/services/productsService";
+import Counter from "../src/components/Counter";
 const Index = () => {
   const [active, setActive] = useState("collapse0");
   const [formData, setFormData] = useState({
@@ -47,13 +44,13 @@ const Index = () => {
       const response = await FormService.getInTouch(formData);
       if (response && response.success) {
         setFormMessage(
-          "¡Mensaje enviado exitosamente! Nos pondremos en contacto pronto."
+          "¡Mensaje enviado exitosamente! Nos pondremos en contacto pronto.",
         );
         setFormData({ name: "", email: "", message: "" });
         setTimeout(() => setFormMessage(""), 5000);
       } else {
         setFormMessage(
-          "Error al enviar el mensaje. Por favor intenta de nuevo."
+          "Error al enviar el mensaje. Por favor intenta de nuevo.",
         );
       }
     } catch (error) {
@@ -801,79 +798,9 @@ const Index = () => {
         </Slider>
       </div> */}
       {/*====== End Project Section ======*/}
-      {/*====== Start Products Section ======*/}
-      <section className="products-area pt-130 pb-170 p-r z-1">
-        <div className="container">
-          <div className="row align-items-end">
-            <div className="col-xl-6 col-lg-8">
-              <div className="section-title mb-60 wow fadeInLeft">
-                <span className="sub-title">Nuestros Productos</span>
-                <h2>Algunos de nuestros productos de la tienda</h2>
-              </div>
-            </div>
-            <div className="col-xl-6 col-lg-4">
-              <div className="product-button float-lg-right wow fadeInRight mb-60">
-                <Link legacyBehavior href="/products">
-                  <a className="main-btn bordered-btn bordered-yellow">
-                    Ver mas productos
-                  </a>
-                </Link>
-              </div>
-            </div>
-          </div>
-          <Slider {...recentProductSlider} className="recent-product-slider">
-            {products.length > 0 ? (
-              products.map((product, index) => (
-                <div
-                  className="single-product-item mb-40 wow fadeInDown"
-                  key={index}
-                >
-                  <div className="product-img">
-                    <img src={product?.image[0]} alt="" />
-                    <div className="pc-btn">{product?.category || ""}</div>
-                    <div className="cart-button">
-                      <Link legacyBehavior href="/products">
-                        <a className="main-btn btn-yellow">Ver producto</a>
-                      </Link>
-                    </div>
-                  </div>
-                  <div className="product-info">
-                    <ul className="ratings">
-                      <li>
-                        <i className="fas fa-star" />
-                      </li>
-                      <li>
-                        <i className="fas fa-star" />
-                      </li>
-                      <li>
-                        <i className="fas fa-star" />
-                      </li>
-                      <li>
-                        <i className="fas fa-star" />
-                      </li>
-                      <li>
-                        <i className="fas fa-star" />
-                      </li>
-                    </ul>
-                    <h3 className="title">
-                      <Link legacyBehavior href="/product-details">
-                        <a>{product.name}</a>
-                      </Link>
-                    </h3>
-                    <span className="price">
-                      <span className="curreny">$</span>
-                      {product.price}
-                    </span>
-                  </div>
-                </div>
-              ))
-            ) : (
-              <p>No products found</p>
-            )}
-          </Slider>
-        </div>
-      </section>
-      {/*====== End Products Section ======*/}
+
+      <ProductsSection products={products} />
+
       {/*====== Start CTA Section ======*/}
       <section className="cta-section">
         <div className="container-fluid">
@@ -885,19 +812,14 @@ const Index = () => {
               <div className="row">
                 <div className="col-lg-6">
                   <div className="cta-content-box wow fadeInDown">
-                    <span className="tag-line">Oportunidades</span>
-                    <h2>Únete a Nuestra Red de Productores</h2>
+                    <span className="tag-line">Precio del Cerdo</span>
+                    <h2>$000.000</h2>
+                    <p>+0.70 (1.78%)</p>
+                    <hr />
                     <p>
-                      Somos el aliado estratégico de los productores que quieren
-                      crecer, formalizarse y competir en mercados de mayor
-                      valor, incorporando responsabilidad ambiental y respeto
-                      por el entorno.
+                      Precio actualizado a la fecha{" "}
+                      {dayjs().format("DD/MM/YYYY")}
                     </p>
-                    <Link legacyBehavior href="/farmers">
-                      <a className="main-btn bordered-btn">
-                        Conoce Nuestras Oportunidades
-                      </a>
-                    </Link>
                   </div>
                 </div>
               </div>
@@ -905,6 +827,7 @@ const Index = () => {
           </div>
         </div>
       </section>
+      <br />
       {/*====== End CTA Section ======*/}
       {/*====== Start Faq Section ======*/}
       {/* <section className="faqs-section pt-130 pb-80">
@@ -1309,6 +1232,100 @@ const Index = () => {
         </div>
       </section> */}
       {/*====== End Testimonial Section ======*/}
+      <br />
+      <br />
+      {/*====== Start Fun Fact Section ======*/}
+      <section className="fun-fact-two p-r z-1 pb-130">
+        <div className="fun-three_img wow fadeInRight">
+          <img
+            src="assets/images/choose/benjamin-sander-bergum-Bpkdz8nkufU-unsplash.jpg"
+            alt=""
+          />
+        </div>
+        <div className="container">
+          <div className="row">
+            <div className="col-xl-10 col-lg-12">
+              <div className="row">
+                <div className="col-xl-10 col-lg-10">
+                  <div className="section-title section-title-left mb-40 wow fadeInUp">
+                    <span className="sub-title">
+                      Estadísticas Institucionales
+                    </span>
+                    <h2>Avances de ASOPORKMAG en el Magdalena Medio</h2>
+                  </div>
+                </div>
+              </div>
+              <div className="row">
+                <div className="col-lg-3 col-md-6 col-sm-12">
+                  <div className="counter-item-two p-r z-1 mb-40 wow fadeInDown">
+                    <div className="hover-icon">
+                      <i className="flaticon-industry" />
+                    </div>
+                    <div className="icon">
+                      <i className="flaticon-industry" />
+                    </div>
+                    <div className="text">
+                      <h2 className="number">
+                        <Counter end={16} />
+                      </h2>
+                      <p>Años de Trayectoria</p>
+                    </div>
+                  </div>
+                </div>
+                <div className="col-lg-3 col-md-6 col-sm-12">
+                  <div className="counter-item-two p-r z-1 mb-40 wow fadeInUp">
+                    <div className="hover-icon">
+                      <i className="flaticon-farming" />
+                    </div>
+                    <div className="icon">
+                      <i className="flaticon-farming" />
+                    </div>
+                    <div className="text">
+                      <h2 className="number">
+                        <Counter end={200} />+
+                      </h2>
+                      <p>Productores Afiliados</p>
+                    </div>
+                  </div>
+                </div>
+                <div className="col-lg-3 col-md-6 col-sm-12">
+                  <div className="counter-item-two p-r z-1 mb-40 wow fadeInDown">
+                    <div className="hover-icon">
+                      <i className="flaticon-field" />
+                    </div>
+                    <div className="icon">
+                      <i className="flaticon-field" />
+                    </div>
+                    <div className="text">
+                      <h2 className="number">
+                        <Counter end={7} />
+                      </h2>
+                      <p>Proyectos Estratégicos</p>
+                    </div>
+                  </div>
+                </div>
+                <div className="col-lg-3 col-md-6 col-sm-12">
+                  <div className="counter-item-two p-r z-1 mb-40 wow fadeInUp">
+                    <div className="hover-icon">
+                      <i className="flaticon-social-care" />
+                    </div>
+                    <div className="icon">
+                      <i className="flaticon-social-care" />
+                    </div>
+                    <div className="text">
+                      <h2 className="number">
+                        <Counter end={10} />
+                      </h2>
+                      <p>Alianzas Estratégicas</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      {/*====== End Fun Fact Section ======*/}
       {/*====== Start Blog Section ======*/}
       <section className="blog-section pt-90 pb-90">
         <div className="container">
