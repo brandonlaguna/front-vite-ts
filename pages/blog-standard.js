@@ -83,7 +83,7 @@ const BlogStandard = () => {
                             <li>
                               <span>
                                 <i className="far fa-bullhorn" />
-                                <a href="#">{post.TYPE.name}</a>
+                                <a href="#">{post?.TYPE?.name}</a>
                               </span>
                             </li>
                           </ul>
