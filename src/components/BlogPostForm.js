@@ -74,7 +74,7 @@ export default function BlogPostForm({ onPublish, user }) {
       cover,
       title,
       subtitle,
-      TYPE: "6923da29272ae54f66a9b149",
+      TYPE: "696b08a25a6a93d3d08125eb",
     };
 
     if (onPublish) onPublish(payload);
