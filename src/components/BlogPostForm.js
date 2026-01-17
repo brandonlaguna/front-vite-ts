@@ -149,9 +149,9 @@ export default function BlogPostForm({ onPublish, user }) {
             init={{
               height: 300,
               menubar: false,
-              plugins: ["link", "image", "lists"],
+              plugins: ["link", "image", "lists", "code"],
               toolbar:
-                "undo redo | blocks fontfamily fontsize | bold italic underline strikethrough | link image media table mergetags | addcomment showcomments | spellcheckdialog a11ycheck typography uploadcare | align lineheight | checklist numlist bullist indent outdent | emoticons charmap | removeformat ",
+                "undo redo | blocks fontfamily fontsize | bold italic underline strikethrough | link image media table mergetags | addcomment showcomments | spellcheckdialog a11ycheck typography uploadcare | align lineheight | checklist numlist bullist indent outdent | emoticons charmap | removeformat | code",
               image_upload_handler: handleImageUpload,
               automatic_uploads: true,
               file_picker_types: "image",
